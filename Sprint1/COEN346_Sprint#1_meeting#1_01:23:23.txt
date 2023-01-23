@@ -1,0 +1,29 @@
+
+Meeting Minutes for Monday, Jan. 23rd
+
+- Mini tutorial for SourceTree and Github
+
+- assigned Front and Back end teams
+
+Front
+- Lauren 
+- Nadim (Pull Request & mini team lead)
+- Philip  
+
+Back
+- Matthew (mini team lead & Pull Request)
+- Natalie (Team lead)
+- Anna
+
+- Planned a weekly meeting every Monday @10
+
+- Added to the README file
+	- Added the roles and strengths for each member
+	- Added the languages and technologies used for the project
+	- Added the description of the project
+
+- Questions for Prof:
+	- Task breakdown TBD (What are the 4 user stories)
+	- Do we need a pull request for the first sprint
+	- Work assigned to individuals
+	- Referenced with issue?
