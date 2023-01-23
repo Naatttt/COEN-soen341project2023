@@ -2,8 +2,8 @@
 
 Anna Bui
 Github username: Ekolinnia
-Role:
-Strength:
+Role: Back-End 
+Strength: C++
 
 Philip Carlsson
 Github username: pcarlss
@@ -12,20 +12,20 @@ Strength: HTML, CSS
 
 Nadim Khalife
 Github username: nadimkhalifeh
-Role:
-Strength:
+Role: Front-End
+Strength: HTML, CSS, Java
 
 Natalie Ekmekdjian
 Github username: Naatttt
-Role:
-Strength:
+Role: Back-End
+Strength: C++, Java, JavaScript
 
 Lauren Lastoria
 Github username: laurenlastoria
-Role:
-Strength:
+Role: Front-End
+Strength: C++, HTML, CSS
 
 Matthew Noah Ruffolo
 Github username: mattnr510
-Role:
-Strength:
+Role: Back-End
+Strength: Java, C++, Python, Back-End Development
