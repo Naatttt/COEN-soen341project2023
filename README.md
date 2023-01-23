@@ -7,8 +7,8 @@ Strength:
 
 Philip Carlsson
 Github username: pcarlss
-Role:
-Strength:
+Role: Front-End
+Strength: HTML, CSS
 
 Nadim Khalife
 Github username: nadimkhalifeh
