@@ -15,10 +15,10 @@ Github username: Ekolinnia
 Role: Back-End 
 Strength: C++
 
-Philip Carlsson
+Philip Carlsson-Coulombe
 Github username: pcarlss
 Role: Front-End
-Strength: HTML, CSS
+Strength: HTML, CSS, C++, Java
 
 Nadim Khalife
 Github username: nadimkhalifeh
