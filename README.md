@@ -12,30 +12,30 @@ Goal of the Project : Design and create an accessible platform for students to f
 
 Anna Bui
 Github username: Ekolinnia
-Role: Back-End 
-Strength: C++
+Role: Back-End Developer, UX Designer, Tester
+Strength: C++, SQL
 
 Philip Carlsson-Coulombe
 Github username: pcarlss
-Role: Front-End
+Role: Technical Lead, Front-End Developer, UI Designer, Tester
 Strength: HTML, CSS, C++, Java
 
 Nadim Khalife
 Github username: nadimkhalifeh
-Role: Front-End, Team Lead of Front-end Group
-Strength: HTML, CSS, Java
+Role: Front-End Developer, UI Designer, Tester
+Strength: HTML, CSS, Java, C++
 
 Natalie Ekmekdjian
 Github username: Naatttt
-Role: Back-End, Project Team Lead
+Role: QA Lead, Project Manager, Back-End Developer, UX Designer, Tester
 Strength: C++, Java, JavaScript
 
 Lauren Lastoria
 Github username: laurenlastoria
-Role: Front-End
-Strength: C++, HTML, CSS
+Role: Buisness Analyst, Front-End Developer, UI Designer, Tester
+Strength: HTML, CSS, SQL, Python, C++
 
 Matthew Noah Ruffolo
 Github username: mattnr510
-Role: Back-End, Team Lead of Back-end Group
-Strength: Java, C++, Python, Back-End Development
+Role: Technical Lead, Back-End Developer, UX Designer, QA Engineer
+Strength: HTML, CSS, Javascript, Python, Java, C++
