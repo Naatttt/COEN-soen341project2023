@@ -24,6 +24,7 @@ Nadim Khalife
 Github username: nadimkhalifeh
 Role: Front-End Developer, UI Designer, Tester
 Strength: HTML, CSS, Java, C++
+This is a commit for sprint 1
 
 Natalie Ekmekdjian
 Github username: Naatttt
