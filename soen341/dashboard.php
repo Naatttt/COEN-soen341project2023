@@ -12,7 +12,7 @@ if (!isset($_SESSION['timestamp'])) {
     $_SESSION['timestamp'] = time();
 }
 
-$timeout_minutes = 0.5;
+$timeout_minutes = 10;
 
 // Check if the session has timed out
 if (time() - $_SESSION['timestamp'] > $timeout_minutes * 60) {
@@ -113,7 +113,7 @@ if ($result) {
 
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/profile.php">
-                            Profile
+                            Dashboard
                         </a>
                     </li>
                     <li class="nav-item">

@@ -33,7 +33,7 @@ if ($result->num_rows == 1) {
     $_SESSION['username'] = $username;
     $_SESSION['loggedin'] = true;
     // Redirect the user to the dashboard or home page
-    header("Location: profile.php");
+    header("Location: dashboard.php");
     exit;
   }
 }

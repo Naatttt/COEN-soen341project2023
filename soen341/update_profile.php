@@ -12,7 +12,7 @@ if (!isset($_SESSION['timestamp'])) {
     $_SESSION['timestamp'] = time();
 }
 
-$timeout_minutes = 0.5;
+$timeout_minutes = 10;
 
 // Check if the session has timed out
 if (time() - $_SESSION['timestamp'] > $timeout_minutes * 60) {
@@ -132,8 +132,8 @@ if ($result) {
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/profile.php">
-                            Profile
+                        <a class="nav-link navbar-text" href="/soen341/dashboard.php">
+                            Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
@@ -147,13 +147,15 @@ if ($result) {
 
         <!-- Start of Page Here-->
         <div class="table" style="margin: auto; margin-top: 8%">
-            <div class="row" style="width: 400px; margin: auto;">
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Name</h3></div>
+            <div class="row" style="width: 800px; margin: auto;">
                 <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Username</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Name</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Education</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>
             </div>
-            <div class="row" style="width: 400px; margin: auto">
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $name ?></p></div>
+            <div class="row" style="width: 800px; margin: auto">
                 <div class="cell" style="width: 200px"><p class="text-white"><?php echo $username ?></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $name ?></p></div>
             </div>
         </div>
     

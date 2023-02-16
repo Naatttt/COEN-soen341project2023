@@ -5,14 +5,14 @@ if (!isset($_SESSION['timestamp'])) {
     $_SESSION['timestamp'] = time();
 }
 
-$timeout_minutes = 0.5;
+$timeout_minutes = 10;
 
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     $h1_text = "Log In";
 }
 else {
-    $h1_text = "Profile";
+    $h1_text = "Dashboard";
 }
 
 // Check if the session has timed out
