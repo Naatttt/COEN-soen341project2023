@@ -1,0 +1,35 @@
+
+Meeting Minutes for Thursday, February 16th
+
+- Assigned new team lead: Lauren
+
+- Update README file
+
+- Found the website name and colour theme for the website
+	- "Job Hunt" white background blue/purple accents
+
+- created new user stories and broke down tasks
+- put the user stories in wiki instead of word doc
+
+- Breakdown of tasks set up as issues 
+- breaking down the tasks into issues and assigning them to members
+
+- Planned the user interface and the different pages we want for the website 
+	- Home Page: description of site, About section at bottom, 
+	- Sign up page: for employers and students
+	- Main Page: where all the postings are filter section on top of the page will look different 		from employer to student 
+	- Profile Page: Characteristics, schooling, resumes, cover letters
+		- Drop down to see postings you've applied for and their status
+	- Employer setup : employers can create job postings
+	- Settings: (if possible change colour theme) 
+
+- Employer Setup page
+	- job title
+	- company name
+	- duration of application period
+	- hybrid or not
+	- location 
+	- full or part-time
+	- requirements 
+	- pay
+	- description of the post
