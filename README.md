@@ -16,7 +16,7 @@ JavaScript, HTML, CSS, Visual Studio Code, SourceTree
 
 #### Anna Bui
 * Github username: Ekolinnia
-* Role: Back-End Developer, UX Designer, Tester
+* Role: QA Lead, Back-End Developer, UX Designer, Tester
 * Strength: C++, SQL
 
 #### Philip Carlsson-Coulombe
@@ -29,14 +29,10 @@ JavaScript, HTML, CSS, Visual Studio Code, SourceTree
 * Role: Front-End Developer, UI Designer, Tester
 * Strength: HTML, CSS, Java, C++
 
-#### Natalie Ekmekdjian
-* Github username: Naatttt
-* Role: QA Lead, Project Manager, Back-End Developer, UX Designer, Tester
-* Strength: C++, Java, JavaScript
 
 #### Lauren Lastoria
 * Github username: laurenlastoria
-* Role: Buisness Analyst, Front-End Developer, UI Designer, Tester
+* Role: Project Manager, Buisness Analyst, Front-End Developer, UI Designer, Tester
 * Strength: HTML, CSS, SQL, Python, C++
 
 #### Matthew Noah Ruffolo
