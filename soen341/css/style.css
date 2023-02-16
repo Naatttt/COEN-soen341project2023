@@ -1,12 +1,20 @@
+html {
+    height: 100%; /* Set the height of both elements to 100% */
+    background-color: #D18686;
+}
+
+body {
+    height: 100%; /* Set the height of both elements to 100% */
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
 hr {
     height: 50px;
     border: none;
     background-color: transparent;
     color: #d5daf0;
-}
-
-body {
-    background-color: #212529;
 }
 
 h1 {
@@ -18,15 +26,16 @@ h1 {
 }
 
 .bg-image {
-    background-image: url(/images/bg-1.png);
+    background-image: url(/soen341/images/bg-1.png);
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
+    min-height: 100%;
 }
 
 .sign-up {
     width: 100%;
     height: 100%;
-    background-image: url(/images/bg-1.png);
+    background-image: url(/soen341/images/bg-1.png);
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
@@ -39,7 +48,7 @@ h1 {
 .carousel-image {
    border-radius: 40px;
 
-   width: 40%;
+   width: 65%;
    height: auto;
    margin: auto;
 }
@@ -80,25 +89,31 @@ h1 {
     color: #E09393;
 }
 
+.text-black {
+   color: #212529;
+}
+
 .bottom-container {
     background-color: #212529;
-    padding: 30px 0 20px;
-    width: auto;
-    margin: auto;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
     text-align: center;
     font-weight: normal;
 
-    height: 3%;
+    height: 10%;
 }
 
 .sign-up-text {
     font-size: 1.5vw;
 }
 
-
-
-
-
+.profile_buttons {
+    margin: auto;
+    text-align: center;
+    margin-top: 4%;
+}
 
 
 /* Sample code take from ChatGPT*/
