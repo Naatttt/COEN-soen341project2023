@@ -39,7 +39,7 @@ h1 {
 
 .brand-name:hover {
     transition: 1s;
-    color: #EC5959;
+    color: #91B7FB;
 }
 
 .carousel-image {
@@ -62,7 +62,7 @@ h1 {
 }
 
 .navbar .navbar-nav .nav-link:hover {
-    color: #EC5959;
+    color: #91B7FB;
 
     border-radius: 50px;
     border: none;

@@ -1,38 +1,15 @@
-<?php
-session_start();
+<?php include 'timeout.php' ?>
 
+<?php
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // If the user is not logged in, redirect to the login page
     header("Location: sign_up_page.php");
     exit;
 }
+?>
 
-if (!isset($_SESSION['timestamp'])) {
-    $_SESSION['timestamp'] = time();
-}
-
-$timeout_minutes = 10;
-
-// Check if the session has timed out
-if (time() - $_SESSION['timestamp'] > $timeout_minutes * 60) {
-    // Destroy the session and log the user out
-    session_destroy();
-    header("Location: sign_up_page.php");
-    exit();
-}
-
-// Check if the user is logged in
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    $h1_text = "Sign In";
-}
-else {
-    $h1_text = "Sign Out";
-}
-
-// Update the session timestamp
-$_SESSION['timestamp'] = time();
-
+<?php
 // Connect to the database
 $mysqli = new mysqli("localhost", "root", "", "users");
 
@@ -52,27 +29,8 @@ if ($result) {
 }
 ?>
 
-<script>
-    var timeout_seconds = <?php echo $timeout_minutes * 60; ?>;
-
-    var countdown_timer = setInterval(function() {
-        timeout_seconds--;
-        if (timeout_seconds <= 0) {
-            clearInterval(countdown_timer);
-            window.location.href = "index.php";
-        }
-    }, 1000);
-
-    document.addEventListener("mousemove", reset_timer);
-    document.addEventListener("keypress", reset_timer);
-
-    function reset_timer() {
-        timeout_seconds = <?php echo $timeout_minutes * 60; ?>;
-    }
-</script>
-
 <!DOCTYPE html>
-<html lang="en" class="bg-image">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>TalentHub</title>
@@ -92,9 +50,8 @@ if ($result) {
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
     </head>
 
-<body class="bg-image">
-
- <!-- Navigation Bar (top)-->
+    <body style="height: 50%">
+         <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
             <a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
@@ -110,30 +67,24 @@ if ($result) {
             
             <!-- Elements in navbar-->
             <div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                
-                <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px; padding-left: 45%;">
-
+                 <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px;">
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/index.php">
                             Home
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/index.php/#about">
                             About
                         </a>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Search
                         </a>
-
-                        <!-- Dropdown menu-->
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item navbar-text" href="#" style="color: #212529">
+                                <a class="dropdown-item navbar-text" href="/soen341/search_page.php" style="color: #212529">
                                     Find Opportunities
                                 </a>
                             </li>
@@ -144,16 +95,22 @@ if ($result) {
                             </li>
                         </ul>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/dashboard.php">
                             Dashboard
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                            <?php echo $h1_text; ?>
+                        <?php
+                                // Check if the user is logged in
+                                if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+                                    $h1_text = "Sign In";
+                                }
+                                else {
+                                    $h1_text = "Sign Out";
+                                }
+                            echo $h1_text; ?>
                         </a>
                     </li>
                 </ul>
@@ -171,7 +128,7 @@ if ($result) {
             </div>
 
             <div class="profile_buttons">
-                <button type="button" class="btn btn-primary btn-lg" style="margin-right: 5%; width: 200px">Search</button>
+                <a href="/soen341/search_page.php" class="btn btn-primary btn-lg" style="margin-right: 5%; width: 200px">Search</a>
                 <a href="/soen341/update_profile.php" class="btn btn-light btn-lg" style="margin-left: 5%; width: 200px">Update Profile</a>
             </div> 
         </div>

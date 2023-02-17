@@ -1,52 +1,4 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['timestamp'])) {
-    $_SESSION['timestamp'] = time();
-}
-
-$timeout_minutes = 10;
-
-// Check if the user is logged in
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    $h1_text = "Sign In";
-}
-else {
-    $h1_text = "Sign Out";
-}
-
-// Check if the session has timed out
-if (time() - $_SESSION['timestamp'] > $timeout_minutes * 60) {
-    // Destroy the session and log the user out
-    session_destroy();
-    header("Location: sign_up_page.php");
-    exit();
-}
-
-// Update the session timestamp
-$_SESSION['timestamp'] = time();
-?>
-
-<script>
-    var timeout_seconds = <?php echo $timeout_minutes * 60; ?>;
-
-    var countdown_timer = setInterval(function() {
-        timeout_seconds--;
-        if (timeout_seconds <= 0) {
-            clearInterval(countdown_timer);
-            window.location.href = "index.php";
-        }
-    }, 1000);
-
-    document.addEventListener("mousemove", reset_timer);
-    document.addEventListener("keypress", reset_timer);
-
-    function reset_timer() {
-        timeout_seconds = <?php echo $timeout_minutes * 60; ?>;
-    }
-</script>
-
-
+<?php include 'timeout.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +24,7 @@ $_SESSION['timestamp'] = time();
         <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-            <a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
+            <a class="navbar-brand summon-font brand-name" href="/soen341/index.php" style="padding-left: 16px;">
                 <h1 class="brand-name" style="margin: auto;">
                     TalentHub
                 </h1>
@@ -85,30 +37,24 @@ $_SESSION['timestamp'] = time();
             
             <!-- Elements in navbar-->
             <div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                
-                <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px; padding-left: 45%;">
-
+                 <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px;">
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/index.php">
                             Home
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="#about">
                             About
                         </a>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Search
                         </a>
-
-                        <!-- Dropdown menu-->
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item navbar-text" href="#" style="color: #212529">
+                                <a class="dropdown-item navbar-text" href="/soen341/search_page.php" style="color: #212529">
                                     Find Opportunities
                                 </a>
                             </li>
@@ -119,16 +65,22 @@ $_SESSION['timestamp'] = time();
                             </li>
                         </ul>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/dashboard.php">
                             Dashboard
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                            <?php echo $h1_text; ?>
+                            <?php
+                                // Check if the user is logged in
+                                if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+                                    $h1_text = "Sign In";
+                                }
+                                else {
+                                    $h1_text = "Sign Out";
+                                }
+                            echo $h1_text; ?>
                         </a>
                     </li>
                 </ul>
@@ -136,16 +88,32 @@ $_SESSION['timestamp'] = time();
         </nav>
 
         <!-- Start of Page Here-->
-        <div>
-
-            <div style="text-align: center; margin-top: 10%; margin-bottom: 5%;">
-                <h1 class="text-white" style="font-size: 4.5vw;">
-                    Put Yourself Out There
-                </h1>
-                <h3 class="text-white" style="margin-top: 1%; font-size: 1.4vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+        <div style="text-align: center; margin-top: 10%; margin-bottom: 5%;">
+            <h1 class="text-white" style="font-size: 4.5vw; transition: opacity 0.5s ease-out;" id="headline">
+                TalentHub
+            </h1>
+            <h3 class="text-white" style="margin-top: 1%; font-size: 1.4vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                 Get that dream job, or make your next big step
-                </h3>
-            </div>
+            </h3>
+        </div>
+
+        <script>
+            const headlines = ["Find Opportunities", "Put Yourself Out There", "Hire Qualified Personnel"];
+            let index = 0;
+
+            function changeHeadline() {
+                const headlineElement = document.getElementById("headline");
+                headlineElement.style.opacity = 0;
+                setTimeout(function() {
+                    headlineElement.innerHTML = headlines[index];
+                    headlineElement.style.opacity = 1;
+                    index = (index + 1) % headlines.length;
+                }, 700); // wait for fade out transition to complete before changing text and fading in
+            }
+
+            setInterval(changeHeadline, 5000);
+        </script>
+
 
             <!--
             Alternating Carousel
@@ -192,7 +160,6 @@ $_SESSION['timestamp'] = time();
                     <span class="visually-hidden">Next</span>
                 </button>
             </div> -->
-        </div>
 
         <div class="text-white" id="about" style="width: 48%; height: auto; text-align: center; margin: 40% 4% auto auto">
             <h3 style="font-size: 1.1em; margin-bottom: 3%; padding-top: 4%">

@@ -9,26 +9,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 }
 ?>
 
-<?php
-// Connect to the database
-$mysqli = new mysqli("localhost", "root", "", "users");
-
-// Retrieve the user's name from the database
-$username = $_SESSION['username'];
-$query = "SELECT name, username FROM users WHERE username = '$username'";
-$result = $mysqli->query($query);
-
-// Check if the query was successful
-if ($result) {
-    // Fetch the row from the query result and get the name value
-    $row = $result->fetch_assoc();
-    $name = $row['name'];
-} else {
-    // Display an error message if the query failed
-    $name = "Error: " . $mysqli->error;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -50,7 +30,7 @@ if ($result) {
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
     </head>
 
-    <body style="height: 50%">
+    <body style="">
          <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
@@ -102,7 +82,7 @@ if ($result) {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                        <?php
+                            <?php
                                 // Check if the user is logged in
                                 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                     $h1_text = "Sign In";
@@ -117,25 +97,50 @@ if ($result) {
             </div>
         </nav>
 
-        <!-- Start of Page Here-->
-        <div class="table" style="margin: auto; margin-top: 8%">
-            <div class="row" style="width: 800px; margin: auto;">
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Username</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Name</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Education</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>
-            </div>
-            <div class="row" style="width: 800px; margin: auto">
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $username ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $name ?></p></div>
-            </div>
-        </div>
+        <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "postings";
 
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            Select PDF file to upload:
-            <input type="file" name="pdf_file">
-            <input type="submit" value="Upload PDF" name="submit">
-        </form>
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
-    </body>
-</html>
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Fetch all rows from the 'postings' table
+            $sql = "SELECT * FROM postings";
+            $result = $conn->query($sql);
+
+            // Check if any rows were returned
+            if ($result->num_rows > 0) {
+                // Output the rows in the desired format
+                echo '<div class="table" style="margin: auto; margin-top: 4%">';
+                echo '<div class="row" style="width: 1000px; margin: auto;">';
+                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Position</h3></div>';
+                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Company</h3></div>';
+                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Industry</h3></div>';
+                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>';
+                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Salary</h3></div>';
+                echo '</div>';
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="row" style="width: 1000px; margin: auto">';
+                    echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['position'] . '</p></div>';
+                    echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['company'] . '</p></div>';
+                    echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['industry'] . '</p></div>';
+                    echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['location'] . '</p></div>';
+                    echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['salary'] . '</p></div>';
+                    echo '</div>';
+                }
+                echo '</div>';
+            } else {
+                echo "No rows found";
+            }
+
+            $conn->close();
+        ?>
+
+</body>
