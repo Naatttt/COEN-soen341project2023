@@ -1,14 +1,21 @@
-html {
-    height: 100%; /* Set the height of both elements to 100% */
+/*html {
+    height: 100%; /* Set the height of both elements to 100%
     background-color: #D18686;
-}
+    background-image: url(/soen341/images/bg-tt.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 100%;
+}*/
 
 body {
-    height: 100%; /* Set the height of both elements to 100% */
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-  }
+    height: 2500px;
+    background-image: url(/soen341/images/bg-tt.jpg);
+    background-size: cover;
+    background-position: top center;
+    min-height: 100vh;
+}  
 
 hr {
     height: 50px;
@@ -25,19 +32,9 @@ h1 {
     font-weight: 400;
 }
 
-.bg-image {
-    background-image: url(/soen341/images/bg-1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100%;
-}
-
 .sign-up {
     width: 100%;
     height: 100%;
-    background-image: url(/soen341/images/bg-1.png);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
 }
 
 .brand-name:hover {
@@ -93,16 +90,8 @@ h1 {
    color: #212529;
 }
 
-.bottom-container {
-    background-color: #212529;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-    font-weight: normal;
-
-    height: 10%;
+.text-blue {
+    color: #B591FB;
 }
 
 .sign-up-text {

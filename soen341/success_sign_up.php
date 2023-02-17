@@ -15,7 +15,7 @@ else {
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Summon</title>
+        <title>TalentHub</title>
 
         <!-- Linking bootstrap framework-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -31,14 +31,14 @@ else {
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body style="height: 100%">
 
         <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
             <a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
                 <h1 class="brand-name" style="margin: auto;">
-                    Summon
+                    TalentHub
                 </h1>
             </a>
 
@@ -59,7 +59,7 @@ else {
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link navbar-text" href="#about">
+                        <a class="nav-link navbar-text" href="/soen341/index.php/#about">
                             About
                         </a>
                     </li>
@@ -100,17 +100,12 @@ else {
                 <h1 class="text-white" style="font-size: 4vw;">
                     Success!
                 </h1>
-                <h3 class="text-black" style="margin-top: 30px; font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+                <h3 class="text-white" style="margin-top: 30px; font-size: 1.2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                     Your account has successfully been created.
                 </h3>
+                <h3 class="text-white" style="font-size: 1.2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+                    You can now log in.
+                </h3>
             </div>
-    
-
-        <div class="bottom-container" style="height: 50px; padding-bottom: 0px; padding-top: 10px;">
-            <p class="text-white" style="font-size: 1vmax;">
-                Summon © 2023
-            </p>
-
-        </div>
     </body>
 </html>

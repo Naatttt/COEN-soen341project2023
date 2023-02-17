@@ -9,10 +9,10 @@ $timeout_minutes = 10;
 
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    $h1_text = "Log In";
+    $h1_text = "Sign In";
 }
 else {
-    $h1_text = "Dashboard";
+    $h1_text = "Sign Out";
 }
 
 // Check if the session has timed out
@@ -49,10 +49,10 @@ $_SESSION['timestamp'] = time();
 
 
 <!DOCTYPE html>
-<html lang="en" class="bg-image">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Summon</title>
+        <title>TalentHub</title>
 
         <!-- Linking bootstrap framework-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -68,14 +68,13 @@ $_SESSION['timestamp'] = time();
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
     </head>
 
-    <body class="bg-image">
-
+    <body>
         <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
             <a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
                 <h1 class="brand-name" style="margin: auto;">
-                    Summon
+                    TalentHub
                 </h1>
             </a>
 
@@ -122,7 +121,13 @@ $_SESSION['timestamp'] = time();
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/sign_up_page.php">
+                        <a class="nav-link navbar-text" href="/soen341/dashboard.php">
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text" href="/soen341/log_out.php">
                             <?php echo $h1_text; ?>
                         </a>
                     </li>
@@ -133,16 +138,17 @@ $_SESSION['timestamp'] = time();
         <!-- Start of Page Here-->
         <div>
 
-            <div style="text-align: center; margin-top: 3%; margin-bottom: 3%;">
-                <h1 class="text-white" style="font-size: 4vw;">
+            <div style="text-align: center; margin-top: 10%; margin-bottom: 5%;">
+                <h1 class="text-white" style="font-size: 4.5vw;">
                     Put Yourself Out There
                 </h1>
-                <h3 class="text-red" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+                <h3 class="text-white" style="margin-top: 1%; font-size: 1.4vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                 Get that dream job, or make your next big step
                 </h3>
             </div>
 
-            <!-- Alternating Carousel-->
+            <!--
+            Alternating Carousel
             <div id="carouselMain" class="carousel carousel slide" data-bs-ride="carousel" style="background-color: transparent;">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -185,23 +191,22 @@ $_SESSION['timestamp'] = time();
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
-            </div>
+            </div> -->
         </div>
 
-        <div class="text-white" id="about" style="width: 50%; height: 500px; margin: 30% auto 0 auto; padding-top: 50px; text-align: center;">
-            <h3 style="font-size: 1.2em;">
-                Summon is the all in one place to find your next opportunity.
+        <div class="text-white" id="about" style="width: 48%; height: auto; text-align: center; margin: 40% 4% auto auto">
+            <h3 style="font-size: 1.1em; margin-bottom: 3%; padding-top: 4%">
+            Welcome to TalentHub, the premier destination for job seekers and employers alike. Our mission is to connect talented professionals with the best job opportunities and help employers find the most qualified candidates for their open positions.
             </h3>
-
-        </div>
-
-    
-
-        <div class="bottom-container" style="height: 50px; padding-bottom: 0px; padding-top: 10px;">
-            <p class="text-white" style="font-size: 1vmax;">
-                Summon © 2023
-            </p>
-
+            <h3 style="font-size: 1.1em; margin-bottom: 3%">
+            We believe that finding the right job or candidate can be a daunting task, but it doesn't have to be. With TalentHub, job seekers can easily browse and apply for job openings across a wide range of industries and locations. We offer a variety of tools and resources to help job seekers create winning resumes, prepare for interviews, and land their dream job.
+            </h3>
+            <h3 style="font-size: 1.1em; margin-bottom: 3%">
+            For employers, TalentHub provides a streamlined hiring process that saves time and resources. Our platform allows employers to post job openings, search and filter through resumes, and connect with the most promising candidates. We understand that hiring the right person can make all the difference for a business, and we're here to help employers find the talent they need to succeed.
+            </h3>
+            <h3 style="font-size: 1.1em;">
+            At TalentHub, we're passionate about helping job seekers and employers achieve their goals. Whether you're looking for a new job or searching for your next hire, we're here to support you every step of the way. Join our community today and discover the many opportunities that await you.
+            </h3>
         </div>
     </body>
 </html>

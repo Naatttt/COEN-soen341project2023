@@ -22,6 +22,14 @@ if (time() - $_SESSION['timestamp'] > $timeout_minutes * 60) {
     exit();
 }
 
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    $h1_text = "Sign In";
+}
+else {
+    $h1_text = "Sign Out";
+}
+
 // Update the session timestamp
 $_SESSION['timestamp'] = time();
 
@@ -67,7 +75,7 @@ if ($result) {
 <html lang="en" class="bg-image">
     <head>
         <meta charset="UTF-8">
-        <title>Summon</title>
+        <title>TalentHub</title>
 
 
         <!-- Linking bootstrap framework-->
@@ -87,63 +95,70 @@ if ($result) {
     <!-- Sample code take from ChatGPT -->
     <body class="bg-image">
          <!-- Navigation Bar (top)-->
-         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-            <a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
-                <h1 class="brand-name" style="margin: auto;">
-                    Summon
-                </h1>
+<a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
+    <h1 class="brand-name" style="margin: auto;">
+        TalentHub
+    </h1>
+</a>
+
+<!-- Dynamic Button for mobile/small screen-->
+<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 20px;">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<!-- Elements in navbar-->
+<div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
+    
+    <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px; padding-left: 45%;">
+
+        <li class="nav-item">
+            <a class="nav-link navbar-text" href="/soen341/index.php">
+                Home
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link navbar-text" href="/soen341/index.php/#about">
+                About
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Search
             </a>
 
-            <!-- Dynamic Button for mobile/small screen-->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 20px;">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Elements in navbar-->
-            <div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                
-                <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px; padding-left: 45%;">
+            <!-- Dropdown menu-->
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item navbar-text" href="#" style="color: #212529">
+                        Find Opportunities
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item navbar-text" href="#" style="color: #212529">
+                        Open a Position
+                    </a>
+                </li>
+            </ul>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php">
-                            Home
-                        </a>
-                    </li>
+        <li class="nav-item">
+            <a class="nav-link navbar-text" href="/soen341/dashboard.php">
+                Dashboard
+            </a>
+        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Search
-                        </a>
-
-                        <!-- Dropdown menu-->
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item navbar-text" href="#" style="color: #212529">
-                                    Find Opportunities
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item navbar-text" href="#" style="color: #212529">
-                                    Open a Position
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/dashboard.php">
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                            Log Out
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <li class="nav-item">
+            <a class="nav-link navbar-text" href="/soen341/log_out.php">
+                <?php echo $h1_text; ?>
+            </a>
+        </li>
+    </ul>
+</div>
+</nav>
 
         <!-- Start of Page Here-->
         <div class="table" style="margin: auto; margin-top: 8%">
@@ -158,13 +173,12 @@ if ($result) {
                 <div class="cell" style="width: 200px"><p class="text-white"><?php echo $name ?></p></div>
             </div>
         </div>
-    
 
-        <div class="bottom-container" style="height: 50px; padding-bottom: 0px; padding-top: 10px;">
-            <p class="text-white" style="font-size: 1vmax;">
-                Summon © 2023
-            </p>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+        Select PDF file to upload:
+        <input type="file" name="pdf_file">
+        <input type="submit" value="Upload PDF" name="submit">
+        </form>
 
-        </div>
-    </body>
+</body>
 </html>
