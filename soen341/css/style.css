@@ -32,11 +32,6 @@ h1 {
     font-weight: 400;
 }
 
-.sign-up {
-    width: 100%;
-    height: 100%;
-}
-
 .brand-name:hover {
     transition: 1s;
     color: #91B7FB;

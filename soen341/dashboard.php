@@ -15,7 +15,7 @@ $mysqli = new mysqli("localhost", "root", "", "users");
 
 // Retrieve the user's name from the database
 $username = $_SESSION['username'];
-$query = "SELECT name FROM users WHERE username = '$username'";
+$query = "SELECT name, username, education, mylocation FROM users WHERE username = '$username'";
 $result = $mysqli->query($query);
 
 // Check if the query was successful
@@ -23,6 +23,8 @@ if ($result) {
     // Fetch the row from the query result and get the name value
     $row = $result->fetch_assoc();
     $name = $row['name'];
+    $education = $row['education'];
+    $mylocation = $row['mylocation'];
 } else {
     // Display an error message if the query failed
     $name = "Error: " . $mysqli->error;
@@ -117,20 +119,39 @@ if ($result) {
             </div>
         </nav>
 
-        <div class="sign-up">
-            <div style="text-align: center; padding-top: 3%;">
-                <h1 class="text-white" style="font-size: 4vw;">
-                    Welcome, <?php echo $name; ?>!
-                </h1>
-                <h3 class="text-white" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;">
-                    Let's get started.
-                </h3>
+        
+        <div style="text-align: center; padding-top: 3%;">
+            <h1 class="text-white" style="font-size: 4vw;">
+                Welcome, <?php echo $name; ?>!
+            </h1>
+            <h3 class="text-white" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+                Let's get started.
+            </h3>
+        </div>
+
+        <div class="profile_buttons">
+            <a href="/soen341/search_page.php" class="btn btn-primary btn-lg" style="margin-right: 5%; width: 200px">Search</a>
+            <a href="/soen341/update_profile.php" class="btn btn-light btn-lg" style="margin-left: 5%; width: 200px">Update Profile</a>
+        </div>
+
+        <!-- Start of Page Here-->
+        <div class="table" style="margin: auto; margin-top: 3%; text-align: center">
+            <div class="row" style="width: 800px; margin: auto; text-align: center">
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Name</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Username</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Education</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>
+            </div>
+            <div class="row" style="width: 800px; margin: auto; text-align: center">
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $name ?></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $username ?></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $education ?></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $mylocation ?></p></div>
             </div>
 
-            <div class="profile_buttons">
-                <a href="/soen341/search_page.php" class="btn btn-primary btn-lg" style="margin-right: 5%; width: 200px">Search</a>
-                <a href="/soen341/update_profile.php" class="btn btn-light btn-lg" style="margin-left: 5%; width: 200px">Update Profile</a>
-            </div> 
+            <hr>
+            
+            <?php include 'display_pdf.php' ?>
         </div>
     </body>
 </html>

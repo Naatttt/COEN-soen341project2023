@@ -30,7 +30,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
     </head>
 
-    <body style="">
+    <body style="height: 50%">
          <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
@@ -54,7 +54,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-text" href="#about">
+                        <a class="nav-link navbar-text" href="/soen341/index.php#about">
                             About
                         </a>
                     </li>
@@ -96,7 +96,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 </ul>
             </div>
         </nav>
-
+        
         <?php
             $servername = "localhost";
             $username = "root";
@@ -118,8 +118,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             // Check if any rows were returned
             if ($result->num_rows > 0) {
                 // Output the rows in the desired format
+                echo '<div style="text-align: center; padding-top: 3%;">';
+                echo '<h1 class="text-white" style="font-size: 4vw;">';
+                echo 'Search Postings';
+                echo '</h1>';
+                echo '</div>';
+                echo '<div style="height: 70%; margin: auto; width: 55%; overflow: scroll; text-align: center">';
                 echo '<div class="table" style="margin: auto; margin-top: 4%">';
-                echo '<div class="row" style="width: 1000px; margin: auto;">';
+                echo '<div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: 1000px; margin: auto;">';
                 echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Position</h3></div>';
                 echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Company</h3></div>';
                 echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Industry</h3></div>';
@@ -127,20 +133,24 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Salary</h3></div>';
                 echo '</div>';
                 while ($row = $result->fetch_assoc()) {
-                    echo '<div class="row" style="width: 1000px; margin: auto">';
+                    echo '<div class="row" style="width: 1000px; margin: auto; border-bottom: 1px solid #ddd;">';
+                    echo '<a href="position.php?id=' . $row['id'] . '" style="display: contents">';
                     echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['position'] . '</p></div>';
                     echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['company'] . '</p></div>';
                     echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['industry'] . '</p></div>';
-                    echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['location'] . '</p></div>';
+                    echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['plocation'] . '</p></div>';
                     echo '<div class="cell" style="width: 200px"><p class="text-white">' . $row['salary'] . '</p></div>';
-                    echo '</div>';
+                    echo '</a>';
+                    echo '</div>';                    
                 }
+                echo '</div>';
                 echo '</div>';
             } else {
                 echo "No rows found";
-            }
+            }            
 
             $conn->close();
         ?>
+
 
 </body>

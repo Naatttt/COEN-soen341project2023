@@ -1,5 +1,4 @@
 <?php include 'timeout.php' ?>
-<?php include 'store_pdf.php' ?>
 
 <?php
 // Check if the user is logged in
@@ -12,25 +11,35 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 <?php
 // Connect to the database
-$mysqli = new mysqli("localhost", "root", "", "users");
+$mysqli = new mysqli("localhost", "root", "", "postings");
 
-// Retrieve the user's name from the database
-$username = $_SESSION['username'];
-$query = "SELECT name, username, education, mylocation FROM users WHERE username = '$username'";
-$result = $mysqli->query($query);
+// Retrieve the posting data using the ID from the URL
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $query = "SELECT position, company, info, industry, plocation, salary FROM postings WHERE id = '$id'";
+    $result = $mysqli->query($query);
 
-// Check if the query was successful
-if ($result) {
-    // Fetch the row from the query result and get the name value
-    $row = $result->fetch_assoc();
-    $name = $row['name'];
-    $education = $row['education'];
-    $mylocation = $row['mylocation'];
+    // Check if the query was successful
+    if ($result) {
+        // Fetch the row from the query result and get the data
+        $row = $result->fetch_assoc();
+        $position = $row['position'];
+        $company = $row['company'];
+        $info = $row['info'];
+        $industry = $row['industry'];
+        $plocation = $row['plocation'];
+        $salary = $row['salary'];
+    } else {
+        // Display an error message if the query failed
+        $name = "Error: " . $mysqli->error;
+    }
 } else {
-    // Display an error message if the query failed
-    $name = "Error: " . $mysqli->error;
+    // If no ID is provided in the URL, redirect to the homepage
+    header("Location: index.php");
+    exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +86,7 @@ if ($result) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-text" href="#about">
+                        <a class="nav-link navbar-text" href="/soen341/index.php#about">
                             About
                         </a>
                     </li>
@@ -120,27 +129,25 @@ if ($result) {
             </div>
         </nav>
 
-        <div style="text-align: center; padding-top: 3%;">
-            <h1 class="text-white" style="font-size: 3vw; font-family: 'Lato', sans-serif; font-weight: 400;">
-                Current Profile
-            </h1>
-        </div>
-
-        <div class="table" style="margin: auto; margin-top: 1%; text-align: center">
-            <div class="row" style="width: 800px; margin: auto; text-align: center">
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Name</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Username</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Education</h3></div>
+        <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
+            <div class="row" style="width: 1800px; margin: auto; text-align: center">
+                <div class="cell" style="width: 300px"><a href="search_page.php" class="btn btn-light btn-lg" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 200px">Back to Search</a></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Position</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Company</h3></div>
+                <div class="cell" style="width: 500px"><h3 class="text-white" style="font-size: 1.5em">Description</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Industry</h3></div>
                 <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Salary</h3></div>
             </div>
-            <div class="row" style="width: 800px; margin: auto; text-align: center">
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $name ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $username ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $education ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $mylocation ?></p></div>
+            <div class="row" style="width: 1800px; margin: auto; text-align: center">
+                <div class="cell" style="width: 300px"><p class="text-white"></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $position ?></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $company ?></p></div>
+                <div class="cell" style="width: 500px; text-align: justify; text-justify: inter-word;"><p class="text-white"><?php echo $info ?></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $industry ?></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $plocation ?></p></div>
+                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $salary ?></p></div>
             </div>
-
-            <button type="button" style="margin-top: 1%" class="btn btn-primary" id="edit-profile-button">Edit Profile</button>
         </div>
 
         <script>
