@@ -37,7 +37,7 @@
             
             <!-- Elements in navbar-->
             <div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                 <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px;">
+                 <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 1vw;">
                     <li class="nav-item">
                         <a class="nav-link navbar-text" href="/soen341/index.php">
                             Home
@@ -89,7 +89,7 @@
 
         <!-- Start of Page Here-->
         <div style="text-align: center; margin-top: 10%; margin-bottom: 5%;">
-            <h1 class="text-white" style="font-size: 4.5vw; transition: opacity 0.5s ease-out;" id="headline">
+            <h1 class="text-white" style="font-size: 5vw; transition: opacity 0.5s ease-out;" id="headline">
                 TalentHub
             </h1>
             <h3 class="text-white" style="margin-top: 1%; font-size: 1.4vw; font-family: 'Lato', sans-serif; font-weight: 400;">
@@ -115,8 +115,8 @@
         </script>
 
         <div class="profile_buttons">
-            <a href="/soen341/search_page.php" class="btn btn-primary btn-lg" style="margin-right: 10%; width: 25%"><h1>Search</h1></a>
-            <a href="/soen341/update_profile.php" class="btn btn-light btn-lg" style="margin-left: 10%; width: 25%"><h1>Post Position</h1></a>
+            <a href="/soen341/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 10%; width: 25%"><h1 style="font-size: 2vw">Search</h1></a>
+            <a href="/soen341/post.php" class="btn btn-light btn-lg outer2" style="margin-left: 10%; width: 25%"><h1 style="font-size: 2vw">Post Position</h1></a>
         </div>
 
             <!--
@@ -166,16 +166,16 @@
             </div> -->
 
             <div class="text-about" id="about">
-                <h3 id="text1" style="font-size: 1.8em; margin-bottom: 4%; padding-top: 4%">
+                <h3 class="text-white" id="text1" style="font-size: 1.8em; margin-bottom: 4%; margin-top 20%; padding-top: 4%">
                     Welcome to TalentHub, the premier destination for job seekers and employers alike. Our mission is to connect talented professionals with the best job opportunities and help employers find the most qualified candidates for their open positions.
                 </h3>
-                <h3 id="text2" style="font-size: 1.8em; margin-bottom: 4%">
+                <h3 class="text-white" id="text2" style="font-size: 1.8em; margin-bottom: 4%">
                     We believe that finding the right job or candidate can be a daunting task, but it doesn't have to be. With TalentHub, job seekers can easily browse and apply for job openings across a wide range of industries and locations. We offer a variety of tools and resources to help job seekers create winning resumes, prepare for interviews, and land their dream job.
                 </h3>
-                <h3 id="text3" style="font-size: 1.8em; margin-bottom: 4%">
+                <h3 class="text-white" id="text3" style="font-size: 1.8em; margin-bottom: 4%">
                     For employers, TalentHub provides a streamlined hiring process that saves time and resources. Our platform allows employers to post job openings, search and filter through resumes, and connect with the most promising candidates. We understand that hiring the right person can make all the difference for a business, and we're here to help employers find the talent they need to succeed.
                 </h3>
-                <h3 id="text4" style="font-size: 1.8em;">
+                <h3 class="text-white" id="text4" style="font-size: 1.8em;">
                     At TalentHub, we're passionate about helping job seekers and employers achieve their goals. Whether you're looking for a new job or searching for your next hire, we're here to support you every step of the way. Join our community today and discover the many opportunities that await you.
                 </h3>
             </div>

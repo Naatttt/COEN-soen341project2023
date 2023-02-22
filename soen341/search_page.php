@@ -1,14 +1,5 @@
 <?php include 'timeout.php' ?>
 
-<?php
-// Check if the user is logged in
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // If the user is not logged in, redirect to the login page
-    header("Location: sign_up_page.php");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -123,23 +114,23 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 echo 'Search Postings';
                 echo '</h1>';
                 echo '</div>';
-                echo '<div style="background-color: white; height: 70%; margin: auto; width: 53%; overflow: scroll; text-align: center">';
+                echo '<div style="background-color: white; height: 70%; margin: auto; width: 80%; overflow: scroll; text-align: center">';
                 echo '<div class="table" style="margin: auto;">';
                 echo '<div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">';
-                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Position</h3></div>';
-                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Company</h3></div>';
-                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Industry</h3></div>';
-                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>';
-                echo '<div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Salary</h3></div>';
+                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>';
+                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Company</h3></div>';
+                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>';
+                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Location</h3></div>';
+                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Salary</h3></div>';
                 echo '</div>';
                 while ($row = $result->fetch_assoc()) {
-                    echo '<div class="row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
+                    echo '<div class="row hoverable-row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
                     echo '<a href="position.php?id=' . $row['id'] . '" style="display: contents">';
-                    echo '<div class="cell" style="width: 200px"><p class="text-black">' . $row['position'] . '</p></div>';
-                    echo '<div class="cell" style="width: 200px"><p class="text-black">' . $row['company'] . '</p></div>';
-                    echo '<div class="cell" style="width: 200px"><p class="text-black">' . $row['industry'] . '</p></div>';
-                    echo '<div class="cell" style="width: 200px"><p class="text-black">' . $row['plocation'] . '</p></div>';
-                    echo '<div class="cell" style="width: 200px"><p class="text-black">' . $row['salary'] . '</p></div>';
+                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['position'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['company'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['industry'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['plocation'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['salary'] . '</h3></div>';
                     echo '</a>';
                     echo '</div>';                    
                 }
@@ -147,8 +138,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 echo '</div>';
             } else {
                 echo "No rows found";
-            }            
-
+            }
+            
             $conn->close();
         ?>
 

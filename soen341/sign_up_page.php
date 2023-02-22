@@ -122,7 +122,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                             <label for="inputPassword">Password</label>
                             <input type="password" class="form-control" id="password" name="inputpassword" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-submit">Log In</button>
+                        <button type="submit" class="btn btn-primary btn-submit outer">Log In</button>
                     </form>
 
                     <h1 class="text-white sign-up-text" style="padding-top: 2%;">Sign Up</h1>
@@ -147,7 +147,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                             <label for="password2">Confirm Password</label>
                             <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-submit">Sign Up</button>
+                        <button type="submit" class="btn btn-primary btn-submit outer">Sign Up</button>
                     </form>                                                
                 </div>
             </div>

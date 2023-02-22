@@ -131,7 +131,7 @@ if (isset($_GET['id'])) {
 
         <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
             <div class="row" style="width: 1800px; margin: auto; text-align: center">
-                <div class="cell" style="width: 300px"><a href="search_page.php" class="btn btn-light btn-lg" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 200px">Back to Search</a></div>
+                <div class="cell" style="width: 300px"><a href="search_page.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 200px">Back to Search</a></div>
                 <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Position</h3></div>
                 <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Company</h3></div>
                 <div class="cell" style="width: 500px"><h3 class="text-white" style="font-size: 1.5em">Description</h3></div>

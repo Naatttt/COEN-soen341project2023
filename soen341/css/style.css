@@ -10,7 +10,7 @@
 }*/
 
 .main-bg {
-    height: 2000px;
+    height: auto;
     background-image: url(/soen341/images/bg-g.jpg);
     background-size: cover;
     background-position: top center;
@@ -43,15 +43,40 @@ h1 {
 h3 {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10px;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
 }
 
-.brand-name:hover {
-    transition: 1s;
-    color: #91B7FB;
+
+
+
+
+
+.brand-name {
+    transition: font-size 0.5s ease-in-out;
 }
+
+.brand-name:hover{
+    color: #91B7FB;
+    font-size: 3vw;
+    transition: 0.5s;
+}
+
+.row h3 {
+    transition: font-size 0.3s ease-in-out;
+    color: black;
+}
+
+.row:hover h3 {
+    font-size: 1.2vw;
+    color: #54a2ec;
+    transition: 0.25s;
+}
+
+
+
+
+
 
 .carousel-image {
    border-radius: 40px;
@@ -104,9 +129,8 @@ h3 {
 .text-about {
     width: 70%;
     height: auto;
-    text-align: justify;
-    text-justify: inter-word;
-    margin: 30% auto auto auto;
+    text-align: center;
+    margin: 50% auto 10% auto;
     padding: 20px;
 }
 
@@ -118,6 +142,12 @@ h3 {
     margin: auto;
     text-align: center;
     margin-top: 4%;
+}
+
+.postings-size {
+    font-size: 0.9vw;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
 }
 
 
@@ -141,13 +171,23 @@ h3 {
     This code was taken from CodePen
     https://codepen.io/jmptr/pen/MWaVzNK
 */
-.outer {
+.outer:hover {
     box-shadow: var(--outer-shadow);
+    transition: 0.4s;
+}
+
+.outer2:hover {
+    box-shadow: var(--outer2-shadow2);
+    transition: 0.4s;
 }
 
 :root {
+--outer2-shadow2: 
+    0 0 0.1vw 0.2vw #ffffff,
+    0 0 0.4vw 0.6vw #c5ccd3,
+    0 0 1vw 0.4vw #767680;
 --outer-shadow: 
-    0 0 0.1vw 0.2vw #df9ab4,
-    0 0 0.4vw 0.6vw #EC5463,
-    0 0 1vw 0.4vw #a5404a;
+    0 0 0.1vw 0.2vw #b1fcfc,
+    0 0 0.4vw 0.6vw #54a2ec,
+    0 0 1vw 0.4vw #4240a5;
 }

@@ -130,23 +130,23 @@ if ($result) {
         </div>
 
         <div class="profile_buttons">
-            <a href="/soen341/search_page.php" class="btn btn-primary btn-lg" style="margin-right: 5%; width: 200px">Search</a>
-            <a href="/soen341/update_profile.php" class="btn btn-light btn-lg" style="margin-left: 5%; width: 200px">Update Profile</a>
+            <a href="/soen341/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 5%; width: 200px">Search</a>
+            <a href="/soen341/update_profile.php" class="btn btn-light btn-lg outer2" style="margin-left: 5%; width: 200px">Update Profile</a>
         </div>
 
         <!-- Start of Page Here-->
         <div class="table" style="margin: auto; margin-top: 3%; text-align: center">
             <div class="row" style="width: 800px; margin: auto; text-align: center">
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Name</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Username</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Education</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 2vw">Name</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 2vw">Username</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 2vw">Education</h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 2vw">Location</h3></div>
             </div>
             <div class="row" style="width: 800px; margin: auto; text-align: center">
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $name ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $username ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $education ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $mylocation ?></p></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $name ?></h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $username ?></h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $education ?></h3></div>
+                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $mylocation ?></h3></div>
             </div>
 
             <hr>
