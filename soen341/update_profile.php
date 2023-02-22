@@ -53,7 +53,7 @@ if ($result) {
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
     </head>
 
-    <body style="height: 50%">
+    <body class="background-image">
          <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
@@ -77,7 +77,7 @@ if ($result) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-text" href="#about">
+                        <a class="nav-link navbar-text" href="/soen341/index.php#about">
                             About
                         </a>
                     </li>
@@ -160,52 +160,59 @@ if ($result) {
 
         <div class="container d-none" id="edit-profile-form" style="padding-top: 1%">
             <div class="row" style="text-align: center">
-                
-                 <h1 class="text-white" style="font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400; margin-top: 1%">Update Resume</h1>
-                        <form method="post" enctype="multipart/form-data">
-                            <input type="file" name="pdf" />
-                            <input type="submit" name="submit" value="Upload" />
-                        </form>
 
-                <div class="col-md-6 offset-md-3" style="margin-top: 2%">
-                    <form class="form-signupq" action="update_profile_info.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
-                        <div class="form-group">
-                            <label for="name">Update Name</label>
-                            <input type="text" class="form-control" id="name" name="newname" placeholder="Name">
-                        </div>
-                
-                        <div class="form-group">
-                            <label for="username">Update Username</label>
-                            <input type="text" class="form-control" id="username" name="newusername" aria-describedby="username" placeholder="Username">
-                        </div>
+            <div style="background-color: #E5F2F7; padding: 40px; width: 60%; margin: auto; border-radius: 10px">
+                <h1 style="color: #333333; font-size: 3vw; font-family: 'Lato', sans-serif; font-weight: 400; margin-top: 0;">Update Resume</h1>
+                <form method="post" enctype="multipart/form-data" style="margin-top: 20px;">
+                    <label for="pdf-upload" style="color: #333333; font-size: 1.6vw; font-family: 'Lato', sans-serif; font-weight: 300; display: block;">Choose a PDF file to upload:</label>
+                    <div style="position: relative; display: inline-block; margin-top: 10px;">
+                        <input type="file" id="pdf-upload" name="pdf" style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;" />
+                        <div style="background-color: #0099ff; color: #FFFFFF; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400; border: none; padding: 10px 20px; border-radius: 5px; display: inline-block; cursor: pointer;">Choose File</div>
+                    </div>
+                    <button type="submit" name="submit" style="background-color: #0099ff; color: #FFFFFF; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 20px; cursor: pointer;">Upload</button>
+                </form>
+            </div>
 
-                        <hr>
 
-                        <div class="form-group">
-                            <label for="username">Update Education</label>
-                            <input type="text" class="form-control" id="education" name="education" aria-describedby="education" placeholder="Education">
-                        </div>
 
-                        <div class="form-group">
-                            <label for="username">Update Location</label>
-                            <input type="text" class="form-control" id="location" name="mylocation" aria-describedby="location" placeholder="Location">
-                        </div>
+            <div class="col-md-6 offset-md-3" style="margin-top: 2%">
+                <form class="form-signupq" action="update_profile_info.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
+                    <div class="form-group">
+                        <label for="name">Update Name</label>
+                        <input type="text" class="form-control" id="name" name="newname" placeholder="Name">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="username">Update Username</label>
+                        <input type="text" class="form-control" id="username" name="newusername" aria-describedby="username" placeholder="Username">
+                    </div>
 
-                        <hr>
-                
-                        <div class="form-group">
-                            <label for="password1">Update Password</label>
-                            <input type="password" class="form-control" id="password1" name="newpassword1" placeholder="Password">
-                        </div>
-                
-                        <div class="form-group">
-                            <label for="password2">Confirm Password</label>
-                            <input type="password" class="form-control" id="password2" name="newpassword2" placeholder="Confirm Password">
-                        </div>
-                        <button type="submit" id="save-button" class="btn btn-primary btn-submit">Save</button>
-                    </form>
-                </div>            
-            </div> 
-        </div> 
+                    <hr>
+
+                    <div class="form-group">
+                        <label for="username">Update Education</label>
+                        <input type="text" class="form-control" id="education" name="education" aria-describedby="education" placeholder="Education">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Update Location</label>
+                        <input type="text" class="form-control" id="location" name="mylocation" aria-describedby="location" placeholder="Location">
+                    </div>
+
+                    <hr>
+            
+                    <div class="form-group">
+                        <label for="password1">Update Password</label>
+                        <input type="password" class="form-control" id="password1" name="newpassword1" placeholder="Password">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="password2">Confirm Password</label>
+                        <input type="password" class="form-control" id="password2" name="newpassword2" placeholder="Confirm Password">
+                    </div>
+                    <button type="submit" id="save-button" class="btn btn-primary btn-submit">Save</button>
+                </form>
+            </div>
+        </div>          
     </body>
 </html>

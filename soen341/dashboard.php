@@ -52,7 +52,7 @@ if ($result) {
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
     </head>
 
-    <body style="height: 50%">
+    <body class="background-image">
          <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 

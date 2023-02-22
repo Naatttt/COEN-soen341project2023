@@ -20,7 +20,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="main-bg">
         <!-- Navigation Bar (top)-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
@@ -114,6 +114,10 @@
             setInterval(changeHeadline, 5000);
         </script>
 
+        <div class="profile_buttons">
+            <a href="/soen341/search_page.php" class="btn btn-primary btn-lg" style="margin-right: 10%; width: 25%"><h1>Search</h1></a>
+            <a href="/soen341/update_profile.php" class="btn btn-light btn-lg" style="margin-left: 10%; width: 25%"><h1>Post Position</h1></a>
+        </div>
 
             <!--
             Alternating Carousel
@@ -161,19 +165,19 @@
                 </button>
             </div> -->
 
-        <div class="text-white" id="about" style="width: 48%; height: auto; text-align: center; margin: 40% 4% auto auto">
-            <h3 style="font-size: 1.1em; margin-bottom: 3%; padding-top: 4%">
-            Welcome to TalentHub, the premier destination for job seekers and employers alike. Our mission is to connect talented professionals with the best job opportunities and help employers find the most qualified candidates for their open positions.
-            </h3>
-            <h3 style="font-size: 1.1em; margin-bottom: 3%">
-            We believe that finding the right job or candidate can be a daunting task, but it doesn't have to be. With TalentHub, job seekers can easily browse and apply for job openings across a wide range of industries and locations. We offer a variety of tools and resources to help job seekers create winning resumes, prepare for interviews, and land their dream job.
-            </h3>
-            <h3 style="font-size: 1.1em; margin-bottom: 3%">
-            For employers, TalentHub provides a streamlined hiring process that saves time and resources. Our platform allows employers to post job openings, search and filter through resumes, and connect with the most promising candidates. We understand that hiring the right person can make all the difference for a business, and we're here to help employers find the talent they need to succeed.
-            </h3>
-            <h3 style="font-size: 1.1em;">
-            At TalentHub, we're passionate about helping job seekers and employers achieve their goals. Whether you're looking for a new job or searching for your next hire, we're here to support you every step of the way. Join our community today and discover the many opportunities that await you.
-            </h3>
-        </div>
+            <div class="text-about" id="about">
+                <h3 id="text1" style="font-size: 1.8em; margin-bottom: 4%; padding-top: 4%">
+                    Welcome to TalentHub, the premier destination for job seekers and employers alike. Our mission is to connect talented professionals with the best job opportunities and help employers find the most qualified candidates for their open positions.
+                </h3>
+                <h3 id="text2" style="font-size: 1.8em; margin-bottom: 4%">
+                    We believe that finding the right job or candidate can be a daunting task, but it doesn't have to be. With TalentHub, job seekers can easily browse and apply for job openings across a wide range of industries and locations. We offer a variety of tools and resources to help job seekers create winning resumes, prepare for interviews, and land their dream job.
+                </h3>
+                <h3 id="text3" style="font-size: 1.8em; margin-bottom: 4%">
+                    For employers, TalentHub provides a streamlined hiring process that saves time and resources. Our platform allows employers to post job openings, search and filter through resumes, and connect with the most promising candidates. We understand that hiring the right person can make all the difference for a business, and we're here to help employers find the talent they need to succeed.
+                </h3>
+                <h3 id="text4" style="font-size: 1.8em;">
+                    At TalentHub, we're passionate about helping job seekers and employers achieve their goals. Whether you're looking for a new job or searching for your next hire, we're here to support you every step of the way. Join our community today and discover the many opportunities that await you.
+                </h3>
+            </div>
     </body>
 </html>

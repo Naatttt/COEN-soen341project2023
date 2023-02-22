@@ -9,13 +9,21 @@
     min-height: 100%;
 }*/
 
-body {
-    height: 2500px;
-    background-image: url(/soen341/images/bg-tt.jpg);
+.main-bg {
+    height: 2000px;
+    background-image: url(/soen341/images/bg-g.jpg);
     background-size: cover;
     background-position: top center;
     min-height: 100vh;
-}  
+}
+
+.background-image {
+    height: 100%;
+    background-image: url(/soen341/images/bg-g.jpg);
+    background-size: cover;
+    background-position: top center;
+    min-height: 100vh;
+}
 
 hr {
     height: 50px;
@@ -25,6 +33,14 @@ hr {
 }
 
 h1 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+h3 {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
@@ -82,11 +98,16 @@ h1 {
 }
 
 .text-black {
-   color: #212529;
+   color: #000000;
 }
 
-.text-blue {
-    color: #B591FB;
+.text-about {
+    width: 70%;
+    height: auto;
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 30% auto auto auto;
+    padding: 20px;
 }
 
 .sign-up-text {
