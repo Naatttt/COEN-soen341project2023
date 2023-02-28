@@ -41,4 +41,4 @@
 ### Languages: 
   PHP, JavaScript, HTML, CSS 
 ### Techniques: 
-  Apache web server, Visual Studio Code, SourceTree
+  Apache web server, Visual Studio Code, SourceTree, mySQL
