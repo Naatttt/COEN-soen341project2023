@@ -1,4 +1,4 @@
-# COEN-soen341project2023
+# SOEN341 Project
 
 ## Goal of the Project
 * Design and create an accessible platform for students to find various jobs 
@@ -7,12 +7,9 @@
 * Allow employers to post jobs along with jobs description
 * Allow employers to manage their job postings 
 * Allow employers to find the appropriate candidates
-                      
+                       
 
-## Languages and Techniques
-JavaScript, HTML, CSS, Visual Studio Code, SourceTree 
-
-### Contributors
+## Contributors
 
 #### Anna Bui
 * Github username: Ekolinnia
@@ -39,3 +36,9 @@ JavaScript, HTML, CSS, Visual Studio Code, SourceTree
 * Github username: mattnr510
 * Role: Technical Lead, Back-End Developer, UX Designer, QA Engineer
 * Strength: HTML, CSS, Javascript, Python, Java, C++
+
+## Languages and Techniques
+### Languages: 
+  PHP, JavaScript, HTML, CSS 
+### Techniques: 
+  Apache web server, Visual Studio Code, SourceTree
