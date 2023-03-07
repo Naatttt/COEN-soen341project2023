@@ -50,7 +50,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle navbar-text" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Search
                         </a>
                         <ul class="dropdown-menu">
@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item navbar-text" href="#" style="color: #212529">
+                                <a class="dropdown-item navbar-text" href="/soen341/post.php" style="color: #212529">
                                     Open a Position
                                 </a>
                             </li>

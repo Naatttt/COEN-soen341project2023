@@ -58,7 +58,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item navbar-text" href="#" style="color: #212529">
+                                <a class="dropdown-item navbar-text" href="/soen341/post.php" style="color: #212529">
                                     Open a Position
                                 </a>
                             </li>

@@ -1,14 +1,3 @@
-<?php
-session_start();
-
-// Check if the user is logged in
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    // If the user is not logged in, redirect to the login page
-    header("Location: dashboard.php");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +43,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-text" href="#about">
+                        <a class="nav-link navbar-text" href="/soen341/index.php#about">
                             About
                         </a>
                     </li>
@@ -100,54 +89,49 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     <div class="sign-up">
         <div style="text-align: center; padding-top: 3%;">
             <h1 class="text-white" style="font-size: 4vw;">
-                Let's Get Started
+                Create Position Posting
             </h1>
             <h3 class="text-white" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;">
-            Please enter your details below
+            Please enter important details below
             </h3>
         </div>
 
         <div class="container" style="padding-top: 1%">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <h1 class="text-white sign-up-text">Log In</h1>
+                    <h1 class="text-white sign-up-text" style="padding-top: 2%;">Posting</h1>
 
-                    <form class="form-login" action="log_in.php" method="post">
+                    <form class="form-signupq" action="update_posting.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
                         <div class="form-group">
-                            <label for="inputEmail">Username</label>
-                            <input type="username" class="form-control" id="username" name="inputusername" aria-describedby="emailHelp" placeholder="Enter Username">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputPassword">Password</label>
-                            <input type="password" class="form-control" id="password" name="inputpassword" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit outer">Log In</button>
-                    </form>
-
-                    <h1 class="text-white sign-up-text" style="padding-top: 2%;">Sign Up</h1>
-
-                    <form class="form-signupq" action="sign_up.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+                            <label for="position_title">Position Title</label>
+                            <input type="text" class="form-control" id="position_title" name="position_title" placeholder="Position Title">
                         </div>
                 
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" aria-describedby="username" placeholder="Enter Username">
+                            <label for="company">Company</label>
+                            <input type="text" class="form-control" id="company" name="company" aria-describedby="company" placeholder="Company Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="info">Info</label>
+                            <input type="text" style="height: 200px" class="form-control" id="info" name="info" aria-describedby="info" placeholder="Positon Description">
                         </div>
                 
                         <div class="form-group">
-                            <label for="password1">Password</label>
-                            <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
+                            <label for="industry">Industry</label>
+                            <input type="text" class="form-control" id="industry" name="industry" placeholder="Industry">
                         </div>
                 
                         <div class="form-group">
-                            <label for="password2">Confirm Password</label>
-                            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
+                            <label for="location">Location</label>
+                            <input type="text" class="form-control" id="location" name="location" placeholder="Location">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-submit outer">Sign Up</button>
+
+                        <div class="form-group">
+                            <label for="salary">Salary</label>
+                            <input type="text" class="form-control" id="salary" name="salary" placeholder="Salary">
+                        </div>
+                        <button type="submit" name="create_posting" class="btn btn-primary btn-submit outer">Create Posting</button>
                     </form>                                                
                 </div>
             </div>
