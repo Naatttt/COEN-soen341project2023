@@ -47,6 +47,14 @@ h3 {
     font-weight: 400;
 }
 
+h2 {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+
 
 
 
@@ -61,20 +69,27 @@ h3 {
     font-size: 3vw;
     transition: 0.5s;
 }
-
 .row h3 {
     transition: font-size 0.3s ease-in-out;
     color: black;
 }
 
 .row:hover h3 {
-    font-size: 1.2vw;
+    font-size: 1vw;
     color: #54a2ec;
-    transition: 0.25s;
+    transition: 0.20s;
 }
 
+.cell h2 {
+    transition: font-size 0.3s ease-in-out;
+    color: white;
+}
 
-
+.cell:hover h2 {
+    font-size: 1vw;
+    color: #eca5d5;
+    transition: 0.20s;
+}
 
 
 

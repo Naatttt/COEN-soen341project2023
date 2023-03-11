@@ -31,71 +31,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 </head>
 
 <body class="background-image">
-<!-- Navigation Bar (top)-->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-
-<a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
-<h1 class="brand-name" style="margin: auto;">
-    TalentHub
-</h1>
-</a>
-
-<!-- Dynamic Button for mobile/small screen-->
-<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 20px;">
-<span class="navbar-toggler-icon"></span>
-</button>
-
-<!-- Elements in navbar-->
-<div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                 <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px;">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php">
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="#about">
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Search
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/search_page.php" style="color: #212529">
-                                    Find Opportunities
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/post.php" style="color: #212529">
-                                    Open a Position
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/dashboard.php">
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                        <?php
-                                // Check if the user is logged in
-                                if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-                                    $h1_text = "Sign In";
-                                }
-                                else {
-                                    $h1_text = "Sign Out";
-                                }
-                            echo $h1_text; ?>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-</nav>
+    <?php include 'navbar.php' ?>
 
     <div class="sign-up">
         <div style="text-align: center; padding-top: 3%;">
@@ -112,7 +48,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 <div class="col-md-6 offset-md-3">
                     <h1 class="text-white sign-up-text">Log In</h1>
 
-                    <form class="form-login" action="log_in.php" method="post">
+                    <form class="form-login" action="BACK_log_in.php" method="post">
                         <div class="form-group">
                             <label for="inputEmail">Username</label>
                             <input type="username" class="form-control" id="username" name="inputusername" aria-describedby="emailHelp" placeholder="Enter Username">
@@ -127,28 +63,54 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
                     <h1 class="text-white sign-up-text" style="padding-top: 2%;">Sign Up</h1>
 
-                    <form class="form-signupq" action="sign_up.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
+                    <form class="form-signupq" action="BACK_sign_up.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
                         </div>
-                
+
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" aria-describedby="username" placeholder="Enter Username">
                         </div>
-                
+
                         <div class="form-group">
                             <label for="password1">Password</label>
                             <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
                         </div>
-                
+
                         <div class="form-group">
                             <label for="password2">Confirm Password</label>
                             <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
                         </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="usertype" id="employee" value="employee" onclick="checkOne(this)">
+                            <label class="form-check-label" for="employee">
+                            Employee
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="usertype" id="employer" value="employer" onclick="checkOne(this)">
+                            <label class="form-check-label" for="employer">
+                            Employer
+                            </label>
+                        </div>
+
                         <button type="submit" class="btn btn-primary btn-submit outer">Sign Up</button>
-                    </form>                                                
+                    </form>
+                             
+                    <script>
+                        function checkOne(checkbox) {
+                        if (checkbox.name === 'employee' && checkbox.checked) {
+                            document.getElementById('employer').checked = false;
+                        }
+                        else if (checkbox.name === 'employer' && checkbox.checked) {
+                            document.getElementById('employee').checked = false;
+                        }
+                        }
+                    </script>
                 </div>
             </div>
         </div>

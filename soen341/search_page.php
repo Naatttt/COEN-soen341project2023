@@ -1,4 +1,4 @@
-<?php include 'timeout.php' ?>
+<?php include 'BACK_timeout.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,71 +22,7 @@
     </head>
 
     <body class="background-image">
-         <!-- Navigation Bar (top)-->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-
-            <a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
-                <h1 class="brand-name" style="margin: auto;">
-                    TalentHub
-                </h1>
-            </a>
-
-            <!-- Dynamic Button for mobile/small screen-->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 20px;">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Elements in navbar-->
-            <div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px;">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php">
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php#about">
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle navbar-text" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Search
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/search_page.php" style="color: #212529">
-                                    Find Opportunities
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/post.php" style="color: #212529">
-                                    Open a Position
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/dashboard.php">
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                            <?php
-                                // Check if the user is logged in
-                                if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-                                    $h1_text = "Sign In";
-                                }
-                                else {
-                                    $h1_text = "Sign Out";
-                                }
-                            echo $h1_text; ?>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <?php include 'navbar.php' ?>
         
         <?php
             $servername = "localhost";
@@ -102,29 +38,46 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            // Fetch all rows from the 'postings' table
-            $sql = "SELECT * FROM postings";
-            $result = $conn->query($sql);
+            if (!isset($_GET["query"])) {
+                $query = "SELECT * FROM postings";
+            } else if (isset($_GET["query"])) {
+                $query = urldecode($_GET["query"]);
+            }
+
+            $result = $conn->query($query);
 
             // Check if any rows were returned
             if ($result->num_rows > 0) {
                 // Output the rows in the desired format
-                echo '<div style="text-align: center; padding-top: 3%;">';
-                echo '<h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%">';
-                echo 'Search Postings';
-                echo '</h1>';
-                echo '</div>';
+                echo '<div class="d-flex justify-content-between align-items-center" style="margin-top: 2%">';
+                echo '<a href="/soen341/search_page.php" class="btn btn-light btn-lg outer2" style="margin-left: 10%; width: 200px">Reset Page</a>';
+                echo '<h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%; margin-left: 16%">Search Postings</h1>';
+                echo '</div>';                
                 echo '<div style="background-color: white; height: 70%; margin: auto; width: 80%; overflow: scroll; text-align: center">';
                 echo '<div class="table" style="margin: auto;">';
                 echo '<div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">';
                 echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>';
                 echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Company</h3></div>';
                 echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>';
-                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Location</h3></div>';
-                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Salary</h3></div>';
+                if ($query === "SELECT * FROM postings ORDER BY plocation DESC") {
+                    $location_label = "Location ▼";
+                } else if ($query === "SELECT * FROM postings ORDER BY plocation ASC") {
+                    $location_label = "Location ▲";
+                } else {
+                    $location_label = "Location";
+                }
+                echo '<div class="cell" style="width: 300px"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="location-btn" onclick="changeSalary()">' . $location_label . '</h3></button></div>';                
+                if ($query === "SELECT * FROM postings ORDER BY salary DESC") {
+                    $salary_label = "Salary ▼";
+                } else if ($query === "SELECT * FROM postings ORDER BY salary ASC") {
+                    $salary_label = "Salary ▲";
+                } else {
+                    $salary_label = "Salary";
+                }
+                echo '<div class="cell" style="width: 300px"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="salary-btn" onclick="changeSalary()">' . $salary_label . '</h3></button></div>';                
                 echo '</div>';
                 while ($row = $result->fetch_assoc()) {
-                    echo '<div class="row hoverable-row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
+                    echo '<div class="row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
                     echo '<a href="position.php?id=' . $row['id'] . '" style="display: contents">';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['position'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['company'] . '</h3></div>';
@@ -139,9 +92,60 @@
             } else {
                 echo "No rows found";
             }
-            
+
             $conn->close();
         ?>
 
+    <script>
+        // get the button elements
+        const salaryBtn = document.querySelector('#salary-btn');
+        const locationBtn = document.querySelector('#location-btn');
 
-</body>
+        // add click event listeners to the buttons
+        salaryBtn.addEventListener('click', function() {
+            // get the current query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
+
+            // determine the current sort order for salary
+            let sortOrder = 'ASC';
+            if (query && query.includes('DESC')) {
+                sortOrder = 'ORDER BY salary ASC';
+            } else {
+                sortOrder = 'ORDER BY salary DESC';
+            }
+
+            // construct the new query string
+            let newQuery = 'SELECT * FROM postings ' + sortOrder;
+
+            // update the query parameter in the URL and reload the page
+            urlParams.set('query', newQuery);
+            window.location.search = urlParams.toString();
+        });
+
+        locationBtn.addEventListener('click', function() {
+            // get the current query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
+
+            // determine the current sort order for location
+            let sortOrder = 'ASC';
+            if (query && query.includes('ASC')) {
+                sortOrder = 'ORDER BY plocation DESC';
+            }
+            else {
+                sortOrder = 'ORDER BY plocation ASC';
+            }
+
+
+            // construct the new query string
+            let newQuery = 'SELECT * FROM postings ' + sortOrder;
+
+            // update the query parameter in the URL and reload the page
+            urlParams.set('query', newQuery);
+            window.location.search = urlParams.toString();
+        });
+    </script>
+
+    </body>
+</html>

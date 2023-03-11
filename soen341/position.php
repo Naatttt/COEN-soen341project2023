@@ -1,13 +1,4 @@
-<?php include 'timeout.php' ?>
-
-<?php
-// Check if the user is logged in
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // If the user is not logged in, redirect to the login page
-    header("Location: sign_up_page.php");
-    exit;
-}
-?>
+<?php include 'BACK_timeout.php' ?>
 
 <?php
 // Connect to the database
@@ -63,156 +54,40 @@ if (isset($_GET['id'])) {
     </head>
 
     <body class="background-image">
-         <!-- Navigation Bar (top)-->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <?php include 'navbar.php' ?>
 
-            <a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
-                <h1 class="brand-name" style="margin: auto;">
-                    TalentHub
-                </h1>
-            </a>
-
-            <!-- Dynamic Button for mobile/small screen-->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 20px;">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Elements in navbar-->
-            <div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px;">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php">
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php#about">
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Search
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/search_page.php" style="color: #212529">
-                                    Find Opportunities
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/post.php" style="color: #212529">
-                                    Open a Position
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/dashboard.php">
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                        <?php
-                                // Check if the user is logged in
-                                if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-                                    $h1_text = "Sign In";
-                                }
-                                else {
-                                    $h1_text = "Sign Out";
-                                }
-                            echo $h1_text; ?>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
-            <div class="row" style="width: 1800px; margin: auto; text-align: center">
+        <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center;">
+            <div class="row" style="margin-left: 5%; width: 2200px; text-align: center">
                 <div class="cell" style="width: 300px"><a href="search_page.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 200px">Back to Search</a></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Position</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Company</h3></div>
-                <div class="cell" style="width: 500px"><h3 class="text-white" style="font-size: 1.5em">Description</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Industry</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Salary</h3></div>
+                <div class="cell" style="width: 300px"><h2 style="font-size: 1.9vw;">Position</h2></div>
+                <div class="cell" style="width: 300px"><h2 style="font-size: 1.9vw;">Company</h2></div>
+                <div class="cell" style="width: 300px"><h2 style="font-size: 1.9vw;">Industry</h2></div>
+                <div class="cell" style="width: 300px"><h2 style="font-size: 1.9vw;">Location</h2></div>
+                <div class="cell" style="width: 300px"><h2 style="font-size: 1.9vw;">Salary</h2></div>
             </div>
-            <div class="row" style="width: 1800px; margin: auto; text-align: center">
-                <div class="cell" style="width: 300px"><p class="text-white"></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $position ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $company ?></p></div>
-                <div class="cell" style="width: 500px; text-align: justify; text-justify: inter-word;"><p class="text-white"><?php echo $info ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $industry ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $plocation ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $salary ?></p></div>
+            <div class="row" style="width: 2200px; margin-left: 5%; text-align: center">
+                <div class="cell" style="width: 300px"><h2 class="text-white"></h2></div>
+                <div class="cell" style="width: 300px"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $position ?></h2></div>
+                <div class="cell" style="width: 300px"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $company ?></h2></div>
+                <div class="cell" style="width: 300px"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $industry ?></h2></div>
+                <div class="cell" style="width: 300px"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $plocation ?></h2></div>
+                <div class="cell" style="width: 300px"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $salary ?></h2></div>
             </div>
         </div>
 
-        <script>
-		document.getElementById("edit-profile-button").addEventListener("click", function() {
-			document.getElementById("edit-profile-form").classList.toggle("d-none");
-            document.getElementById("edit-profile-button").classList.toggle("d-none");
-		});
-	    </script>
+        <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
+            <div class="row" style="width: 50%; margin: auto; text-align: center"> 
+                <div class="cell"><h2 class="text-white" style="font-size: 2vw"><?php echo $position ?> Description</h2></div>
+            </div>
+            <div class="row" style="width: 50%; margin: auto; text-align: center">
+                <div class="cell" style="text-align: justify; text-justify: inter-word;"><h2 class="text-white" style="font-size: 1vw; line-height: 1.5"><?php echo $info ?></h2></div>
+            </div>
+        </div>
 
+        <hr>
 
-        <script>
-        document.getElementById("save-button").addEventListener("click", function() {
-            document.getElementById("edit-profile-form").classList.toggle("d-none")
-        }
-        </script>
-
-
-        <div class="container d-none" id="edit-profile-form" style="padding-top: 1%">
-            <div class="row" style="text-align: center">
-                
-                 <h1 class="text-white" style="font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400; margin-top: 1%">Update Resume</h1>
-                        <form method="post" enctype="multipart/form-data">
-                            <input type="file" name="pdf" />
-                            <input type="submit" name="submit" value="Upload" />
-                        </form>
-
-                <div class="col-md-6 offset-md-3" style="margin-top: 2%">
-                    <form class="form-signupq" action="update_profile_info.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
-                        <div class="form-group">
-                            <label for="name">Update Name</label>
-                            <input type="text" class="form-control" id="name" name="newname" placeholder="Name">
-                        </div>
-                
-                        <div class="form-group">
-                            <label for="username">Update Username</label>
-                            <input type="text" class="form-control" id="username" name="newusername" aria-describedby="username" placeholder="Username">
-                        </div>
-
-                        <hr>
-
-                        <div class="form-group">
-                            <label for="username">Update Education</label>
-                            <input type="text" class="form-control" id="education" name="education" aria-describedby="education" placeholder="Education">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="username">Update Location</label>
-                            <input type="text" class="form-control" id="location" name="mylocation" aria-describedby="location" placeholder="Location">
-                        </div>
-
-                        <hr>
-                
-                        <div class="form-group">
-                            <label for="password1">Update Password</label>
-                            <input type="password" class="form-control" id="password1" name="newpassword1" placeholder="Password">
-                        </div>
-                
-                        <div class="form-group">
-                            <label for="password2">Confirm Password</label>
-                            <input type="password" class="form-control" id="password2" name="newpassword2" placeholder="Confirm Password">
-                        </div>
-                        <button type="submit" id="save-button" class="btn btn-primary btn-submit">Save</button>
-                    </form>
-                </div>            
-            </div> 
-        </div> 
+        <div class="profile_buttons">
+            <a href="/soen341/apply.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Apply</h1></a>
+        </div>
     </body>
 </html>

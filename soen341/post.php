@@ -1,3 +1,32 @@
+<?php include 'BACK_timeout.php' ?>
+
+
+<?php
+
+// Connect to the database
+$mysqli = new mysqli("localhost", "root", "", "users");
+
+// Retrieve the user's name from the database
+$username = $_SESSION['username'];
+$query = "SELECT usertype FROM users WHERE username = '$username'";
+$result = $mysqli->query($query);
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // If the user is not logged in, redirect to the login page
+    header("Location: sign_up_page.php");
+    exit;
+} else {
+    $row = $result->fetch_assoc();
+    $usertype = $row['usertype'];
+    if ($usertype == 'employee') {
+        header("Location: sign_up_page.php");
+        exit;
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,76 +49,12 @@
 </head>
 
 <body class="background-image">
-<!-- Navigation Bar (top)-->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-
-<a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
-<h1 class="brand-name" style="margin: auto;">
-    TalentHub
-</h1>
-</a>
-
-<!-- Dynamic Button for mobile/small screen-->
-<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 20px;">
-<span class="navbar-toggler-icon"></span>
-</button>
-
-<!-- Elements in navbar-->
-<div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                 <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px;">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php">
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php#about">
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Search
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/search_page.php" style="color: #212529">
-                                    Find Opportunities
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/post.php" style="color: #212529">
-                                    Open a Position
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/dashboard.php">
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                        <?php
-                                // Check if the user is logged in
-                                if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-                                    $h1_text = "Sign In";
-                                }
-                                else {
-                                    $h1_text = "Sign Out";
-                                }
-                            echo $h1_text; ?>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-</nav>
+    <?php include 'navbar.php' ?>
 
     <div class="sign-up">
         <div style="text-align: center; padding-top: 3%;">
             <h1 class="text-white" style="font-size: 4vw;">
-                Create Position Posting
+                Create Posting
             </h1>
             <h3 class="text-white" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;">
             Please enter important details below
@@ -101,7 +66,7 @@
                 <div class="col-md-6 offset-md-3">
                     <h1 class="text-white sign-up-text" style="padding-top: 2%;">Posting</h1>
 
-                    <form class="form-signupq" action="update_posting.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
+                    <form class="form-signupq" action="BACK_update_posting.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
                         <div class="form-group">
                             <label for="position_title">Position Title</label>
                             <input type="text" class="form-control" id="position_title" name="position_title" placeholder="Position Title">
@@ -114,14 +79,14 @@
 
                         <div class="form-group">
                             <label for="info">Info</label>
-                            <input type="text" style="height: 200px" class="form-control" id="info" name="info" aria-describedby="info" placeholder="Positon Description">
+                            <textarea style="height: 200px" class="form-control" id="info" name="info" aria-describedby="info" placeholder="Positon Description"></textarea>
                         </div>
                 
                         <div class="form-group">
                             <label for="industry">Industry</label>
                             <input type="text" class="form-control" id="industry" name="industry" placeholder="Industry">
                         </div>
-                
+
                         <div class="form-group">
                             <label for="location">Location</label>
                             <input type="text" class="form-control" id="location" name="location" placeholder="Location">

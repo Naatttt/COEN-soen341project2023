@@ -1,4 +1,4 @@
-<?php include 'timeout.php' ?>
+<?php include 'BACK_timeout.php' ?>
 
 <?php
 // Check if the user is logged in
@@ -15,7 +15,7 @@ $mysqli = new mysqli("localhost", "root", "", "users");
 
 // Retrieve the user's name from the database
 $username = $_SESSION['username'];
-$query = "SELECT name, username, education, mylocation FROM users WHERE username = '$username'";
+$query = "SELECT name, username, education, mylocation, experience, skills, availability, languages FROM users WHERE username = '$username'";
 $result = $mysqli->query($query);
 
 // Check if the query was successful
@@ -25,6 +25,10 @@ if ($result) {
     $name = $row['name'];
     $education = $row['education'];
     $mylocation = $row['mylocation'];
+    $experience = $row['experience'];
+    $skills = $row['skills'];
+    $availability = $row['availability'];
+    $languages = $row['languages'];
 } else {
     // Display an error message if the query failed
     $name = "Error: " . $mysqli->error;
@@ -53,81 +57,35 @@ if ($result) {
     </head>
 
     <body class="background-image">
-         <!-- Navigation Bar (top)-->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <?php include 'navbar.php' ?>
 
-            <a class="navbar-brand summon-font" href="/soen341/index.php" style="margin-left: 16px;">
-                <h1 class="brand-name" style="margin: auto;">
-                    TalentHub
-                </h1>
-            </a>
 
-            <!-- Dynamic Button for mobile/small screen-->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 20px;">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Elements in navbar-->
-            <div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
-                 <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 21px;">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php">
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/index.php/#about">
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Search
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/search_page.php" style="color: #212529">
-                                    Find Opportunities
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item navbar-text" href="/soen341/post.php" style="color: #212529">
-                                    Open a Position
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/dashboard.php">
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text" href="/soen341/log_out.php">
-                        <?php
-                                // Check if the user is logged in
-                                if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-                                    $h1_text = "Sign In";
-                                }
-                                else {
-                                    $h1_text = "Sign Out";
-                                }
-                            echo $h1_text; ?>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        
+        <!-- Start of Page Here-->
         <div style="text-align: center; padding-top: 3%;">
-            <h1 class="text-white" style="font-size: 4vw;">
-                Welcome, <?php echo $name; ?>!
+            <h1 class="text-white" style="font-size: 4vw; transition: opacity 0.5s ease-out;" id="headline">
+                Welcome <?php echo $name; ?>!
             </h1>
             <h3 class="text-white" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                 Let's get started.
             </h3>
         </div>
+
+        <script>
+            const headlines = ["What's Next?", "Have You Update Your Profile?", "Welcome <?php echo $name; ?>!"];
+            let index = 0;
+
+            function changeHeadline() {
+                const headlineElement = document.getElementById("headline");
+                headlineElement.style.opacity = 0;
+                setTimeout(function() {
+                    headlineElement.innerHTML = headlines[index];
+                    headlineElement.style.opacity = 1;
+                    index = (index + 1) % headlines.length;
+                }, 500); // wait for fade out transition to complete before changing text and fading in
+            }
+
+            setInterval(changeHeadline, 3000);
+        </script>
 
         <div class="profile_buttons">
             <a href="/soen341/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 5%; width: 200px">Search</a>
@@ -136,22 +94,37 @@ if ($result) {
 
         <!-- Start of Page Here-->
         <div class="table" style="margin: auto; margin-top: 3%; text-align: center">
-            <div class="row" style="width: 800px; margin: auto; text-align: center">
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 2vw">Name</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 2vw">Username</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 2vw">Education</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 2vw">Location</h3></div>
+            <div class="row" style="width: 1200px; margin: auto; text-align: center">
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 2vw">Name</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 2vw">Username</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 2vw">Education</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 2vw">Location</h3></div>
             </div>
-            <div class="row" style="width: 800px; margin: auto; text-align: center">
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $name ?></h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $username ?></h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $education ?></h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $mylocation ?></h3></div>
+            <div class="row" style="width: 1200px; margin: auto; text-align: center">
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $name ?></h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $username ?></h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $education ?></h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $mylocation ?></h3></div>
             </div>
 
             <hr>
             
-            <?php include 'display_pdf.php' ?>
+            <div class="row" style="width: 1200px; margin: auto; text-align: center">
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 2vw">Experience</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 2vw">Skills</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 2vw">Availability</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 2vw">Languages</h3></div>
+            </div>
+            <div class="row" style="width: 1200px;; margin: auto; text-align: center">
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $experience ?></h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $skills ?></h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $availability ?></h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.2vw"><?php echo $languages ?></h3></div>
+            </div>
+
+            <hr>
+            
+            <?php include 'BACK_display_pdf.php' ?>
         </div>
     </body>
 </html>
