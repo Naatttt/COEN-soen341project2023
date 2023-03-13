@@ -44,76 +44,78 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         </div>
 
         <div class="container" style="padding-top: 1%">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <h1 class="text-white sign-up-text">Log In</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="text-white sign-up-text" style="text-align: center">Log In</h1>
 
-                    <form class="form-login" action="BACK_log_in.php" method="post">
-                        <div class="form-group">
-                            <label for="inputEmail">Username</label>
-                            <input type="username" class="form-control" id="username" name="inputusername" aria-describedby="emailHelp" placeholder="Enter Username">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputPassword">Password</label>
-                            <input type="password" class="form-control" id="password" name="inputpassword" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit outer">Log In</button>
-                    </form>
-
-                    <h1 class="text-white sign-up-text" style="padding-top: 2%;">Sign Up</h1>
-
-                    <form class="form-signupq" action="BACK_sign_up.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" aria-describedby="username" placeholder="Enter Username">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password1">Password</label>
-                            <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password2">Confirm Password</label>
-                            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="usertype" id="employee" value="employee" onclick="checkOne(this)">
-                            <label class="form-check-label" for="employee">
-                            Employee
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="usertype" id="employer" value="employer" onclick="checkOne(this)">
-                            <label class="form-check-label" for="employer">
-                            Employer
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-submit outer">Sign Up</button>
-                    </form>
-                             
-                    <script>
-                        function checkOne(checkbox) {
-                        if (checkbox.name === 'employee' && checkbox.checked) {
-                            document.getElementById('employer').checked = false;
-                        }
-                        else if (checkbox.name === 'employer' && checkbox.checked) {
-                            document.getElementById('employee').checked = false;
-                        }
-                        }
-                    </script>
+            <form class="form-login" action="BACK_log_in.php" method="post">
+                <div class="form-group">
+                    <label for="inputEmail">Username</label>
+                    <input type="username" class="form-control" id="username" name="inputusername" aria-describedby="emailHelp" placeholder="Enter Username">
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="password" name="inputpassword" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit outer">Log In</button>
+            </form>
         </div>
+
+        <div class="col-md-6">
+            <h1 class="text-white sign-up-text" style="text-align: center">Sign Up</h1>
+
+            <form class="form-signupq" action="BACK_sign_up.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input  class="form-control" id="name" name="name" placeholder="Enter your Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input  class="form-control" id="username" name="username" aria-describedby="username" placeholder="Enter Username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="usertype" id="employee" value="employee" onclick="checkOne(this)" checked>
+                    <label class="form-check-label" for="employee">
+                        Employee
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="usertype" id="employer" value="employer" onclick="checkOne(this)">
+                    <label class="form-check-label" for="employer">
+                        Employer
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit outer">Sign Up</button>
+
+                <script>
+                    function checkOne(checkbox) {
+                        if (checkbox.id === 'employee' && !checkbox.checked) {
+                            document.getElementById('employer').checked = true;
+                        } else if (checkbox.id === 'employer' && !checkbox.checked) {
+                            document.getElementById('employee').checked = true;
+                        }
+                    }
+                </script>
+            </form>
+        </div>
+    </div>
+</div>
+
     </div>
 </body>
 </html>

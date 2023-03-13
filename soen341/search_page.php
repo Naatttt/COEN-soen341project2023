@@ -1,4 +1,4 @@
-<?php include 'BACK_timeout.php' ?>
+<?php include 'BACK_timeout.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,12 +50,14 @@
             if ($result->num_rows > 0) {
                 // Output the rows in the desired format
                 echo '<div class="d-flex justify-content-between align-items-center" style="margin-top: 2%">';
-                echo '<a href="/soen341/search_page.php" class="btn btn-light btn-lg outer2" style="margin-left: 10%; width: 200px">Reset Page</a>';
-                echo '<h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%; margin-left: 16%">Search Postings</h1>';
+                echo '<a class="btn btn-light btn-lg outer2" style="margin-left: 12.5%; width: 200px" id="search-btn">Search Filter</a>';
+                echo '<h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%; margin-left: 13.5%">Search Postings</h1>';
+                echo '<a href="/soen341/search_page.php" class="btn btn-light btn-lg outer2" style="margin-right: 12.5%; width: 200px">Reset Filter</a>';
                 echo '</div>';                
                 echo '<div style="background-color: white; height: 70%; margin: auto; width: 80%; overflow: scroll; text-align: center">';
                 echo '<div class="table" style="margin: auto;">';
                 echo '<div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">';
+                echo '<div class="cell" style="width: 100px"><h3 class="text-white postings-size" style="font-size: 1.5em">Id</h3></div>';
                 echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>';
                 echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Company</h3></div>';
                 echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>';
@@ -74,16 +76,17 @@
                 } else {
                     $salary_label = "Salary";
                 }
-                echo '<div class="cell" style="width: 300px"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="salary-btn" onclick="changeSalary()">' . $salary_label . '</h3></button></div>';                
+                echo '<div class="cell" style="width: 200px"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="salary-btn" onclick="changeSalary()">' . $salary_label . '</h3></button></div>';                
                 echo '</div>';
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
                     echo '<a href="position.php?id=' . $row['id'] . '" style="display: contents">';
+                    echo '<div class="cell" style="width: 100px"><h3 class=" postings-size">' . $row['id'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['position'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['company'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['industry'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['plocation'] . '</h3></div>';
-                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['salary'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 200px"><h3 class=" postings-size">' . $row['salary'] . '</h3></div>';
                     echo '</a>';
                     echo '</div>';                    
                 }
@@ -147,5 +150,72 @@
         });
     </script>
 
+    <script>
+        const searchBtn = document.querySelector("#search-btn");
+        searchBtn.addEventListener("click", () => {
+        // Create form element for user input
+        const searchForm = document.createElement("form");
+        searchForm.setAttribute("action", "BACK_query_posting.php");
+        searchForm.setAttribute("method", "post");
+
+        // Create input elements for user input
+        const idInput = document.createElement("input");
+        idInput.setAttribute("type", "text");
+        idInput.setAttribute("placeholder", "ID");
+        idInput.setAttribute("name", "id");
+
+        const positionInput = document.createElement("input");
+        positionInput.setAttribute("type", "text");
+        positionInput.setAttribute("placeholder", "Position");
+        positionInput.setAttribute("name", "position");
+
+        const companyInput = document.createElement("input");
+        companyInput.setAttribute("type", "text");
+        companyInput.setAttribute("placeholder", "Company");
+        companyInput.setAttribute("name", "company");
+
+        const industryInput = document.createElement("input");
+        industryInput.setAttribute("type", "text");
+        industryInput.setAttribute("placeholder", "Industry");
+        industryInput.setAttribute("name", "industry");
+
+        const locationInput = document.createElement("input");
+        locationInput.setAttribute("type", "text");
+        locationInput.setAttribute("placeholder", "Location");
+        locationInput.setAttribute("name", "plocation");
+
+        // Create a button to submit the form
+        const submitBtn = document.createElement("button");
+        submitBtn.innerText = "Search";
+        submitBtn.classList.add("searchbtn");
+
+        // Create a button to close the form
+        const closeBtn = document.createElement("button");
+        closeBtn.innerText = "Close";
+        closeBtn.classList.add("closebtn");
+
+        // Create a container to hold the form elements and buttons
+        const formContainer = document.createElement("div");
+        formContainer.classList.add("form-container");
+        formContainer.appendChild(idInput);
+        formContainer.appendChild(positionInput);
+        formContainer.appendChild(companyInput);
+        formContainer.appendChild(industryInput);
+        formContainer.appendChild(locationInput);
+        formContainer.appendChild(submitBtn);
+        formContainer.appendChild(closeBtn);
+
+        // Append the form to the container
+        searchForm.appendChild(formContainer);
+
+        // Append the container to the page
+        document.body.appendChild(searchForm);
+
+        // Add event listener to close button
+        closeBtn.addEventListener("click", () => {
+            searchForm.remove();
+        });
+        });
+    </script>
     </body>
 </html>

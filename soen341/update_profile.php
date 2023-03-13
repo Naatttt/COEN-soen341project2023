@@ -113,44 +113,44 @@ if ($result) {
                 <form class="form-signupq" action="BACK_update_profile_info.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
                     <div class="form-group">
                         <label for="name">Update Name</label>
-                        <input type="text" class="form-control" id="name" name="newname" placeholder="Name">
+                        <input type="" class="form-control" id="name" name="newname" placeholder="Name">
                     </div>
             
                     <div class="form-group">
                         <label for="username">Update Username</label>
-                        <input type="text" class="form-control" id="username" name="newusername" aria-describedby="username" placeholder="Username">
+                        <input type="" class="form-control" id="username" name="newusername" aria-describedby="username" placeholder="Username">
                     </div>
 
                     <hr>
 
                     <div class="form-group">
                         <label for="username">Update Education</label>
-                        <input type="text" class="form-control" id="education" name="education" aria-describedby="education" placeholder="Education">
+                        <input type="" class="form-control" id="education" name="education" aria-describedby="education" placeholder="Education">
                     </div>
 
                     <div class="form-group">
                         <label for="username">Update Location</label>
-                        <input type="text" class="form-control" id="location" name="mylocation" aria-describedby="location" placeholder="Location">
+                        <input type="" class="form-control" id="location" name="mylocation" aria-describedby="location" placeholder="Location">
                     </div>
 
                     <div class="form-group">
                         <label for="username">Update Experience</label>
-                        <input type="text" class="form-control" id="experience" name="experience" aria-describedby="experience" placeholder="Experience">
+                        <input type="" class="form-control" id="experience" name="experience" aria-describedby="experience" placeholder="Experience">
                     </div>
 
                     <div class="form-group">
                         <label for="username">Update Skills</label>
-                        <input type="text" class="form-control" id="skills" name="skills" aria-describedby="skills" placeholder="JavaScript, Project Manager, Power BI, C++, Python... ">
+                        <input type="" class="form-control" id="skills" name="skills" aria-describedby="skills" placeholder="JavaScript, Project Manager, Power BI, C++, Python... ">
                     </div>
 
                     <div class="form-group">
                         <label for="username">Update Availability</label>
-                        <input type="text" class="form-control" id="availability" name="availability" aria-describedby="availability" placeholder="Full-Time, Part-Time, Student, Internship...">
+                        <input type="" class="form-control" id="availability" name="availability" aria-describedby="availability" placeholder="Full-Time, Part-Time, Student, Internship...">
                     </div>
 
                     <div class="form-group">
                         <label for="username">Update Languages</label>
-                        <input type="text" class="form-control" id="languages" name="languages" aria-describedby="languages" placeholder="Languages">
+                        <input type="" class="form-control" id="languages" name="languages" aria-describedby="languages" placeholder="Languages">
                     </div>
 
                     <hr>
@@ -168,7 +168,7 @@ if ($result) {
                 </form>
             </div>
             <div style="text-align: center">
-                <div style="background-color: #E5F2F7; padding: 40px; width: 60%; margin: auto; border-radius: 10px">
+                <div style="background-color: white; padding: 40px; width: 60%; margin: auto; border-radius: 10px">
                     <h1 style="color: #333333; font-size: 3vw; font-family: 'Lato', sans-serif; font-weight: 400; margin-top: 0;">Update Resume</h1>
                     <form method="post" enctype="multipart/form-data" style="margin-top: 20px;">
                         <label for="pdf-upload" style="color: #333333; font-size: 1.6vw; font-family: 'Lato', sans-serif; font-weight: 300; display: block;">Choose a PDF file to upload:</label>

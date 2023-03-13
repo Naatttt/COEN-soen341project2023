@@ -17,6 +17,7 @@ $mysqli = new mysqli("localhost", "root", "", "users");
 $query = "SELECT * FROM users WHERE username = '$username'";
 $result = $mysqli->query($query);
 
+
 if ($result->num_rows == 1) {
   // If a record is found, compare the hashed password with the hashed version of the password provided by the user
   $row = $result->fetch_assoc();
@@ -32,6 +33,7 @@ if ($result->num_rows == 1) {
 
     $_SESSION['username'] = $username;
     $_SESSION['loggedin'] = true;
+    
     // Redirect the user to the dashboard or home page
     header("Location: dashboard.php");
     exit;

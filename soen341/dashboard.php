@@ -15,13 +15,14 @@ $mysqli = new mysqli("localhost", "root", "", "users");
 
 // Retrieve the user's name from the database
 $username = $_SESSION['username'];
-$query = "SELECT name, username, education, mylocation, experience, skills, availability, languages FROM users WHERE username = '$username'";
+$query = "SELECT usertype, name, username, education, mylocation, experience, skills, availability, languages FROM users WHERE username = '$username'";
 $result = $mysqli->query($query);
 
 // Check if the query was successful
 if ($result) {
     // Fetch the row from the query result and get the name value
     $row = $result->fetch_assoc();
+    $usertype = $row['usertype'];
     $name = $row['name'];
     $education = $row['education'];
     $mylocation = $row['mylocation'];
@@ -32,6 +33,11 @@ if ($result) {
 } else {
     // Display an error message if the query failed
     $name = "Error: " . $mysqli->error;
+}
+
+if($usertype == 'employer') {
+    header("Location: employer_dashboard.php");
+    exit();
 }
 ?>
 
@@ -59,8 +65,6 @@ if ($result) {
     <body class="background-image">
         <?php include 'navbar.php' ?>
 
-
-        <!-- Start of Page Here-->
         <div style="text-align: center; padding-top: 3%;">
             <h1 class="text-white" style="font-size: 4vw; transition: opacity 0.5s ease-out;" id="headline">
                 Welcome <?php echo $name; ?>!
@@ -126,5 +130,6 @@ if ($result) {
             
             <?php include 'BACK_display_pdf.php' ?>
         </div>
+        }
     </body>
 </html>
