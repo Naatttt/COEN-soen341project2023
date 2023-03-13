@@ -1,0 +1,284 @@
+/*html {
+    height: 100%; /* Set the height of both elements to 100%
+    background-color: #D18686;
+    background-image: url(/soen341/images/bg-tt.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 100%;
+}*/
+
+.main-bg {
+    height: auto;
+    background-image: url(/soen341/images/bg-g.jpg);
+    background-size: cover;
+    background-position: top center;
+    min-height: 100vh;
+}
+
+.background-image {
+    height: 100%;
+    background-image: url(/soen341/images/bg-g.jpg);
+    background-size: cover;
+    background-position: top center;
+    min-height: 100vh;
+}
+
+hr {
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    color: #d5daf0;
+}
+
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+h3 {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+h2 {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+.brand-name {
+    transition: font-size 0.5s ease-in-out;
+}
+
+.brand-name:hover{
+    color: #91B7FB;
+    font-size: 3vw;
+    transition: 0.5s;
+}
+.row h3 {
+    transition: font-size 0.3s ease-in-out;
+    color: black;
+}
+
+.row:hover h3 {
+    font-size: 1vw;
+    color: #54a2ec;
+    transition: 0.20s;
+}
+
+.cell h2 {
+    transition: font-size 0.3s ease-in-out;
+    color: white;
+}
+
+.cell:hover h2 {
+    font-size: 1vw;
+    color: #716adb;
+    transition: 0.20s;
+}
+
+
+
+.carousel-image {
+   border-radius: 40px;
+
+   width: 65%;
+   height: auto;
+   margin: auto;
+}
+
+.carousel-text {
+    font-size: 1vw;
+    font-weight: 400;
+    color: #FBC5BD;
+}
+
+.navbar-text {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #91B7FB;
+
+    border-radius: 50px;
+    border: none;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: white;
+    transition: 0.35s;
+}
+
+.summon-font {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-red {
+    color: #E09393;
+}
+
+.text-black {
+   color: #000000;
+}
+
+.text-about {
+    width: 70%;
+    height: auto;
+    text-align: center;
+    margin: 50% auto 10% auto;
+    padding: 20px;
+}
+
+.sign-up-text {
+    font-size: 1.5vw;
+}
+
+.profile_buttons {
+    margin: auto;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.postings-size {
+    font-size: 0.9vw;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+
+.container {
+    padding-top: 3%;
+}
+.form-signup, .form-login {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+.btn-submit {
+    margin-top: 10px;
+}
+
+/*
+    This code was taken from CodePen
+    https://codepen.io/jmptr/pen/MWaVzNK
+*/
+.outer:hover {
+    box-shadow: var(--outer-shadow);
+    transition: 0.4s;
+    background-color: #007bff;
+}
+
+.outer2:hover {
+    box-shadow: var(--outer2-shadow2);
+    transition: 0.4s;
+    background-color: #FFFFFF;
+}
+
+:root {
+--outer2-shadow2: 
+    0 0 0.1vw 0.2vw #ffffff,
+    0 0 0.4vw 0.6vw #c5ccd3,
+    0 0 1vw 0.4vw #767680;
+--outer-shadow: 
+    0 0 0.1vw 0.2vw #b1fcfc,
+    0 0 0.4vw 0.6vw #54a2ec,
+    0 0 1vw 0.4vw #007bff;
+}
+
+
+
+
+
+.form-container {
+    background-color: #cccbf3;
+    height: 16.5%;
+    width: 60%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 9999;
+    border: 5px solid black; 
+    
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+
+input[type="text"] {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    font-size: 1vw;
+
+    margin-right: 5%;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.searchbtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1vw;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-left: 2%;
+}
+
+.searchbtn:hover {
+    box-shadow: var(--outer-shadow);
+    transition: 0.4s;
+    background-color: #007bff;
+}
+
+.closebtn {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1vw;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-left: 6%;
+}
+
+.closebtn:hover {
+    box-shadow: var(--outer2-shadow2);
+    transition: 0.4s;
+    background-color: white;
+}
