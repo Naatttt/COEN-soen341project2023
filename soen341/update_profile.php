@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 <?php
 // Connect to the database
-$mysqli = new mysqli("localhost", "root", "", "users");
+$mysqli = new mysqli("localhost", "root", DB_PASSWORD, "users");
 
 // Retrieve the user's name from the database
 $username = $_SESSION['username'];

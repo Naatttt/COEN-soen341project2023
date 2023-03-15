@@ -1,8 +1,9 @@
+<?php include 'DB_PASSWORD.php' ?>
 <?php include 'BACK_timeout.php' ?>
 
 <?php
 // Connect to the database
-$mysqli = new mysqli("localhost", "root", "", "postings");
+$mysqli = new mysqli("localhost", "root", DB_PASSWORD, "postings");
 
 // Retrieve the posting data using the ID from the URL
 if (isset($_GET['id'])) {

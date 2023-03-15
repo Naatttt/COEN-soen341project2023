@@ -1,4 +1,5 @@
-    <?php
+<?php include 'DB_PASSWORD.php' ?>
+<?php
 
 // Start the session to store any error messages
 session_start();
@@ -20,7 +21,7 @@ if (isset($_POST['name'])) {
         $_SESSION['error'] = "Passwords do not match.";
     } else {
         // Check if the username already exists
-        $conn = mysqli_connect('localhost', 'root', '', 'users');
+        $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'users');
         $query = "SELECT * FROM users WHERE username='$username'";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {

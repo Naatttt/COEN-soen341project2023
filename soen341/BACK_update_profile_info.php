@@ -1,3 +1,4 @@
+<?php include 'DB_PASSWORD.php' ?>
 <?php
 
 // Start the session to store any error messages
@@ -27,7 +28,7 @@ if (isset($_POST['newname']) ||
     $languages = $_POST['languages'];
 
     // Connect to the database
-    $conn = mysqli_connect('localhost', 'root', '', 'users');
+    $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'users');
 
     // Check if the username already exists
     if (!empty($newusername)) {

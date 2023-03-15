@@ -1,3 +1,4 @@
+<?php include 'DB_PASSWORD.php' ?>
 <?php include 'BACK_timeout.php'?>
 
 <!DOCTYPE html>
@@ -25,13 +26,9 @@
         <?php include 'navbar.php' ?>
         
         <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "postings";
 
             // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli("localhost", "root", DB_PASSWORD, "postings");
 
             // Check connection
             if ($conn->connect_error) {

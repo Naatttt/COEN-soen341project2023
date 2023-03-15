@@ -1,3 +1,4 @@
+<?php include 'DB_PASSWORD.php' ?>
 <?php
 // Start the session to store any error messages
 session_start();
@@ -21,7 +22,7 @@ if (isset($_POST['create_posting'])) {
         $_SESSION['error'] = "All fields are required.";
     } else {
         // Check if the position already exists
-        $conn = mysqli_connect('localhost', 'root', '', 'postings');
+        $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'postings');
         $query = "SELECT * FROM postings WHERE position='$position'";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {

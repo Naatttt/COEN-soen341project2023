@@ -1,3 +1,4 @@
+<?php include 'DB_PASSWORD.php' ?>
 <?php
 if(isset($_POST['id']) || isset($_POST['position']) || isset($_POST['company']) || isset($_POST['industry']) || isset($_POST['plocation'])) {
 
@@ -9,7 +10,7 @@ if(isset($_POST['id']) || isset($_POST['position']) || isset($_POST['company']) 
     $plocation = $_POST['plocation'];
 
     // Connect to the MySQL database
-    $mysqli = new mysqli("localhost", "root", "", "postings");
+    $mysqli = new mysqli("localhost", "root", DB_PASSWORD, "postings");
 
     // Construct the MySQL query
     $query = "SELECT * FROM postings WHERE 1=1";
