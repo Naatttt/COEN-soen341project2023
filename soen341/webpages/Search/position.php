@@ -1,5 +1,5 @@
-<?php include 'DB_PASSWORD.php' ?>
-<?php include 'BACK_timeout.php' ?>
+<?php include '../../DB_PASSWORD.php' ?>
+<?php include '../Homepage/BACK_timeout.php' ?>
 
 <?php
 // Connect to the database
@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
     }
 } else {
     // If no ID is provided in the URL, redirect to the homepage
-    header("Location: index.php");
+    header("Location: ../Homepage/index.php");
     exit;
 }
 ?>
@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
 
         <!-- Linking css file and favicon-->
         <link rel="stylesheet" href="/soen341/css/style.css">
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" href="/soen341/images/favicon.ico">
 
         <!-- Linking font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
     </head>
 
     <body class="background-image">
-    <?php include 'navbar.php' ?>
+    <?php include '../Navbar/navbar.php' ?>
 
         <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center;">
             <div class="row" style="margin-left: 5%; width: 2200px; text-align: center">

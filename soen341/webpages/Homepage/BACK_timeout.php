@@ -11,7 +11,7 @@ $timeout_minutes = 10;
 if (time() - $_SESSION['timestamp'] > $timeout_minutes * 60) {
     // Destroy the session and log the user out
     session_destroy();
-    header("Location: sign_up_page.php");
+    header("Location: ../SignUp/sign_up_page.php");
     exit();
 }
 

@@ -1,4 +1,3 @@
-<?php include 'DB_PASSWORD.php' ?>
 <?php
 // Start the session to store any error messages
 session_start();
@@ -38,7 +37,7 @@ if (isset($_POST['create_posting'])) {
             $query = "INSERT INTO postings (id, company, industry, info, plocation, position, salary) VALUES ('$next_id', '$company', '$industry', '$info', '$plocation', '$position', '$salary')";
             if (mysqli_query($conn, $query)) {
                 $_SESSION['success'] = "Posting created successfully.";
-                header("Location: search_page.php");
+                header("Location: ../Search/search_page.php");
                 exit;
             } else {
                 $_SESSION['error'] = "Error: " . mysqli_error($conn);
@@ -50,7 +49,7 @@ if (isset($_POST['create_posting'])) {
     }
 
     // Redirect back to the form page
-    header("Location: index.php");
+    header("Location: ../Homepage/index.php");
     exit;
 }
 ?>

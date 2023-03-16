@@ -12,7 +12,7 @@
 
         <!-- Linking css file and favicon-->
         <link rel="stylesheet" href="/soen341/css/style.css">
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" href="/soen341/images/favicon.ico">
 
         <!-- Linking font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
     </head>
 
     <body class="main-bg">
-        <?php include 'navbar.php' ?>
+        <?php include '../Navbar/navbar.php' ?>
 
         <!-- Start of Page Here-->
         <div style="text-align: center; margin-top: 10%; margin-bottom: 5%;">
@@ -51,8 +51,8 @@
         </script>
 
         <div class="profile_buttons">
-            <a href="/soen341/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 10%; width: 25%"><h1 style="font-size: 2vw">Search</h1></a>
-            <a href="/soen341/post.php" class="btn btn-light btn-lg outer2" style="margin-left: 10%; width: 25%"><h1 style="font-size: 2vw">Post Position</h1></a>
+            <a href="../Search/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 10%; width: 25%"><h1 style="font-size: 2vw">Search</h1></a>
+            <a href="../Employers/post.php" class="btn btn-light btn-lg outer2" style="margin-left: 10%; width: 25%"><h1 style="font-size: 2vw">Post Position</h1></a>
         </div>
 
             <div class="text-about" id="about">

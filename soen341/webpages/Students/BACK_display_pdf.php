@@ -1,4 +1,3 @@
-<?php include 'DB_PASSWORD.php' ?>
 <?php
 // Open a database connection
 $conn = mysqli_connect("localhost", "root", DB_PASSWORD, "users");

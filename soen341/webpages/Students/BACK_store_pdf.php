@@ -1,4 +1,4 @@
-<?php include 'DB_PASSWORD.php' ?>
+<?php include '../../DB_PASSWORD.php' ?>
 <?php
 
 // Check if the user is logged in

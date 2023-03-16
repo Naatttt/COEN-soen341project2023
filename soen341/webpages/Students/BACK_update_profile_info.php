@@ -1,4 +1,4 @@
-<?php include 'DB_PASSWORD.php' ?>
+<?php include '../../DB_PASSWORD.php' ?>
 <?php
 
 // Start the session to store any error messages
@@ -36,7 +36,7 @@ if (isset($_POST['newname']) ||
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
             $_SESSION['error'] = "Username already taken.";
-            header("Location: error.php");
+            header("Location: ../SignUp/error.php");
             exit;
         }
     }
@@ -48,7 +48,7 @@ if (isset($_POST['newname']) ||
         mysqli_query($conn, $update_query);
     } elseif (!empty($newpassword1) && ($newpassword1 !== $newpassword2)) {
         $_SESSION['error'] = "Passwords do not match.";
-        header("Location: error.php");
+        header("Location: ../SignUp/error.php");
         exit;
     }
 

@@ -1,7 +1,7 @@
 <!-- Navigation Bar (top)-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-    <a class="navbar-brand summon-font brand-name" href="/soen341/index.php" style="padding-left: 16px;">
+    <a class="navbar-brand summon-font brand-name" href="/soen341/webpages/Homepage/index.php" style="padding-left: 16px;">
         <h1 class="brand-name" style="margin: auto;">
             TalentHub
         </h1>
@@ -16,12 +16,12 @@
     <div class="collapse navbar-collapse summon-font" id="navbarSupportedContent">
          <ul class="navbar-nav ms-auto" style="margin-right: 20px; font-size: 1vw;">
             <li class="nav-item">
-                <a class="nav-link navbar-text" href="/soen341/index.php">
+                <a class="nav-link navbar-text" href="../Homepage/index.php">
                     Home
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbar-text" href="/soen341/index.php#about">
+                <a class="nav-link navbar-text" href="../Homepage/index.php#about">
                     About
                 </a>
             </li>
@@ -31,24 +31,24 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="dropdown-item navbar-text" href="/soen341/search_page.php" style="color: #212529">
+                        <a class="dropdown-item navbar-text" href="../Search/search_page.php" style="color: #212529">
                             Find Opportunities
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item navbar-text" href="/soen341/post.php" style="color: #212529">
+                        <a class="dropdown-item navbar-text" href="../Employers/post.php" style="color: #212529">
                             Open a Position
                         </a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbar-text" href="/soen341/dashboard.php">
+                <a class="nav-link navbar-text" href="../Students/dashboard.php">
                     Dashboard
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbar-text" href="/soen341/BACK_log_out.php">
+                <a class="nav-link navbar-text" href="../SignUp/BACK_log_out.php">
                     <?php
                         // Check if the user is logged in
                         if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {

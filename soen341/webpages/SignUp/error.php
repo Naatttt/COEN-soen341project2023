@@ -10,7 +10,7 @@
 
         <!-- Linking css file and favicon-->
         <link rel="stylesheet" href="/soen341/css/style.css">
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" href="/soen341/images/favicon.ico">
 
         <!-- Linking font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
 
     <body class="background-image">
 
-    <?php include 'navbar.php' ?>
+    <?php include '../Navbar/navbar.php' ?>
 
         <!-- Start of Page Here-->
         <div>

@@ -1,4 +1,4 @@
-<?php include 'DB_PASSWORD.php' ?>
+<?php include '../../DB_PASSWORD.php' ?>
 <?php
 // Retrieve the username and password values from the login form
 $username = $_POST['inputusername'];
@@ -36,7 +36,7 @@ if ($result->num_rows == 1) {
     $_SESSION['loggedin'] = true;
     
     // Redirect the user to the dashboard or home page
-    header("Location: dashboard.php");
+    header("Location: ../Students/dashboard.php");
     exit;
   }
 }
