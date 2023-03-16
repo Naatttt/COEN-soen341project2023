@@ -1,17 +1,18 @@
-<?php include 'BACK_timeout.php' ?>
+<?php include '../../DB_PASSWORD.php' ?>
+<?php include '../Homepage/BACK_timeout.php' ?>
 
 <?php
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // If the user is not logged in, redirect to the login page
-    header("Location: sign_up_page.php");
+    header("Location: ../SignUp/sign_up_page.php");
     exit;
 }
 ?>
 
 <?php
 // Connect to the database
-$mysqli = new mysqli("localhost", "root", "", "users");
+$mysqli = new mysqli("localhost", "root", DB_PASSWORD, "users");
 
 // Retrieve the user's name from the database
 $username = $_SESSION['username'];
@@ -36,7 +37,7 @@ if ($result) {
 }
 
 if($usertype == 'employee') {
-    header("Location: dashboard.php");
+    header("Location: ../Students/dashboard.php");
     exit();
 }
 ?>
@@ -54,7 +55,7 @@ if($usertype == 'employee') {
 
         <!-- Linking css file and favicon-->
         <link rel="stylesheet" href="/soen341/css/style.css">
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" href="/soen341/images/favicon.ico">
 
         <!-- Linking font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,7 +64,7 @@ if($usertype == 'employee') {
     </head>
 
     <body class="background-image">
-        <?php include 'navbar.php' ?>
+        <?php include '../Navbar/navbar.php' ?>
 
         <div style="text-align: center; padding-top: 3%;">
             <h1 class="text-white" style="font-size: 4vw; transition: opacity 0.5s ease-out;" id="headline">
@@ -72,8 +73,8 @@ if($usertype == 'employee') {
         </div>
 
         <div class="profile_buttons">
-            <a href="/soen341/search_page.php?query=SELECT+%2A+FROM+postings+WHERE+1%3D1+AND+company+%3D+%27<?php echo $name; ?>%27" class="btn btn-primary btn-lg outer" style="margin-right: 5%; width: 200px">List Postings</a>
-            <a href="/soen341/update_profile.php" class="btn btn-light btn-lg outer2" style="margin-left: 5%; width: 200px">Update Profile</a>
+            <a href="../Search/search_page.php?query=SELECT+%2A+FROM+postings+WHERE+1%3D1+AND+company+%3D+%27<?php echo $name; ?>%27" class="btn btn-primary btn-lg outer" style="margin-right: 5%; width: 200px">List Postings</a>
+            <a href="../Students/update_profile.php" class="btn btn-light btn-lg outer2" style="margin-left: 5%; width: 200px">Update Profile</a>
         </div>
 
         <!-- Start of Page Here-->
@@ -88,9 +89,6 @@ if($usertype == 'employee') {
             </div>
 
             <hr>
-            
-            <?php include 'BACK_display_pdf.php' ?>
         </div>
-        }
     </body>
 </html>

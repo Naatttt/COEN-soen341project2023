@@ -1,3 +1,4 @@
+<?php include '../../DB_PASSWORD.php' ?>
 <?php
 
 // Check if the user is logged in
@@ -19,7 +20,7 @@ if(isset($_POST['submit'])) {
     echo "Error: Only PDF files are allowed.";
   } else {
     // Open a database connection
-    $conn = mysqli_connect("localhost", "root", "", "users");
+    $conn = mysqli_connect("localhost", "root", DB_PASSWORD, "users");
     
     // Check if the connection is successful
     if(!$conn) {

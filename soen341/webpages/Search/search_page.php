@@ -1,4 +1,5 @@
-<?php include 'BACK_timeout.php'?>
+<?php include '../../DB_PASSWORD.php' ?>
+<?php include '../Homepage/BACK_timeout.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@
 
         <!-- Linking css file and favicon-->
         <link rel="stylesheet" href="/soen341/css/style.css">
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" href="/soen341/images/favicon.ico">
 
         <!-- Linking font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,16 +23,12 @@
     </head>
 
     <body class="background-image">
-        <?php include 'navbar.php' ?>
+        <?php include '../Navbar/navbar.php' ?>
         
         <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "postings";
 
             // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli("localhost", "root", DB_PASSWORD, "postings");
 
             // Check connection
             if ($conn->connect_error) {
@@ -52,7 +49,7 @@
                 echo '<div class="d-flex justify-content-between align-items-center" style="margin-top: 2%">';
                 echo '<a class="btn btn-light btn-lg outer2" style="margin-left: 12.5%; width: 200px" id="search-btn">Search Filter</a>';
                 echo '<h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%; margin-left: 13.5%">Search Postings</h1>';
-                echo '<a href="/soen341/search_page.php" class="btn btn-light btn-lg outer2" style="margin-right: 12.5%; width: 200px">Reset Filter</a>';
+                echo '<a href="/soen341/webpages/Search/search_page.php" class="btn btn-light btn-lg outer2" style="margin-right: 12.5%; width: 200px">Reset Filter</a>';
                 echo '</div>';                
                 echo '<div style="background-color: white; height: 70%; margin: auto; width: 80%; overflow: scroll; text-align: center">';
                 echo '<div class="table" style="margin: auto;">';

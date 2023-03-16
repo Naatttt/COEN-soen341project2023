@@ -21,7 +21,7 @@ if (isset($_POST['create_posting'])) {
         $_SESSION['error'] = "All fields are required.";
     } else {
         // Check if the position already exists
-        $conn = mysqli_connect('localhost', 'root', '', 'postings');
+        $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'postings');
         $query = "SELECT * FROM postings WHERE position='$position'";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
@@ -37,7 +37,7 @@ if (isset($_POST['create_posting'])) {
             $query = "INSERT INTO postings (id, company, industry, info, plocation, position, salary) VALUES ('$next_id', '$company', '$industry', '$info', '$plocation', '$position', '$salary')";
             if (mysqli_query($conn, $query)) {
                 $_SESSION['success'] = "Posting created successfully.";
-                header("Location: search_page.php");
+                header("Location: ../Search/search_page.php");
                 exit;
             } else {
                 $_SESSION['error'] = "Error: " . mysqli_error($conn);
@@ -49,7 +49,7 @@ if (isset($_POST['create_posting'])) {
     }
 
     // Redirect back to the form page
-    header("Location: index.php");
+    header("Location: ../Homepage/index.php");
     exit;
 }
 ?>

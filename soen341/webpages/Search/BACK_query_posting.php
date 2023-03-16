@@ -1,3 +1,4 @@
+<?php include '../../DB_PASSWORD.php' ?>
 <?php
 if(isset($_POST['id']) || isset($_POST['position']) || isset($_POST['company']) || isset($_POST['industry']) || isset($_POST['plocation'])) {
 
@@ -9,7 +10,7 @@ if(isset($_POST['id']) || isset($_POST['position']) || isset($_POST['company']) 
     $plocation = $_POST['plocation'];
 
     // Connect to the MySQL database
-    $mysqli = new mysqli("localhost", "root", "", "postings");
+    $mysqli = new mysqli("localhost", "root", DB_PASSWORD, "postings");
 
     // Construct the MySQL query
     $query = "SELECT * FROM postings WHERE 1=1";
@@ -38,7 +39,7 @@ if(isset($_POST['id']) || isset($_POST['position']) || isset($_POST['company']) 
     $query_string = http_build_query(array('query' => $query));
 
     // Redirect to search_page.php with the query string parameter
-    header("Location: search_page.php?" . $query_string);
+    header("Location: ../Search/search_page.php?" . $query_string);
     exit;
     }
 ?>

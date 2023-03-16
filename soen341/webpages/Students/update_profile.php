@@ -1,18 +1,18 @@
-<?php include 'BACK_timeout.php' ?>
+<?php include '../Homepage/BACK_timeout.php' ?>
 <?php include 'BACK_store_pdf.php' ?>
 
 <?php
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // If the user is not logged in, redirect to the login page
-    header("Location: sign_up_page.php");
+    header("Location: ../SignUp/sign_up_page.php");
     exit;
 }
 ?>
 
 <?php
 // Connect to the database
-$mysqli = new mysqli("localhost", "root", "", "users");
+$mysqli = new mysqli("localhost", "root", DB_PASSWORD, "users");
 
 // Retrieve the user's name from the database
 $username = $_SESSION['username'];
@@ -49,7 +49,7 @@ if ($result) {
 
         <!-- Linking css file and favicon-->
         <link rel="stylesheet" href="/soen341/css/style.css">
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" href="/soen341/images/favicon.ico">
 
         <!-- Linking font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,7 @@ if ($result) {
     </head>
 
     <body class="background-image">
-        <?php include 'navbar.php' ?>
+        <?php include '../Navbar/navbar.php' ?>
 
         <div style="text-align: center; padding-top: 3%;">
             <h1 class="text-white" style="font-size: 3vw; font-family: 'Lato', sans-serif; font-weight: 400;">

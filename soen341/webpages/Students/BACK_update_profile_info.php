@@ -1,3 +1,4 @@
+<?php include '../../DB_PASSWORD.php' ?>
 <?php
 
 // Start the session to store any error messages
@@ -27,7 +28,7 @@ if (isset($_POST['newname']) ||
     $languages = $_POST['languages'];
 
     // Connect to the database
-    $conn = mysqli_connect('localhost', 'root', '', 'users');
+    $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'users');
 
     // Check if the username already exists
     if (!empty($newusername)) {
@@ -35,7 +36,7 @@ if (isset($_POST['newname']) ||
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
             $_SESSION['error'] = "Username already taken.";
-            header("Location: error.php");
+            header("Location: ../SignUp/error.php");
             exit;
         }
     }
@@ -47,7 +48,7 @@ if (isset($_POST['newname']) ||
         mysqli_query($conn, $update_query);
     } elseif (!empty($newpassword1) && ($newpassword1 !== $newpassword2)) {
         $_SESSION['error'] = "Passwords do not match.";
-        header("Location: error.php");
+        header("Location: ../SignUp/error.php");
         exit;
     }
 

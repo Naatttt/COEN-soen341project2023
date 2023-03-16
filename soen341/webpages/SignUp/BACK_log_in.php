@@ -1,3 +1,4 @@
+<?php include '../../DB_PASSWORD.php' ?>
 <?php
 // Retrieve the username and password values from the login form
 $username = $_POST['inputusername'];
@@ -11,7 +12,7 @@ if (empty($username) || empty($password)) {
 }
 
 // Connect to the MySQL database
-$mysqli = new mysqli("localhost", "root", "", "users");
+$mysqli = new mysqli("localhost", "root", DB_PASSWORD, "users");
 
 // Query the database to retrieve the user's record
 $query = "SELECT * FROM users WHERE username = '$username'";
@@ -35,7 +36,7 @@ if ($result->num_rows == 1) {
     $_SESSION['loggedin'] = true;
     
     // Redirect the user to the dashboard or home page
-    header("Location: dashboard.php");
+    header("Location: ../Students/dashboard.php");
     exit;
   }
 }

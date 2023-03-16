@@ -4,7 +4,7 @@ session_start();
 // Check if the user is logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     // If the user is not logged in, redirect to the login page
-    header("Location: dashboard.php");
+    header("Location: ../Students/dashboard.php");
     exit;
 }
 ?>
@@ -22,7 +22,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
     <!-- Linking css file and favicon-->
     <link rel="stylesheet" href="/soen341/css/style.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="/soen341/images/favicon.ico">
 
     <!-- Linking font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 </head>
 
 <body class="background-image">
-    <?php include 'navbar.php' ?>
+    <?php include '../Navbar/navbar.php' ?>
 
     <div class="sign-up">
         <div style="text-align: center; padding-top: 3%;">
