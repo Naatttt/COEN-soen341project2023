@@ -1,4 +1,6 @@
 <?php 
+
+declare(strict_types=1);
 use PHP\Framework\TestCase;
 
 class UpdateProfileTest extends TestCase {
@@ -18,7 +20,7 @@ class UpdateProfileTest extends TestCase {
         $_POST['availability'] = 'Full-time';
         $_POST['languages'] = 'English, French';
         //connection to the data base
-        $conn = mysqli_connect('localhost', 'root', '', 'users');
+        $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'users');
         // Ensure connection was successful
         $this->assertInstanceOf(mysqli::class, $conn);
         
