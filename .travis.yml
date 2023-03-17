@@ -8,8 +8,8 @@ services:
   
 before_script:
   - mysql -u root -e 'CREATE DATABASE postings;'
-  - mysql -u root bludata < $TRAVIS_BUILD_DIR/soen341/mysql.txt
-  - mysql -u root bludata < $TRAVIS_BUILD_DIR/soen341/BACK_update_postings.php
+  - mysql -u root postings < $TRAVIS_BUILD_DIR/soen341/mysql.txt
+  - mysql -u root postings < $TRAVIS_BUILD_DIR/soen341/BACK_update_postings.php
 
 script:
   - phpunit $TRAVIS_BUILD_DIR/soen341/testing/SignUpTest.php
