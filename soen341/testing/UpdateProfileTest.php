@@ -24,7 +24,7 @@ class UpdateProfileTest extends TestCase {
         
         session_start();
 
-        include 'soen341/BACK_update_profile_info.php';
+        include 'soen341/webpages/Students/BACK_update_profile_info.php';
 
         // Check if the profile was updated successfully
         $this->assertStringContainsString('Location: update_profile.php', (string) ob_get_contents());

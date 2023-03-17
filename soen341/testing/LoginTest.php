@@ -1,4 +1,6 @@
 <?php 
+declare(strict_types=1);
+
 use PHP\Framework\TestCase
 class LoginTest extends TestCase
 {
@@ -49,7 +51,7 @@ class LoginTest extends TestCase
         $_POST = $postData;
 
         ob_start();
-        include 'login.php';
+        include 'soen341/webpages/SignUp/BACK_login.php';
         $output = ob_get_contents();
         ob_end_clean();
 
