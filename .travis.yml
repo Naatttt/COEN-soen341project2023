@@ -14,5 +14,5 @@ before_script:
 script:
   - phpunit $TRAVIS_BUILD_DIR/soen341/testing/SignUpTest.php
   - phpunit $TRAVIS_BUILD_DIR/soen341/testing/LoginTest.php
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/UploadTest.php
+  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/UpdateProfileTest.php
   
