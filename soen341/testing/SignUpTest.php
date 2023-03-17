@@ -40,7 +40,7 @@ class SignUpTest extends TestCase {
         //stimulate external scenario for an already existing username account 
         public function testUserExists() {
             //user with the same username found in the database
-        $conn = mysqli_connect('localhost', 'root', '', 'users');
+        $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'users');
         $query = "INSERT INTO users (usertype, name, username, password) VALUES ('employer', 'Test', 'test', 'password')";
         mysqli_query($conn, $query);
 
@@ -71,7 +71,7 @@ class SignUpTest extends TestCase {
                 //not similar passwords while confirming
                 'password1' => 'password1',
                 'password2' => 'password2',
-                'usertype' => 'customer'
+                'usertype' => 'employer'
             );
             $output = $this->SignUp();
             //we expect to output :
@@ -85,7 +85,7 @@ class SignUpTest extends TestCase {
     //stimulate the sign up
     private function SignUp() {
         ob_start();
-        include 'BACK_sign_up.php';
+        include 'soen341/webpages/SignUp/BACK_sign_up.php';
         $output = ob_get_contents();
         ob_end_clean();
         return $output;
