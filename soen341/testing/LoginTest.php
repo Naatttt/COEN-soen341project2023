@@ -1,13 +1,14 @@
 <?php 
 declare(strict_types=1);
 
-use PHP\Framework\TestCase
+use PHP\Framework\TestCase;
+
 class LoginTest extends TestCase
 {
     private $mysli;
 
     protected function setUp(); void {
-        $this->mysqli = new sqli("localhost", "root","","users");
+        $this->mysqli = new sqli("localhost", "root",DB_PASSWORD,"users");
     }
 
     public function testForEmptyUserAndPass() {
