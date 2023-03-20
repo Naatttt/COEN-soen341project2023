@@ -88,7 +88,7 @@ if (isset($_GET['id'])) {
         <hr>
 
         <div class="profile_buttons">
-            <a href="/soen341/apply.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Apply</h1></a>
+            <a href="/soen341/webpages/search/success_apply_position.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Apply</h1></a>
         </div>
     </body>
 </html>

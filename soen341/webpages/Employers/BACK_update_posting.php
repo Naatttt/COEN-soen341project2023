@@ -1,4 +1,3 @@
-<?php include '../../DB_PASSWORD.php' ?>
 <?php
 // Start the session to store any error messages
 session_start();
