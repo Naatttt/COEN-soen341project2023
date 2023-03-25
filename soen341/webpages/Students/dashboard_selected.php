@@ -10,27 +10,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 }
 ?>
 
-<?php
-// Check if Student is selected
-// Connect to the database
-$conn = new mysqli('localhost', 'root', DB_PASSWORD, 'applications');
-$student = $_SESSION['username'];
-
-$result = mysqli_query($conn, "SELECT selected FROM applications WHERE student = '$student'");
-$selected = 0;
-while ($row = mysqli_fetch_assoc($result)){
-    $selected = $row['selected'];
-    if ($selected == 1){
-        //echo $row['selected'];
-        break;
-    }
-}
-
-if ($selected == 1){
-    header("Location: dashboard_selected.php");
-    exit();     
-}
-?>
 
 <?php
 // Connect to the database
@@ -113,12 +92,15 @@ if($usertype == 'employer') {
 
             setInterval(changeHeadline, 3000);
         </script>
-
+        <div class="interview_button">
+            <a class="btn btn-light btn-lg outer2" style="margin-left: 35%; margin-top: 5%; width: 450px">You have been selected for an interview!</a>
+        </div>
         <div class="profile_buttons">
-            <a href="../Search/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 5%; width: 200px">Search</a>
-            <a href="update_profile.php" class="btn btn-light btn-lg outer2" style="margin-left: 5%; width: 200px">Update Profile</a>
+            <a href="../Search/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 5%; margin-top: 5%; width: 200px">Search</a>
+            <a href="update_profile.php" class="btn btn-light btn-lg outer2" style="margin-left: 5%; margin-top: 5%; width: 200px">Update Profile</a>
         </div>
 
+        
         <!-- Start of Page Here-->
         <div class="table" style="margin: auto; margin-top: 3%; text-align: center">
             <div class="row" style="width: 1200px; margin: auto; text-align: center">

@@ -282,3 +282,8 @@ input[type="text"]:focus {
     transition: 0.4s;
     background-color: white;
 }
+
+.interview_button {
+    align-items: center;
+    justify-content: center;
+}
