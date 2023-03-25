@@ -19,6 +19,7 @@ $query = "SELECT * FROM users WHERE username = '$username'";
 $result = $mysqli->query($query);
 
 
+
 if ($result->num_rows == 1) {
   // If a record is found, compare the hashed password with the hashed version of the password provided by the user
   $row = $result->fetch_assoc();
@@ -33,16 +34,20 @@ if (!isset($_SESSION['timestamp'])) {
 
 // Set session variables based on the user's role
 if ($row['usertype'] == 'employee') {
+  $_SESSION['usertype'] = 'employee';
   $_SESSION['username'] = $username;
   $_SESSION['loggedin'] = true;
   // Redirect the user to the student dashboard
   header("Location: ../Students/dashboard.php");
+  
   exit;
 } else if ($row['usertype'] == 'employer') {
+  $_SESSION['usertype'] = 'employer';
   $_SESSION['username'] = $username;
   $_SESSION['loggedin'] = true;
   // Redirect the user to the employer dashboard
   header("Location: ../Employers/employer_dashboard.php");
+
   exit;
 
     // If the passwords match, log the user in to your website
