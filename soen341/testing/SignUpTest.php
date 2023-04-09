@@ -1,20 +1,24 @@
 <?php
 declare(strict_types=1);
-use use PHP\Framework\TestCase;
 
-class SignUpTest extends TestCase {
+use PHP\Framework\TestCase;
 
-    public function testEmptySignUpForm() {
+class SignUpTest extends TestCase
+{
+
+    public function testEmptySignUpForm()
+    {
         //nothing in the fields
         $_POST = array();
         //call the rsignup function w the empty field
-        $output = $this->SignUp(); 
+        $output = $this->SignUp();
         //chrcks for default behavior
         $this->assertContains("All fields are required", $output);
     }
 
     //stimulate external scenario for a succesful login
-    public function testSignUpSuccess()  {
+    public function testSignUpSuccess()
+    {
         //set the values for form
         $_POST = array(
             'name' => 'Test',
@@ -35,11 +39,12 @@ class SignUpTest extends TestCase {
         $this->assertEquals("employer", $_SESSION['usertype']);
         $this->assertTrue($_SESSION['loggedin']);
 
-        }
+    }
 
-        //stimulate external scenario for an already existing username account 
-        public function testUserExists() {
-            //user with the same username found in the database
+    //stimulate external scenario for an already existing username account 
+    public function testUserExists()
+    {
+        //user with the same username found in the database
         $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'users');
         $query = "INSERT INTO users (usertype, name, username, password) VALUES ('employer', 'Test', 'test', 'password')";
         mysqli_query($conn, $query);
@@ -61,29 +66,31 @@ class SignUpTest extends TestCase {
         mysqli_query($conn, $query);
         mysqli_close($conn);
 
-        }
+    }
 
-        //if the password doesn't match while creating the account
-        public function testNotIdenticalPassword() {
-            $_POST = array(
-                'name' => 'Test',
-                'username' => 'test',
-                //not similar passwords while confirming
-                'password1' => 'password1',
-                'password2' => 'password2',
-                'usertype' => 'employer'
-            );
-            $output = $this->SignUp();
-            //we expect to output :
-            $this->assertContains("Passwords do not match", $output);
-        }
+    //if the password doesn't match while creating the account
+    public function testNotIdenticalPassword()
+    {
+        $_POST = array(
+            'name' => 'Test',
+            'username' => 'test',
+            //not similar passwords while confirming
+            'password1' => 'password1',
+            'password2' => 'password2',
+            'usertype' => 'employer'
+        );
+        $output = $this->SignUp();
+        //we expect to output :
+        $this->assertContains("Passwords do not match", $output);
+    }
 
 
 
 
 
     //stimulate the sign up
-    private function SignUp() {
+    private function SignUp()
+    {
         ob_start();
         include 'soen341/webpages/SignUp/BACK_sign_up.php';
         $output = ob_get_contents();
@@ -94,5 +101,3 @@ class SignUpTest extends TestCase {
 }
 
 ?>
-
- 
