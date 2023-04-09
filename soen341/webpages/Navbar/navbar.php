@@ -42,11 +42,25 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a class="nav-link navbar-text" href="../Students/dashboard.php">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbar-text" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dashboard
                 </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item navbar-text" href="../Students/dashboard.php" style="color: #212529">
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item navbar-text" href="../Students/application_list.php" style="color: #212529">
+                            Applications
+                        </a>
+                    </li>
+                </ul>
             </li>
+           
             <li class="nav-item">
                 <a class="nav-link navbar-text" href="../SignUp/BACK_log_out.php">
                     <?php

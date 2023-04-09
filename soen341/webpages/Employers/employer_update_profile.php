@@ -1,5 +1,5 @@
 <?php include '../Homepage/BACK_timeout.php' ?>
-<?php include 'BACK_store_pdf.php' ?>
+<!-- <?php include '../Students/BACK_store_pdf.php' ?> -->
 
 <?php
 // Check if the user is logged in
@@ -16,7 +16,7 @@ $mysqli = new mysqli("localhost", "root", DB_PASSWORD, "users");
 
 // Retrieve the user's name from the database
 $username = $_SESSION['username'];
-$query = "SELECT name, username, education, mylocation, experience, availability, skills, languages FROM users WHERE username = '$username'";
+$query = "SELECT name, username, company, location, industry FROM users WHERE username = '$username'";
 $result = $mysqli->query($query);
 
 // Check if the query was successful
@@ -24,12 +24,10 @@ if ($result) {
     // Fetch the row from the query result and get the name value
     $row = $result->fetch_assoc();
     $name = $row['name'];
-    $education = $row['education'];
-    $mylocation = $row['mylocation'];
-    $experience = $row['experience'];
-    $availability = $row['availability'];
-    $skills = $row['skills'];
-    $languages = $row['languages'];
+    $company = $row['company'];
+    $location = $row['location'];
+    $industry = $row['industry'];
+    
 } else {
     // Display an error message if the query failed
     $name = "Error: " . $mysqli->error;
@@ -67,25 +65,21 @@ if ($result) {
         </div>
 
         <div class="table" style="margin: auto; margin-top: 1%; text-align: center">
-            <div class="row" style="width: 1600px; margin: auto; text-align: center">
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Name</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Username</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Education</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Experience</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Skills</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Availability</h3></div>
-                <div class="cell" style="width: 200px"><h3 class="text-white" style="font-size: 1.5em">Languages</h3></div>
+            <div class="row" style="width: 1500px; margin: auto; text-align: center">
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.5em">Name</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.5em">Username</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.5em">Company Name</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.5em">Industry</h3></div>
+                <div class="cell" style="width: 300px"><h3 class="text-white" style="font-size: 1.5em">Location</h3></div>
+                
             </div>
-            <div class="row" style="width: 1600px; margin: auto; text-align: center">
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $name ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $username ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $education ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $mylocation ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $experience ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $skills ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $availability ?></p></div>
-                <div class="cell" style="width: 200px"><p class="text-white"><?php echo $languages ?></p></div>
+            <div class="row" style="width: 1500px; margin: auto; text-align: center">
+                <div class="cell" style="width: 300px"><p class="text-white"><?php echo $name ?></p></div>
+                <div class="cell" style="width: 300px"><p class="text-white"><?php echo $username ?></p></div>
+                <div class="cell" style="width: 300px"><p class="text-white"><?php echo $company ?></p></div>
+                <div class="cell" style="width: 300px"><p class="text-white"><?php echo $industry ?></p></div>
+                <div class="cell" style="width: 300px"><p class="text-white"><?php echo $location ?></p></div>
+                
             </div>
 
 
@@ -110,7 +104,7 @@ if ($result) {
 
         <div class="container d-none" id="edit-profile-form" style="padding-top: 1%">
             <div class="col-md-6 offset-md-3" style="margin-top: 2%">
-                <form class="form-signupq" action="BACK_update_profile_info.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
+                <form class="form-signupq" action="BACK_update_profile.php" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
                     <div class="form-group">
                         <label for="name">Update Name</label>
                         <input type="" class="form-control" id="name" name="newname" placeholder="Name">
@@ -124,33 +118,18 @@ if ($result) {
                     <hr>
 
                     <div class="form-group">
-                        <label for="username">Update Education</label>
-                        <input type="" class="form-control" id="education" name="education" aria-describedby="education" placeholder="Education">
+                        <label for="username">Update Company Name</label>
+                        <input type="" class="form-control" id="company" name="company" aria-describedby="education" placeholder="Company name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Update Industry</label>
+                        <input type="" class="form-control" id="industry" name="industry" aria-describedby="location" placeholder="Industry">
                     </div>
 
                     <div class="form-group">
                         <label for="username">Update Location</label>
-                        <input type="" class="form-control" id="location" name="mylocation" aria-describedby="location" placeholder="Location">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="username">Update Experience</label>
-                        <input type="" class="form-control" id="experience" name="experience" aria-describedby="experience" placeholder="Experience">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="username">Update Skills</label>
-                        <input type="" class="form-control" id="skills" name="skills" aria-describedby="skills" placeholder="JavaScript, Project Manager, Power BI, C++, Python... ">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="username">Update Availability</label>
-                        <input type="" class="form-control" id="availability" name="availability" aria-describedby="availability" placeholder="Full-Time, Part-Time, Student, Internship...">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="username">Update Languages</label>
-                        <input type="" class="form-control" id="languages" name="languages" aria-describedby="languages" placeholder="Languages">
+                        <input type="" class="form-control" id="location" name="location" aria-describedby="experience" placeholder="Location">
                     </div>
 
                     <hr>
