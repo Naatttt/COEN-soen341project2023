@@ -78,6 +78,11 @@
                             Applications
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item navbar-text" href="../Search/favourites.php" style="color: #212529">
+                            Favourites
+                        </a>
+                    </li>
                 </ul>
             </li>
                 <?php } else if ($_SESSION['usertype'] === 'employer') { ?>
