@@ -32,10 +32,10 @@ class SignUpTest extends TestCase
         $this->assertEquals(1, $result->num_rows);
 
         $this->clear();
+
     }
 
     //cleanup - clear at the end of testing
-
 
     protected function clear(): void
     {
