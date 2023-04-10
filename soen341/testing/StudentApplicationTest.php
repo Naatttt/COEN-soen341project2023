@@ -37,6 +37,10 @@ class SignUpTest extends TestCase
 
     //cleanup - clear at the end of testing
 
+
+    }
+
+
     protected function clear(): void
     {
         // Set up the database connection
