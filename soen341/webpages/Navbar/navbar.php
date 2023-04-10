@@ -55,6 +55,7 @@
                     </li>
                     <li>
                         <a class="dropdown-item navbar-text" href="../Students/applications_list.php" style="color: #212529">
+
                             Applications
                         </a>
                     </li>

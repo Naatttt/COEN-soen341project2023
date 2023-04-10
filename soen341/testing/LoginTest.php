@@ -1,4 +1,4 @@
-<?php 
+<?php
 declare(strict_types=1);
 
 use PHP\Framework\TestCase;
@@ -7,11 +7,13 @@ class LoginTest extends TestCase
 {
     private $mysli;
 
-    protected function setUp(); void {
-        $this->mysqli = new sqli("localhost", "root",DB_PASSWORD,"users");
+    protected function setUp()
+    {
+        $this->mysqli = new sqli("localhost", "root", DB_PASSWORD, "users");
     }
 
-    public function testForEmptyUserAndPass() {
+    public function testForEmptyUserAndPass()
+    {
         $postData = [
 
             //if the inputs are empty
@@ -27,7 +29,8 @@ class LoginTest extends TestCase
 
     }
 
-    public function testForValidUserAndPass() {
+    public function testForValidUserAndPass()
+    {
         $postData = [
 
             //give a test user and pass
@@ -39,7 +42,7 @@ class LoginTest extends TestCase
         $this->expectOutputString('log in successful');
 
         $this->callLogin($postData);
-        
+
         //if the session variables have been set correctly after login
         $this->assertArrayHasKey('timestamp', $_SESSION);
         $this->assertArrayHasKey('username', $_SESSION);
@@ -66,4 +69,3 @@ class LoginTest extends TestCase
 }
 
 ?>
-
