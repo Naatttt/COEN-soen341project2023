@@ -8,8 +8,8 @@ services:
   
 before_script:
   - mysql -u root -e 'CREATE DATABASE postings;'
-  - mysql -u root postings < $TRAVIS_BUILD_DIR/soen341/mysql.txt
-  - mysql -u root postings < $TRAVIS_BUILD_DIR/soen341/BACK_update_postings.php
+  - mysql -u root postings < soen341/mysql.txt
+  - mysql -u root postings < soen341/webpages/EmployersBACK_update_postings.php
 
 script:
   - vendor/bin/phpunit soen341/testing/EmployerCandidateSelectionTest.php
