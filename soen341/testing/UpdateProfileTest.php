@@ -1,11 +1,13 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 use PHP\Framework\TestCase;
 
-class UpdateProfileTest extends TestCase {
+class UpdateProfileTest extends TestCase
+{
 
-    public function updateProfileTest() : void {
+    public function updateProfileTest(): void
+    {
 
         //update the all values
 
@@ -23,7 +25,7 @@ class UpdateProfileTest extends TestCase {
         $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'users');
         // Ensure connection was successful
         $this->assertInstanceOf(mysqli::class, $conn);
-        
+
         session_start();
 
         include 'soen341/webpages/Students/BACK_update_profile_info.php';
@@ -38,7 +40,7 @@ class UpdateProfileTest extends TestCase {
 
 
 
-    }
+}
 
 
 

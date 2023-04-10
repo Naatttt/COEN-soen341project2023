@@ -8,7 +8,6 @@ $mysqli = new mysqli("localhost", "root", DB_PASSWORD, "postings");
 // Retrieve the posting data using the ID from the URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $student = $_SESSION['username'];
     $query = "SELECT position, company, info, industry, plocation, salary FROM postings WHERE id = '$id'";
     $result = $mysqli->query($query);
 
@@ -61,7 +60,7 @@ if (isset($_GET['id'])) {
 
         <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center;">
             <div class="row" style="margin-left: 5%; width: 100%; text-align: center">
-                <div class="cell" style="width: 15%"><a href="search_page.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Search</a></div>
+                <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Position</h2></div>
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Company</h2></div>
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Industry</h2></div>
@@ -90,18 +89,7 @@ if (isset($_GET['id'])) {
         <hr>
 
         <div class="profile_buttons">
-            <a href="BACK_apply.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Apply</h1></a>
-            <a href="BACK_favourite.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Favourite</h1></a>
-
-            <?php 
-            $sql_check = "SELECT * FROM favourites WHERE postingid='$id' AND student='$student'";
-            $result_check = $mysqli->query($sql_check);
-            
-            if ($result_check->num_rows > 0) { ?>
-                <a href="BACK_remove_fav.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Remove favourite</h1></a>
-
-            <?php } ?>
-
+            <a href="?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Edit</h1></a>
         </div>
     </body>
 </html>

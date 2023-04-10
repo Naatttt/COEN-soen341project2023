@@ -1,3 +1,5 @@
+<?php include '../Homepage/BACK_timeout.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,15 +25,15 @@
     <?php include '../Navbar/navbar.php' ?>
 
         <!-- Start of Page Here-->
-        <div>
 
             <div style="text-align: center; margin-top: 200px; margin-bottom: auto;">
-                <h3 class="text-white" style="margin-top: 30px; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
-                    You have already applied to this position!
+                <h1 class="text-white" style="font-size: 4vw;">
+                    Success!
+                </h1>
+                <h3 class="text-white" style="margin-top: 30px; font-size: 1.2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+                    You have successfully removed this posting from your favourites.
                 </h3>
-                <a href="search_page.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Back to Search</h1></a>
-
-
+                
             </div>
     </body>
 </html>
