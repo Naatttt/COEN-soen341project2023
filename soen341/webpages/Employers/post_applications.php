@@ -55,20 +55,41 @@ if($usertype == 'employee') {
         <?php
 
             // Create connection
-            $conn = new mysqli("localhost", "root", DB_PASSWORD, "postings");
+            $conn_postings = new mysqli("localhost", "root", DB_PASSWORD, "postings");
 
             // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
+            if ($conn_postings->connect_error) {
+                die("Connection failed: " . $conn_postings->connect_error);
             }
-
             if (!isset($_GET["query"])) {
-                $query = "SELECT * FROM postings WHERE company = '$company'";
+                $query = "SELECT id FROM postings WHERE company = '$company'";
             } else if (isset($_GET["query"])) {
                 $query = urldecode($_GET["query"]);
             }
-
-            $result = $conn->query($query);
+            
+            // Execute the query and store the result in $ids
+            $result = $conn_postings->query($query);
+            
+            // Convert the result set to an array of IDs
+            $ids = array();
+            while ($row = $result->fetch_assoc()) {
+                $ids[] = $row["id"];
+            }
+            
+            // Create connection to applications database
+            $conn_applications = new mysqli("localhost", "root", DB_PASSWORD, "applications");
+            
+            // Check connection
+            if ($conn_applications->connect_error) {
+                die("Connection failed: " . $conn_applications->connect_error);
+            }
+            
+            // Build the second query using the array of IDs
+            $id_list = implode(",", $ids);
+            $query2 = "SELECT * FROM applications WHERE postingid IN ($id_list)";
+            
+            // Execute the second query and store the result in $applications
+            $applications = $conn_applications->query($query2);
 
             // Check if any rows were returned
             if ($result->num_rows > 0) {
@@ -122,121 +143,12 @@ if($usertype == 'employee') {
                 echo '<a href="post.php" class="btn btn-primary btn-lg outer" style="margin-top: 10%; height: 100px; width: 500px; display: flex; justify-content: center; align-items: center;">Post Your First Position</a>';
                 echo '</div>';
             }
+            // Close the connection to postings database
+            $conn_postings->close();
+            // Close the connection to applications database
+            $conn_applications->close();
 
-            $conn->close();
         ?>
 
-    <script>
-        // get the button elements
-        const salaryBtn = document.querySelector('#salary-btn');
-        const locationBtn = document.querySelector('#location-btn');
-
-        // add click event listeners to the buttons
-        salaryBtn.addEventListener('click', function() {
-            // get the current query parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('query');
-
-            // determine the current sort order for salary
-            let sortOrder = 'ASC';
-            if (query && query.includes('DESC')) {
-                sortOrder = 'ORDER BY salary ASC';
-            } else {
-                sortOrder = 'ORDER BY salary DESC';
-            }
-
-            // construct the new query string
-            let newQuery = 'SELECT * FROM postings WHERE company = "$company" ' + sortOrder;
-
-            // update the query parameter in the URL and reload the page
-            urlParams.set('query', newQuery);
-            window.location.search = urlParams.toString();
-        });
-
-        locationBtn.addEventListener('click', function() {
-            // get the current query parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('query');
-
-            // determine the current sort order for location
-            let sortOrder = 'ASC';
-            if (query && query.includes('ASC')) {
-                sortOrder = 'ORDER BY plocation DESC';
-            }
-            else {
-                sortOrder = 'ORDER BY plocation ASC';
-            }
-
-
-            // construct the new query string
-            let newQuery = 'SELECT * FROM postings WHERE company = "$company" ' + sortOrder;
-
-            // update the query parameter in the URL and reload the page
-            urlParams.set('query', newQuery);
-            window.location.search = urlParams.toString();
-        });
-    </script>
-
-    <script>
-        const searchBtn = document.querySelector("#search-btn");
-        searchBtn.addEventListener("click", () => {
-        // Create form element for user input
-        const searchForm = document.createElement("form");
-        searchForm.setAttribute("action", "BACK_query_posting.php");
-        searchForm.setAttribute("method", "post");
-
-        // Create input elements for user input
-        const idInput = document.createElement("input");
-        idInput.setAttribute("type", "text");
-        idInput.setAttribute("placeholder", "ID");
-        idInput.setAttribute("name", "id");
-
-        const positionInput = document.createElement("input");
-        positionInput.setAttribute("type", "text");
-        positionInput.setAttribute("placeholder", "Position");
-        positionInput.setAttribute("name", "position");
-
-        const industryInput = document.createElement("input");
-        industryInput.setAttribute("type", "text");
-        industryInput.setAttribute("placeholder", "Industry");
-        industryInput.setAttribute("name", "industry");
-
-        const locationInput = document.createElement("input");
-        locationInput.setAttribute("type", "text");
-        locationInput.setAttribute("placeholder", "Location");
-        locationInput.setAttribute("name", "plocation");
-
-        // Create a button to submit the form
-        const submitBtn = document.createElement("button");
-        submitBtn.innerText = "Search";
-        submitBtn.classList.add("searchbtn");
-
-        // Create a button to close the form
-        const closeBtn = document.createElement("button");
-        closeBtn.innerText = "Close";
-        closeBtn.classList.add("closebtn");
-
-        // Create a container to hold the form elements and buttons
-        const formContainer = document.createElement("div");
-        formContainer.classList.add("form-container");
-        formContainer.appendChild(idInput);
-        formContainer.appendChild(positionInput);
-        formContainer.appendChild(industryInput);
-        formContainer.appendChild(locationInput);
-        formContainer.appendChild(submitBtn);
-        formContainer.appendChild(closeBtn);
-
-        // Append the form to the container
-        searchForm.appendChild(formContainer);
-
-        // Append the container to the page
-        document.body.appendChild(searchForm);
-
-        // Add event listener to close button
-        closeBtn.addEventListener("click", () => {
-            searchForm.remove();
-        });
-        });
-    </script>
     </body>
 </html>
