@@ -104,7 +104,7 @@ if($usertype == 'employee') {
                 echo '</div>';
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
-                    echo '<a href="post_applications.php?id=' . $row['id'] . '" style="display: contents">';
+                    echo '<a href="posting_applications.php?id=' . $row['id'] . '" style="display: contents">';
                     echo '<div class="cell" style="width: 100px"><h3 class=" postings-size">' . $row['id'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['position'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['industry'] . '</h3></div>';
@@ -118,7 +118,7 @@ if($usertype == 'employee') {
                 echo '</div>';
             } else {
                 echo '<div class="d-flex flex-column align-items-center" style="margin-top: 2%">';
-                echo '<h1 class="text-white text-center" style="font-size: 2vw; margin-top: 10%">  Your company, '.$company.', has not yet posted any positions</h1>';
+                echo '<h1 class="text-white text-center" style="font-size: 2vw; margin-top: 10%">Your company, '.$company.', has not yet posted any positions</h1>';
                 echo '<a href="post.php" class="btn btn-primary btn-lg outer" style="margin-top: 10%; height: 100px; width: 500px; display: flex; justify-content: center; align-items: center;">Post Your First Position</a>';
                 echo '</div>';
             }
