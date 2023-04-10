@@ -12,13 +12,13 @@ before_script:
   - mysql -u root postings < $TRAVIS_BUILD_DIR/soen341/BACK_update_postings.php
 
 script:
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/SignUpTest.php
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/LoginTest.php
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/UpdateProfileTest.php
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/UpdatePostingTest.php
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/SearchTest.php
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/EmployerCandidateSelectionTest.php
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/StudentApplicationTest.php
-  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/JobApplicationStatusTest.php
+  - phpunit soen341/testing/SignUpTest.php
+  - phpunit soen341/testing/LoginTest.php
+  - phpunit soen341/testing/UpdateProfileTest.php
+  - phpunit soen341/testing/UpdatePostingTest.php
+  - phpunit soen341/testing/SearchTest.php
+  - phpunit soen341/testing/EmployerCandidateSelectionTest.php
+  - phpunit soen341/testing/StudentApplicationTest.php
+  - phpunit soen341/testing/JobApplicationStatusTest.php
   
   
