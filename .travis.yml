@@ -17,4 +17,8 @@ script:
   - phpunit $TRAVIS_BUILD_DIR/soen341/testing/UpdateProfileTest.php
   - phpunit $TRAVIS_BUILD_DIR/soen341/testing/UpdatePostingTest.php
   - phpunit $TRAVIS_BUILD_DIR/soen341/testing/SearchTest.php
+  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/EmployerCandidateSelectionTest.php
+  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/StudentApplicationTest.php
+  - phpunit $TRAVIS_BUILD_DIR/soen341/testing/JobApplicationStatusTest.php
+  
   
