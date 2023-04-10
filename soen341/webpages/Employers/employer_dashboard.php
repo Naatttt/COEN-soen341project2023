@@ -74,7 +74,7 @@ if($usertype == 'employee') {
         </div>
 
         <div class="profile_buttons">
-            <a href="../Search/search_page.php?query=SELECT+%2A+FROM+postings+WHERE+1%3D1+AND+company+%3D+%27<?php echo $name; ?>%27" class="btn btn-primary btn-lg outer" style="margin-right: 5%; width: 200px">List Postings</a>
+            <a href="employer_postings.php" class="btn btn-primary btn-lg outer" style="margin-right: 5%; width: 200px">List Postings</a>
             <a href="../Employers/employer_update_profile.php" class="btn btn-light btn-lg outer2" style="margin-left: 5%; width: 200px">Update Profile</a>
         </div>
 
