@@ -32,7 +32,7 @@ class SignUpTest extends TestCase
 
         $conn = mysqli_connect('localhost', 'root', DB_PASSWORD, 'postings');
         // Update the posting 
-        $query = "UPDATE postings SET company='{$newdata['company']}', industry='{$newdata['industry']}', info='{$newdata['info']}', plocation='{$newdata['plocation']}', position='{$newdata['position']}', salary='{$newddata['salary']}' WHERE id=$id";
+        $query = "UPDATE postings SET company='{$newdata['company']}', industry='{$newdata['industry']}', info='{$newdata['info']}', plocation='{$newdata['plocation']}', position='{$newdata['position']}', salary='{$newdata['salary']}' WHERE id=$id";
         mysqli_query($conn, $query);
 
         //verify that everything was updated succesfuly
