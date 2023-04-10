@@ -60,7 +60,10 @@
             </li>
             <?php } ?>
 
-            <li class="nav-item dropdown">
+            
+<?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                if($_SESSION['usertype'] === 'employee') { ?>
+                <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle navbar-text" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dashboard
                 </a>
@@ -71,12 +74,51 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item navbar-text" href="../Students/application_list.php" style="color: #212529">
+                        <a class="dropdown-item navbar-text" href="../Students/applications_list.php" style="color: #212529">
                             Applications
                         </a>
                     </li>
                 </ul>
             </li>
+                <?php } else if ($_SESSION['usertype'] === 'employer') { ?>
+                    <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbar-text" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dashboard
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item navbar-text" href="../Students/dashboard.php" style="color: #212529">
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item navbar-text" href="../Employers/employer_postings.php" style="color: #212529">
+                            Postings
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <?php } ?>
+            <?php } else { ?>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbar-text" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dashboard
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item navbar-text" href="../Students/dashboard.php" style="color: #212529">
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item navbar-text" href="../Students/applications_list.php" style="color: #212529">
+                            Applications
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <?php } ?>
+            
            
             <li class="nav-item">
                 <a class="nav-link navbar-text" href="../SignUp/BACK_log_out.php">
