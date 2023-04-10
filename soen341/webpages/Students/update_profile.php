@@ -104,7 +104,7 @@ if ($result) {
         <script>
         document.getElementById("save-button").addEventListener("click", function() {
             document.getElementById("edit-profile-form").classList.toggle("d-none")
-        }
+        });
         </script>
 
 
