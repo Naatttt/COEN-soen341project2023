@@ -8,7 +8,17 @@ $mysqli = new mysqli("localhost", "root", DB_PASSWORD, "postings");
 // Retrieve the posting data using the ID from the URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $student = $_SESSION['username'];
+
+    if(isset($_SESSION['usertype'])){
+        $student = $_SESSION['username'];
+        $isStudent = $_SESSION['usertype'] == "employee";
+        $isSignedIn = TRUE;
+    }
+    else{
+        $isStudent = FALSE;
+        $isSignedIn = FALSE;
+    }
+
     $query = "SELECT position, company, info, industry, plocation, salary FROM postings WHERE id = '$id'";
     $result = $mysqli->query($query);
 
@@ -22,11 +32,13 @@ if (isset($_GET['id'])) {
         $industry = $row['industry'];
         $plocation = $row['plocation'];
         $salary = $row['salary'];
-    } else {
+    }
+    else {
         // Display an error message if the query failed
         $name = "Error: " . $mysqli->error;
     }
-} else {
+}
+else {
     // If no ID is provided in the URL, redirect to the homepage
     header("Location: ../Homepage/index.php");
     exit;
@@ -90,17 +102,27 @@ if (isset($_GET['id'])) {
         <hr>
 
         <div class="profile_buttons">
-            <a href="BACK_apply.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Apply</h1></a>
-            <a href="BACK_favourite.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Favourite</h1></a>
-
+            <?php if($isStudent){ ?>
+                <a href="BACK_apply.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Apply</h1></a>
+                <a href="BACK_favourite.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Favourite</h1></a>
+            
             <?php 
             $sql_check = "SELECT * FROM favourites WHERE postingid='$id' AND student='$student'";
             $result_check = $mysqli->query($sql_check);
             
-            if ($result_check->num_rows > 0) { ?>
-                <a href="BACK_remove_fav.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Remove favourite</h1></a>
+                if ($result_check->num_rows > 0) { ?>
+                    <a href="BACK_remove_fav.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Remove favourite</h1></a>
 
-            <?php } ?>
+                <?php 
+                }
+            }
+            elseif(!$isSignedIn){ ?>
+                <h2 class="text-white" style="font-size: 2vw">You must sign in to apply for this position</h2>
+                <a href="../SignUp/sign_up_page.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Sign In</h1></a>
+                
+            <?php
+            }
+            ?>
 
         </div>
     </body>
