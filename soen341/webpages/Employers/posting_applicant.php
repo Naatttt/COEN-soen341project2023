@@ -67,8 +67,8 @@
     <?php include '../Navbar/navbar.php' ?>
     
 
-        <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center;">
-            <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>
+        <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
+            <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
             <div class="row" style="width: 100%; display: flex; justify-content: center; align-items: center;">
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Full Name</h2></div>
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Education</h2></div>
@@ -104,8 +104,8 @@
         </div>
 
         <div class="profile_buttons">
-        <form method="post" action="BACK_hire.php?appid=<?php echo urldecode($_GET["appid"]) ?>">
-            <button href="employer_dashboard.php" type="submit" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%; margin-bottom: 4%"><h1 style="font-size: 2vw">Hire</h1></a>
+        <form method="post" action="BACK_interview.php?appid=<?php echo urldecode($_GET["appid"]) ?>">
+            <button type="submit" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%; margin-bottom: 4%"><h1 style="font-size: 2vw">Select for Interview</h1></a>
         </div>
     </body>
 </html>
