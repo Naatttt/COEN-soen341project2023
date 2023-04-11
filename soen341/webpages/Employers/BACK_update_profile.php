@@ -64,8 +64,7 @@ if (isset($_POST['newname']) ||
     if (!empty($company)) {
         $update_query = "UPDATE users SET company='$company' WHERE username='{$_SESSION['username']}'";
         mysqli_query($conn, $update_query);
-        $message = "Hello, World!";
-        echo $message;
+        
     }
 
     // Update the location if it has been updated
