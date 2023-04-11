@@ -75,21 +75,81 @@ if (isset($_GET['id'])) {
                 <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $plocation ?></h2></div>
                 <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $salary ?></h2></div>
             </div>
+            <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
+                <div class="row" style="width: 50%; margin: auto; text-align: center"> 
+                    <div class="cell"><h2 class="text-white" style="font-size: 2vw"><?php echo $position ?> Description</h2></div>
+                </div>
+                <div class="row" style="width: 50%; margin: auto; text-align: center">
+                    <div class="cell" style="text-align: justify; text-justify: inter-word;"><h2 class="text-white" style="font-size: 1vw; line-height: 1.5"><?php echo $info ?></h2></div>
+            </div>        
+            
+            <button type="button" style="margin-top: 1%" class="btn btn-primary" id="edit-posting-button">Edit Posting</button>
+
+        </div>
         </div>
 
-        <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
-            <div class="row" style="width: 50%; margin: auto; text-align: center"> 
-                <div class="cell"><h2 class="text-white" style="font-size: 2vw"><?php echo $position ?> Description</h2></div>
-            </div>
-            <div class="row" style="width: 50%; margin: auto; text-align: center">
-                <div class="cell" style="text-align: justify; text-justify: inter-word;"><h2 class="text-white" style="font-size: 1vw; line-height: 1.5"><?php echo $info ?></h2></div>
-            </div>
-        </div>
+       
+        <script>
+		document.getElementById("edit-posting-button").addEventListener("click", function() {
+			document.getElementById("edit-posting-form").classList.toggle("d-none");
+            document.getElementById("edit-posting-button").classList.toggle("d-none");
+		});
+	    </script>
 
-        <hr>
 
-        <div class="profile_buttons">
-            <a href="?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Edit</h1></a>
+        <script>
+        document.getElementById("save-button").addEventListener("click", function() {
+            document.getElementById("edit-posting-form").classList.toggle("d-none")
+        });
+        </script>
+
+        <div class="container d-none" id="edit-posting-form" style="padding-top: 1%">
+            <div class="sign-up">
+                <div style="text-align: center; padding-top: 3%;">
+                    <h1 class="text-white" style="font-size: 3vw;">
+                        Edit Posting
+                    </h1>
+                    <h3 class="text-white" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+                        Please edit important details below
+                    </h3>
+                </div>
+            </div>
+            <div class="col-md-6 offset-md-3" style="margin-top: 2%">
+                
+                <form class="form-signupq" action="BACK_edit_post.php?id=<?php echo $id;?>" method="post" style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 50px">
+                        <div class="form-group">
+                            <label for="position_title">Update Position Title</label>
+                            <input type="" class="form-control" id="position_title" name="position_title" placeholder="Position Title">
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="company">Update Company</label>
+                            <input type="" class="form-control" id="company" name="company" aria-describedby="company" placeholder="Company Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="info">Update Info</label>
+                            <textarea style="height: 200px" class="form-control" id="info" name="info" aria-describedby="info" placeholder="Positon Description"></textarea>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="industry">Update Industry</label>
+                            <input type="" class="form-control" id="industry" name="industry" placeholder="Industry">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Update Location</label>
+                            <input type="" class="form-control" id="location" name="location" placeholder="Location">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salary">Update Salary</label>
+                            <input type="" class="form-control" id="salary" name="salary" placeholder="Salary">
+                        </div>
+                        <button type="submit" id="save-button" class="btn btn-primary btn-submit">Save</button>
+
+                </form>
+            </div>
         </div>
     </body>
 </html>
