@@ -68,34 +68,44 @@
     
 
         <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center;">
-            <div class="row" style="margin-left: 5%; width: 100%; text-align: center">
-                <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>
+            <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>
+            <div class="row" style="width: 100%; display: flex; justify-content: center; align-items: center;">
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Full Name</h2></div>
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Education</h2></div>
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Residence</h2></div>
                 <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Languages</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Skills</h2></div>
             </div>
-            <div class="row" style="width: 100%; margin-left: 5%; text-align: center">
-                <div class="cell" style="width: 15%"><h2 class="text-white"></h2></div>
+            <div class="row" style="width: 100%; display: flex; justify-content: center; align-items: center;">
                 <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $name ?></h2></div>
                 <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $education ?></h2></div>
                 <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $mylocation ?></h2></div>
                 <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $languages ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $skills ?></h2></div>
             </div>
         </div>
 
         <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
-            <div class="row" style="width: 50%; margin: auto; text-align: center"> 
-                <div class="cell"><h2 class="text-white" style="font-size: 2vw"><?php echo $experience ?>Experience</h2></div>
-                <div class="cell"><h2 class="text-white" style="font-size: 2vw"><?php echo $availability ?>Availability</h2></div>
+            <div class="row" style="width: 100%; display: flex; justify-content: center; align-items: center;"> 
+                <div class="cell" style="width: 33%"><h2 style="font-size: 2vw">Experience</h2></div>
+                <div class="cell" style="width: 33%"><h2 style="font-size: 2vw">Availability</h2></div>
+                <div class="cell" style="width: 33%"><h2 style="font-size: 2vw;">Skills</h2></div>
+            </div>
+            <div class="row" style="width: 100%; display: flex; justify-content: center; align-items: center;"> 
+                <div class="cell" style="width: 33%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $experience ?></h2></div>
+                <div class="cell" style="width: 33%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $availability ?></h2></div>
+                <div class="cell" style="width: 33%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $skills ?></h2></div>
             </div>
         </div>
-        <hr>
+        <div class="table" style="margin: auto; margin-top: 2%; text-align: center">
+            <?php
+            // pass variable into the pdf display file
+            $username = urldecode($_GET["usr"]);
+            include '../Students/BACK_display_pdf.php';
+            ?>
+        </div>
+
         <div class="profile_buttons">
         <form method="post" action="BACK_hire.php?appid=<?php echo urldecode($_GET["appid"]) ?>">
-            <button href="employer_dashboard.php" type="submit" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Hire</h1></a>
+            <button href="employer_dashboard.php" type="submit" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%; margin-bottom: 4%"><h1 style="font-size: 2vw">Hire</h1></a>
         </div>
     </body>
 </html>
