@@ -1,0 +1,16 @@
+{
+    "name": "COEN-soen341project2023",
+    "description": "Student/Employer website for job posting and job hunt",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "",
+            "email": ""
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^8.0",
+        "some-other-dependency": "^1.0"
+    }
+}
