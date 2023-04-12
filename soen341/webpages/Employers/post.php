@@ -90,7 +90,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 
                         <div class="form-group">
                             <label for="company">Company</label>
-                            <div type="text" style="font-size: 1.1vw; padding-left:2%" id="company" name="company" aria-describedby="company" value="<?php echo $row['company'];?>"><?php echo $row['company'];?></div>
+                            <div type="text" style="font-size: 1.1vw; padding-left:2%"><?php echo $row['company'];?></div>
+                            <input type="hidden" id="company" name="company" value="<?php echo $row['company'];?>">
                         </div>
 
                         <div class="form-group">
@@ -100,12 +101,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 
                         <div class="form-group">
                             <label for="industry">Industry</label>
-                            <div type="text" style="font-size: 1.1vw; padding-left:2%" id="industry" name="industry" value="<?php echo $row['industry'];?>"><?php echo $row['industry'];?></div>
+                            <div type="text" style="font-size: 1.1vw; padding-left:2%"><?php echo $row['industry'];?></div>
+                            <input type="hidden" id="industry" name="industry" value="<?php echo $row['industry'];?>">
                         </div>
 
                         <div class="form-group">
                             <label for="location">Location</label>
-                            <div type="text" style="font-size: 1.1vw; padding-left:2%" id="location" name="location" value="<?php echo $row['location'];?>"><?php echo $row['location'];?></div>
+                            <div type="text" style="font-size: 1.1vw; padding-left:2%"><?php echo $row['location'];?></div>
+                            <input type="hidden" id="location" name="location" value="<?php echo $row['company'];?>">
                         </div>
 
                         <div class="form-group">

@@ -26,7 +26,7 @@
 
         <!-- Start of Page Here-->
             <div style="text-align: center; margin-top: 1%; margin-bottom: auto;">
-                <div class="cell" style="width: 15%"><a href="search_page.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
+                <div class="cell" style="width: 15%"><a href="../Search/search_page.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
                 <h1 class="text-white" style="font-size: 4vw; margin-top: 9%">
                     Success!
                 </h1>

@@ -87,8 +87,9 @@
             else {
             ?>    
             <div class="d-flex flex-column align-items-center" style="margin-top: 2%">'
-                <h1 class="text-white text-center" style="font-size: 2vw; margin-top: 10%">There are currently no applicants for the position of '. $postingname .'</h1>
-                <a href="employer_postings.php" class="btn btn-primary btn-lg outer" style="margin-top: 10%; height: 100px; width: 500px; display: flex; justify-content: center; align-items: center;">Return to Postings</a>
+                <h1 class="text-white text-center" style="font-size: 2vw; margin-top: 9%">There are currently no applicants for the position of</h1>
+                <h3 class="text-white" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;"><?php echo $postingname ?></h3>
+                <a href="employer_postings.php" class="btn btn-primary btn-lg outer" style="margin: auto; margin-top: 1%; width: 25%">Return to Postings</a>
             </div>
             <?php
             }

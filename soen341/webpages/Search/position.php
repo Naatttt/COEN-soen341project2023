@@ -12,6 +12,8 @@ if (isset($_GET['id'])) {
     $query = "SELECT position, company, info, industry, plocation, salary FROM postings WHERE id = '$id'";
     $result = $mysqli->query($query);
 
+    $isStudent = $_SESSION['usertype'] == 'employee';
+
     // Check if the query was successful
     if ($result) {
         // Fetch the row from the query result and get the data
@@ -97,23 +99,23 @@ if (isset($_GET['id'])) {
             $result_check = $mysqli->query($sql_check);
             
                 if ($result_check->num_rows > 0) { ?>
-                    <a href="BACK_remove_fav.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Remove favourite</h1></a>
+                    <a href="../Students/BACK_remove_fav.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Remove favourite</h1></a>
 
                 <?php 
                 }
                 else{ ?>
-                    <a href="BACK_favourite.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Favourite</h1></a>
+                    <a href="../Students/BACK_favourite.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Favourite</h1></a>
                 <?php
                 }
             }
-            elseif(!$isSignedIn){ ?>
+            elseif(!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']){ ?>
                 <h2 class="text-white" style="font-size: 2vw">You must sign in to apply for this position</h2>
                 <a href="../SignUp/sign_up_page.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Sign In</h1></a>
                 
             <?php
             }
             ?>
-
+            <hr>
         </div>
     </body>
 </html>

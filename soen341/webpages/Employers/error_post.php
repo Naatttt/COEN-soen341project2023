@@ -1,4 +1,6 @@
 
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,6 +29,23 @@
         <div>
 
             <div style="text-align: center; margin-top: 200px; margin-bottom: auto;">
+
+            <?php
+            if(isset($_SESSION['error'])){
+                ?>
+                <h1 class="text-white" style="margin-top: 30px; font-size: 3vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+                    Error
+                </h1>
+                <h2 class="text-white" style="font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+                <?php echo $_SESSION['error']?>
+                </h2>
+                <hr>
+                <a href="post.php" class="btn btn-primary btn-lg outer" style="margin: auto; margin-top: 1%; width: 25%"><h1 style="font-size: 2vw">Try Again</h1></a>
+            
+                <?php
+            }
+            else{
+            ?>
                 <h1 class="text-white" style="margin-top: 30px; font-size: 3vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                     You are missing the following information:
                 </h1>
@@ -48,6 +67,9 @@
                     You must fill in these parameters before posting a postion
                 </h2>
                 <a href="employer_update_profile.php" class="btn btn-primary btn-lg outer" style="margin: auto; margin-top: 1%; width: 25%"><h1 style="font-size: 2vw">Edit Profile</h1></a>
+            <?php
+            }
+            ?>
             </div>
     </body>
 </html>
