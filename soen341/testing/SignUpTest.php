@@ -1,8 +1,10 @@
 <?php include '../../DB_PASSWORD.php' ?>
 
 <?php
+require_once 'vendor/autoload.php';
+require "webpages/SignUp/BACK_sign_up.php";
 declare(strict_types=1);
-use PHP\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class SignUpTest extends TestCase
 {
