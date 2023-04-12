@@ -7,7 +7,7 @@ require_once 'vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
 
-class SignUpTest extends TestCase
+class UpdatePostingTest extends TestCase
 {
     public function testUpdatePosting()
     {
