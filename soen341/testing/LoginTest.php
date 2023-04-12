@@ -1,7 +1,8 @@
 <?php
+declare(strict_types=1);
 require_once 'vendor/autoload.php';
 require "webpages/SignUp/BACK_log_in.php";
-declare(strict_types=1);
+
 
 use PHPUnit\Framework\TestCase;
 

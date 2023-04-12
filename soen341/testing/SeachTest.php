@@ -1,9 +1,10 @@
 <?php include '../../DB_PASSWORD.php' ?>
 
 <?php
+declare(strict_types=1);
 require_once 'vendor/autoload.php';
 require "webpages/Search/search_page.php";
-declare(strict_types=1);
+
 use PHPUnit\Framework\TestCase;
 
 class SearchTest extends TestCase
