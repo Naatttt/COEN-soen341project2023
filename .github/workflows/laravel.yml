@@ -26,4 +26,4 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: php vendor/bin/phpunit
+      run: php vendor/bin/phpunit -c soen341/testings
