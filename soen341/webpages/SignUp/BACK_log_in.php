@@ -7,7 +7,7 @@ $password = $_POST['inputpassword'];
 // Validate the username and password values
 if (empty($username) || empty($password)) {
   // Display an error message and exit the script
-  echo "Username and password are required";
+  header("Location: error.php?issue=Username%20and%20password%20are%20required");
   exit;
 }
 
@@ -68,5 +68,5 @@ if ($row['usertype'] == 'employee') {
 } }
 
 // If the script reaches this point, the user has provided incorrect login credentials
-echo "Invalid username or password";
+header("Location: error.php?issue=Invalid%20username%20or%20password");
 ?>

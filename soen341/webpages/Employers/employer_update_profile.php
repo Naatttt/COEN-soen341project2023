@@ -146,7 +146,7 @@ if ($result) {
                     <button type="submit" id="save-button" class="btn btn-primary btn-submit">Save</button>
                 </form>
             </div>
-            
+            <hr>
         </div>
     </body>
 </html>

@@ -28,7 +28,7 @@
 
         <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
             <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
-            <div style="text-align: center; margin-top: 200px; margin-bottom: auto;">
+            <div style="text-align: center; margin-top: 9%; margin-bottom: auto;">
                 <h1 class="text-white" style="font-size: 4vw;">
                     Success!
                 </h1>

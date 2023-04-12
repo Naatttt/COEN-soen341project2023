@@ -180,6 +180,7 @@ if ($result) {
                     </form>
                 </div>
             <div>
+            <hr>
         </div>
     </body>
 </html>

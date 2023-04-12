@@ -57,23 +57,22 @@ if (isset($_GET['id'])) {
     <body class="background-image">
     <?php include '../Navbar/navbar.php' ?>
     
+        <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
+            <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
 
-        <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center;">
             <div class="row" style="margin-left: 5%; width: 100%; text-align: center">
-                <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Position</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Company</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Industry</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Location</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Salary</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Position</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Company</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Industry</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Location</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Salary</h2></div>
             </div>
             <div class="row" style="width: 100%; margin-left: 5%; text-align: center">
-                <div class="cell" style="width: 15%"><h2 class="text-white"></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $position ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $company ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $industry ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $plocation ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $salary ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $position ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $company ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $industry ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $plocation ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $salary ?></h2></div>
             </div>
             <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
                 <div class="row" style="width: 50%; margin: auto; text-align: center"> 
@@ -124,11 +123,6 @@ if (isset($_GET['id'])) {
                         <div class="form-group">
                             <label for="position_title">Update Position Title</label>
                             <input type="" class="form-control" id="position_title" name="position_title" placeholder="Position Title">
-                        </div>
-                
-                        <div class="form-group">
-                            <label for="company">Update Company</label>
-                            <input type="" class="form-control" id="company" name="company" aria-describedby="company" placeholder="Company Name">
                         </div>
 
                         <div class="form-group">

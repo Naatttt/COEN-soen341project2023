@@ -66,37 +66,44 @@
     <body class="background-image">
     <?php include '../Navbar/navbar.php' ?>
     
-
-        <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center;">
+        <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
+            <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>    
             <div class="row" style="margin-left: 5%; width: 100%; text-align: center">
-                <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Full Name</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Education</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Residence</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Languages</h2></div>
-                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Skills</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Full Name</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Education</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Residence</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Languages</h2></div>
+                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Skills</h2></div>
             </div>
             <div class="row" style="width: 100%; margin-left: 5%; text-align: center">
-                <div class="cell" style="width: 15%"><h2 class="text-white"></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $name ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $education ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $mylocation ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $languages ?></h2></div>
-                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $skills ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $name ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $education ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $mylocation ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $languages ?></h2></div>
+                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $skills ?></h2></div>
             </div>
         </div>
 
-        <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
-            <div class="row" style="width: 50%; margin: auto; text-align: center"> 
-                <div class="cell"><h2 class="text-white" style="font-size: 2vw"><?php echo $experience ?>Experience</h2></div>
-                <div class="cell"><h2 class="text-white" style="font-size: 2vw"><?php echo $availability ?>Availability</h2></div>
+        <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center">
+            <div class="row" style="width: 75%; margin: auto; text-align: center"> 
+                <div class="cell" style="width: 50%"><h2 style="font-size: 2vw">Experience</h2></div>
+                <div class="cell" style="width: 50%"><h2 style="font-size: 2vw">Availability</h2></div>
             </div>
+            <div class="row" style="width: 75%; margin: auto; text-align: center"> 
+                <div class="cell" style="width: 50%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $experience ?></h2></div>
+                <div class="cell" style="width: 50%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $availability ?></h2></div>
+            </div>
+            <hr>
+            <?php
+            $_SESSION['usr'] = urldecode($_GET["usr"]);
+            include '../Students/BACK_display_pdf.php';
+            ?>
         </div>
-        <hr>
         <div class="profile_buttons">
-        <form method="post" action="BACK_hire.php?appid=<?php echo urldecode($_GET["appid"]) ?>">
+        <form method="post" action="BACK_interview.php?appid=<?php echo urldecode($_GET["appid"]) ?>">
             <button href="employer_dashboard.php" type="submit" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Select for Interview</h1></a>
         </div>
+        <hr>
     </body>
 </html>
 

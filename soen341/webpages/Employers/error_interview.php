@@ -27,8 +27,8 @@
 
         <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
             <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
-            <div style="text-align: center; margin-top: 200px; margin-bottom: auto;">
-                <h3 class="text-white" style="margin-top: 30px; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+            <div style="text-align: center; margin-top: 9%; margin-bottom: auto;">
+                <h3 class="text-white" style="font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                     Applicant has already been selected for an interview
                 </h3>
             </div>

@@ -58,15 +58,19 @@
             // Check if any rows were returned
             if ($result->num_rows > 0) {
                 // Output the rows in the desired format
-                echo '<div class="d-flex justify-content-between align-items-center" style="margin-top: 2%">';
-                echo '<h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%">' . $postingname . ' Applications</h1>';
-                echo '</div>';
-                echo '<div style="background-color: white; height: 70%; margin: auto; width: 80%; overflow: scroll; text-align: center">';
-                echo '<div class="table" style="margin: auto;">';
-                echo '<div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">';
-                echo '<div class="cell" style="width: 50%"><h3 class="text-white postings-size" style="font-size: 1.5em">Application ID</h3></div>';
-                echo '<div class="cell" style="width: 50%"><h3 class="text-white postings-size" style="font-size: 1.5em">Applicant</h3></div>';
-                echo '</div>';
+            ?>
+                <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
+                    <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
+                    <h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%"><?php echo $postingname?> Applications</h1>
+                </div>
+
+                <div style="background-color: white; height: 40%; margin: auto; width: 50%; overflow: scroll; text-align: center">
+                    <div class="table" style="margin: auto;">
+                        <div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">
+                            <div class="cell" style="width: 50%"><h3 class="text-white postings-size" style="font-size: 1.5em">Application ID</h3></div>
+                            <div class="cell" style="width: 50%"><h3 class="text-white postings-size" style="font-size: 1.5em">Applicant</h3></div>
+                        </div>
+            <?php
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
                     echo '<a href="posting_applicant.php?appid=' . $row['app_id'] . '&usr=' . $row['student'] . '" style="display: contents">';
@@ -75,13 +79,19 @@
                     echo '</a>';
                     echo '</div>';                    
                 }
-                echo '</div>';
-                echo '</div>';
-            } else {
-                echo '<div class="d-flex flex-column align-items-center" style="margin-top: 2%">';
-                echo '<h1 class="text-white text-center" style="font-size: 2vw; margin-top: 10%">There are currently no applicants for the position of '. $postingname .'</h1>';
-                echo '<a href="employer_postings.php" class="btn btn-primary btn-lg outer" style="margin-top: 10%; height: 100px; width: 500px; display: flex; justify-content: center; align-items: center;">Return to Postings</a>';
-                echo '</div>';
+            ?>
+                    </div>
+                </div>
+            <?php
+            }
+            else {
+            ?>    
+            <div class="d-flex flex-column align-items-center" style="margin-top: 2%">'
+                <h1 class="text-white text-center" style="font-size: 2vw; margin-top: 9%">There are currently no applicants for the position of</h1>
+                <h3 class="text-white" style="font-size: 1.5vw; font-family: 'Lato', sans-serif; font-weight: 400;"><?php echo $postingname ?></h3>
+                <a href="employer_postings.php" class="btn btn-primary btn-lg outer" style="margin: auto; margin-top: 1%; width: 25%">Return to Postings</a>
+            </div>
+            <?php
             }
 
             $conn->close();
