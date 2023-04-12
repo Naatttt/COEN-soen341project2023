@@ -1,7 +1,8 @@
 <?php include '../../DB_PASSWORD.php' ?>
 
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
+
 require_once 'vendor/autoload.php';
 //require "webpages/Employers/BACK_update_posting.php";
 
