@@ -25,15 +25,16 @@
     <?php include '../Navbar/navbar.php' ?>
 
         <!-- Start of Page Here-->
-
-            <div style="text-align: center; margin-top: 200px; margin-bottom: auto;">
-                <h1 class="text-white" style="font-size: 4vw;">
+            <div style="text-align: center; margin-top: 1%; margin-bottom: auto;">
+                <div class="cell" style="width: 15%"><a href="search_page.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
+                <h1 class="text-white" style="font-size: 4vw; margin-top: 9%">
                     Success!
                 </h1>
                 <h3 class="text-white" style="margin-top: 30px; font-size: 1.2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                     You have successfully removed this posting from your favourites.
                 </h3>
-                
+                <hr>
+                <a href="favourites.php" class="btn btn-primary btn-lg outer" style="margin: auto; margin-top: 1%; width: 25%"><h1 style="font-size: 2vw">View Favourites</h1></a>
             </div>
     </body>
 </html>

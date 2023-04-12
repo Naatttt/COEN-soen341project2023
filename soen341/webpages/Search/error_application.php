@@ -23,15 +23,13 @@
     <?php include '../Navbar/navbar.php' ?>
 
         <!-- Start of Page Here-->
-        <div>
-
-            <div style="text-align: center; margin-top: 200px; margin-bottom: auto;">
-                <h3 class="text-white" style="margin-top: 30px; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
+        <div style="text-align: center; margin-top: 1%; margin-bottom: auto;">
+            <div class="cell" style="width: 15%"><a href="search_page.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
+                <h3 class="text-white" style="margin-top: 9%; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                     You have already applied to this position!
                 </h3>
-                <a href="search_page.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Back to Search</h1></a>
-
-
+                <hr>
+                <a href="../Students/applications_list.php" class="btn btn-primary btn-lg outer" style="margin: auto; margin-top: 1%; width: 25%"><h1 style="font-size: 2vw">View Applications</h1></a>
             </div>
     </body>
 </html>

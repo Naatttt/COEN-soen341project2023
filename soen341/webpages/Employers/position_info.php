@@ -57,7 +57,6 @@ if (isset($_GET['id'])) {
     <body class="background-image">
     <?php include '../Navbar/navbar.php' ?>
     
-
         <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
             <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
 
@@ -120,11 +119,6 @@ if (isset($_GET['id'])) {
                         <div class="form-group">
                             <label for="position_title">Update Position Title</label>
                             <input type="" class="form-control" id="position_title" name="position_title" placeholder="Position Title">
-                        </div>
-                
-                        <div class="form-group">
-                            <label for="company">Update Company</label>
-                            <input type="" class="form-control" id="company" name="company" aria-describedby="company" placeholder="Company Name">
                         </div>
 
                         <div class="form-group">

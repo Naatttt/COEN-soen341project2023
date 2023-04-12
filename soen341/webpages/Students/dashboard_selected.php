@@ -92,12 +92,12 @@ if($usertype == 'employer') {
 
             setInterval(changeHeadline, 3000);
         </script>
-        <div class="interview_button">
-            <a class="btn btn-light btn-lg outer2" style="margin-left: 35%; margin-top: 5%; width: 450px">You have been selected for an interview!</a>
+        <div class="interview_button"  style="text-align: center">
+            <a class="btn btn-light btn-lg outer2" style="margin-top: 5%; width: 450px">You have been selected for an interview!</a>
         </div>
         <div class="profile_buttons">
-            <a href="../Search/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 5%; margin-top: 5%; width: 200px">Search</a>
-            <a href="update_profile.php" class="btn btn-light btn-lg outer2" style="margin-left: 5%; margin-top: 5%; width: 200px">Update Profile</a>
+            <a href="../Search/search_page.php" class="btn btn-primary btn-lg outer" style="margin-right: 5%; width: 200px">Search</a>
+            <a href="update_profile.php" class="btn btn-light btn-lg outer2" style="margin-left: 5%; width: 200px">Update Profile</a>
         </div>
 
         

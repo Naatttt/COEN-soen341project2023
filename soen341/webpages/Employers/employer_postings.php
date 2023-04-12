@@ -73,17 +73,19 @@ if($usertype == 'employee') {
             // Check if any rows were returned
             if ($result->num_rows > 0) {
                 // Output the rows in the desired format
-                echo '<div class="d-flex justify-content-between align-items-center" style="margin-top: 2%">';
-                echo '<a class="btn btn-light btn-lg outer2" style="margin-left: 12.5%; width: 200px" id="search-btn">Postings Filter</a>';
-                echo '<h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%; margin-left: 13.5%">' . $company . ' Postings</h1>';
-                echo '<a href="/soen341/webpages/Employers/employer_postings.php" class="btn btn-light btn-lg outer2" style="margin-right: 12.5%; width: 200px">Reset Filter</a>';
-                echo '</div>';
-                echo '<div style="background-color: white; height: 70%; margin: auto; width: 80%; overflow: scroll; text-align: center">';
-                echo '<div class="table" style="margin: auto;">';
-                echo '<div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">';
-                echo '<div class="cell" style="width: 100px"><h3 class="text-white postings-size" style="font-size: 1.5em">Id</h3></div>';
-                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>';
-                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>';
+            ?>
+                <div class="d-flex justify-content-between align-items-center" style="margin-top: 2%">
+                    <a class="btn btn-light btn-lg outer2" style="margin-left: 12.5%; width: 200px" id="search-btn">Postings Filter</a>
+                    <h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%; text-align: center;"><?php echo $company ?> Postings</h1>
+                    <a href="/soen341/webpages/Employers/employer_postings.php" class="btn btn-light btn-lg outer2" style="margin-right: 12.5%; width: 200px">Reset Filter</a>
+                </div>
+                <div style="background-color: white; height: 70%; margin: auto; width: 80%; overflow: scroll; text-align: center">
+                    <div class="table" style="margin: auto;">
+                        <div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">
+                            <div class="cell" style="width: 100px"><h3 class="text-white postings-size" style="font-size: 1.5em">Id</h3></div>
+                            <div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>
+                            <div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>
+            <?php
                 if ($query === "SELECT * FROM postings ORDER BY plocation DESC") {
                     $location_label = "Location ▼";
                 } else if ($query === "SELECT * FROM postings ORDER BY plocation ASC") {
