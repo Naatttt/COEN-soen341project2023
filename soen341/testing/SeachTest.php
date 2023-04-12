@@ -1,7 +1,9 @@
-<?php include '../../DB_PASSWORD.php' ?>
+<?php 
+declare(strict_types=1);
+include '../../DB_PASSWORD.php' ?>
 
 <?php
-declare(strict_types=1);
+
 require_once 'vendor/autoload.php';
 //require "webpages/Search/search_page.php";
 
