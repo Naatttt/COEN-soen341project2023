@@ -58,34 +58,38 @@ if (isset($_GET['id'])) {
     <?php include '../Navbar/navbar.php' ?>
     
 
-        <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
-            <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
-
+        <div class="table table-hover" style="margin: auto; margin-top: 4%; text-align: center;">
             <div class="row" style="margin-left: 5%; width: 100%; text-align: center">
-                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Position</h2></div>
-                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Company</h2></div>
-                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Industry</h2></div>
-                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Location</h2></div>
-                <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Salary</h2></div>
+                <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>
+                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Position</h2></div>
+                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Company</h2></div>
+                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Industry</h2></div>
+                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Location</h2></div>
+                <div class="cell" style="width: 15%"><h2 style="font-size: 1.9vw;">Salary</h2></div>
             </div>
             <div class="row" style="width: 100%; margin-left: 5%; text-align: center">
-                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $position ?></h2></div>
-                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $company ?></h2></div>
-                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $industry ?></h2></div>
-                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $plocation ?></h2></div>
-                <div class="cell" style="width: 19%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $salary ?></h2></div>
+                <div class="cell" style="width: 15%"><h2 class="text-white"></h2></div>
+                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $position ?></h2></div>
+                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $company ?></h2></div>
+                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $industry ?></h2></div>
+                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $plocation ?></h2></div>
+                <div class="cell" style="width: 15%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $salary ?></h2></div>
             </div>
             <div class="table" style="margin: auto; margin-top: 4%; text-align: center">
                 <div class="row" style="width: 50%; margin: auto; text-align: center"> 
-                    <div class="cell"><h2 style="font-size: 2vw"><?php echo $position ?> Description</h2></div>
+                    <div class="cell"><h2 class="text-white" style="font-size: 2vw"><?php echo $position ?> Description</h2></div>
                 </div>
                 <div class="row" style="width: 50%; margin: auto; text-align: center">
                     <div class="cell" style="text-align: justify; text-justify: inter-word;"><h2 class="text-white" style="font-size: 1vw; line-height: 1.5"><?php echo $info ?></h2></div>
             </div>        
             
             <button type="button" style="margin-top: 1%" class="btn btn-primary" id="edit-posting-button">Edit Posting</button>
-
+            
+            
         </div>
+        <a href="BACK_delete.php?id=<?php echo $id; ?>" class="btn btn-primary" style="margin-top: 2%; width: 15%; text-align: center">
+            <h1 style="font-size: 1.5vw">Delete Posting</h1>
+        </a>
         </div>
 
        
