@@ -29,7 +29,7 @@
                 <h3 class="text-white" style="margin-top: 30px; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400;">
                     You have already favourited this position!
                 </h3>
-                <a href="search_page.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Back to Search</h1></a>
+                <a href="../Search/search_page.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Back to Search</h1></a>
 
             </div>
     </body>
