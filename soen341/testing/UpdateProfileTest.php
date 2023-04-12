@@ -1,7 +1,9 @@
 <?php
-
 declare(strict_types=1);
-use PHP\Framework\TestCase;
+require_once 'vendor/autoload.php';
+//require "webpages/Students/update_profile.php";
+
+use PHPUnit\Framework\TestCase;
 
 class UpdateProfileTest extends TestCase
 {

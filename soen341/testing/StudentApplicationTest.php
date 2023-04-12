@@ -1,10 +1,13 @@
-<?php include '../../DB_PASSWORD.php' ?>
+
 
 <?php
-declare(strict_types=1);
-use PHP\Framework\TestCase;
+//declare(strict_types=1);
+require_once 'vendor/autoload.php';
+//require "webpages/Search/BACK_apply.php";
 
-class SignUpTest extends TestCase
+use PHPUnit\Framework\TestCase;
+
+class StudentApplicationTest extends TestCase
 {
     public function testSuccessApp()
     {

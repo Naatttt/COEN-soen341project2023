@@ -1,10 +1,13 @@
-<?php include '../../DB_PASSWORD.php' ?>
+
 
 <?php
-declare(strict_types=1);
-use PHP\Framework\TestCase;
 
-class SignUpTest extends TestCase
+require_once 'vendor/autoload.php';
+//require "webpages/Employers/BACK_update_posting.php";
+
+use PHPUnit\Framework\TestCase;
+
+class UpdatePostingTest extends TestCase
 {
     public function testUpdatePosting()
     {

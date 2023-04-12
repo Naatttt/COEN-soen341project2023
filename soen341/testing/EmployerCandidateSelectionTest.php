@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
+require_once 'vendor/autoload.php';
+//require "webpages/Employers/posting_applicant.php";
 
-use PHP\Framework\TestCase;
+
+use PHPUnit\Framework\TestCase;
 
 class EmployerCandidateSelectionTest extends TestCase
 {
@@ -21,7 +24,7 @@ class EmployerCandidateSelectionTest extends TestCase
         }
 
         ob_start();
-        include "soen341/webpages/Employers/posting_applicant.php";
+        include "webpages/Employers/posting_applicant.php";
         $output = ob_get_clean();
 
         // expected content should be present on the page

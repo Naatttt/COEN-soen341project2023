@@ -1,13 +1,16 @@
 <?php
 declare(strict_types=1);
+require_once 'vendor/autoload.php';
+//require "webpages/SignUp/BACK_log_in.php";
 
-use PHP\Framework\TestCase;
+
+use PHPUnit\Framework\TestCase;
 
 class LoginTest extends TestCase
 {
     private $mysli;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->mysqli = new sqli("localhost", "root", DB_PASSWORD, "users");
     }
