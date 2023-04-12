@@ -1,5 +1,4 @@
 <?php include '../../DB_PASSWORD.php' ?>
-<?php include '../Navbar/navbar.php' ?>
 
 <?php include '../Homepage/BACK_timeout.php'?>
 
@@ -25,6 +24,7 @@
     </head>
 
     <body class="background-image">
+        <?php include '../Navbar/navbar.php' ?>
 
 <?php
 
