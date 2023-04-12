@@ -91,14 +91,14 @@ if (isset($_GET['id'])) {
 
         <div class="profile_buttons">
             <a href="BACK_apply.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Apply</h1></a>
-            <a href="BACK_favourite.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Favourite</h1></a>
+            <a href="../Students/BACK_favourite.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Favourite</h1></a>
 
             <?php 
             $sql_check = "SELECT * FROM favourites WHERE postingid='$id' AND student='$student'";
             $result_check = $mysqli->query($sql_check);
             
             if ($result_check->num_rows > 0) { ?>
-                <a href="BACK_remove_fav.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Remove favourite</h1></a>
+                <a href="../Students/BACK_remove_fav.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Remove favourite</h1></a>
 
             <?php } ?>
 

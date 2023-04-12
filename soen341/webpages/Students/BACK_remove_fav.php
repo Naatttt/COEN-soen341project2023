@@ -21,23 +21,6 @@ if ($conn_postings->connect_error) {
     die('Connection failed: ' . $conn_postings->connect_error);
 }
 
-//Check if posting already favourited
-// $sql_check = "SELECT * FROM favourites WHERE postingid='$postingid' AND student='$student'";
-// $result_check = $conn_postings->query($sql_check);
-
-// if ($result_check->num_rows > 0) {
-//     // User has already applied, display an error message
-//     $_SESSION['error'] = "You have already favourited this posting.";
-//     header("Location: error_fav.php");
-//     exit();
-// }
-
-//increment the id every time someone favourites
-// $query = "SELECT MAX(id) AS max_id FROM favourites";
-// $result1 = mysqli_query($conn_postings, $query);
-// $row = mysqli_fetch_assoc($result1);
-// $next_id = $row['max_id'] + 1;
-
 $sql = "DELETE FROM favourites WHERE postingid = '$postingid' AND student = '$student'";
     if ($conn_postings->query($sql) === TRUE) {
         header("Location: success_remove_fav.php");
