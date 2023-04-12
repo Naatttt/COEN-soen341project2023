@@ -134,6 +134,7 @@ if($usertype == 'employer') {
             <hr>
             
             <?php include 'BACK_display_pdf.php' ?>
+            <hr>
         </div>
     </body>
 </html>

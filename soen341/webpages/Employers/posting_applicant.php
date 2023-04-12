@@ -93,12 +93,17 @@
                 <div class="cell" style="width: 50%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $experience ?></h2></div>
                 <div class="cell" style="width: 50%"><h2 class="text-white" style="font-size: 1.1vw"><?php echo $availability ?></h2></div>
             </div>
+            <hr>
+            <?php
+            $_SESSION['usr'] = urldecode($_GET["usr"]);
+            include '../Students/BACK_display_pdf.php';
+            ?>
         </div>
-        <hr>
         <div class="profile_buttons">
         <form method="post" action="BACK_interview.php?appid=<?php echo urldecode($_GET["appid"]) ?>">
             <button href="employer_dashboard.php" type="submit" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Select for Interview</h1></a>
         </div>
+        <hr>
     </body>
 </html>
 
