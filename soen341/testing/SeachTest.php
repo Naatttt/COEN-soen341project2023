@@ -1,6 +1,6 @@
 <?php 
 declare(strict_types=1);
-include '../../DB_PASSWORD.php' ?>
+//include '../../DB_PASSWORD.php' ?>
 
 <?php
 
