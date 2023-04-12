@@ -1,5 +1,9 @@
 <?php
+require_once 'vendor/autoload.php';
+require "webpages/Students/application_list.php";
 declare(strict_types=1);
+
+
 
 use PHPUnit\Framework\TestCase;
 

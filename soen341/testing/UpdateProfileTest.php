@@ -1,4 +1,6 @@
 <?php
+require_once 'vendor/autoload.php';
+require "webpages/Students/update_profile.php";
 
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;

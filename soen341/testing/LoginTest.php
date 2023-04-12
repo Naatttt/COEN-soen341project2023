@@ -1,7 +1,9 @@
 <?php
+require_once 'vendor/autoload.php';
+require "webpages/SignUp/BACK_log_in.php";
 declare(strict_types=1);
 
-use PHP\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class LoginTest extends TestCase
 {

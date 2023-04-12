@@ -3,7 +3,7 @@
         'name' => 'laurenlastoria/coensoen341',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '178b6a7163d56090b6e573cda01cb68648b28dfb',
+        'reference' => 'da8f11f9253ddd5c4890866fb5b910246616e909',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'laurenlastoria/coensoen341' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '178b6a7163d56090b6e573cda01cb68648b28dfb',
+            'reference' => 'da8f11f9253ddd5c4890866fb5b910246616e909',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
