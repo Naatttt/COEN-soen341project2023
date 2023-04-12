@@ -38,10 +38,8 @@ class SignUpTest extends TestCase
     //cleanup - clear at the end of testing
 
 
-    }
 
-
-    protected function clear(): void
+    public function clear(): void
     {
         // Set up the database connection
         $conn = new mysqli("localhost", "root", DB_PASSWORD, "applications");
@@ -52,7 +50,6 @@ class SignUpTest extends TestCase
         // Close the database connection
         $conn->close();
     }
-
 
 
 }
