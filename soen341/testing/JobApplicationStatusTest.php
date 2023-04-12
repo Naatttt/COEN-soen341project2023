@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
-require "webpages/Students/application_list.php";
+//require "webpages/Students/application_list.php";
 
 
 

@@ -3,7 +3,7 @@
 <?php
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
-require "webpages/SignUp/BACK_sign_up.php";
+//require "webpages/SignUp/BACK_sign_up.php";
 
 use PHPUnit\Framework\TestCase;
 

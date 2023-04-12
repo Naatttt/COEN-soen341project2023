@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
-require "webpages/Employers/posting_applicant.php";
+//require "webpages/Employers/posting_applicant.php";
 
 
 use PHPUnit\Framework\TestCase;
