@@ -99,8 +99,8 @@ if($usertype == 'employee') {
                 } else {
                     $salary_label = "Salary";
                 }
-                echo '<div class="cell" style="width: 200px"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="salary-btn" onclick="changeSalary()">' . $salary_label . '</h3></button></div>';
-                echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Edit</h3></div>';
+                echo '<div class="cell" style="width: 300px"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="salary-btn" onclick="changeSalary()">' . $salary_label . '</h3></button></div>';
+                echo '<div class="cell" style="width: 100px"><h3 class="text-white postings-size" style="font-size: 1.5em">Edit</h3></div>';
                 echo '</div>';
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
@@ -109,8 +109,8 @@ if($usertype == 'employee') {
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['position'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['industry'] . '</h3></div>';
                     echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['plocation'] . '</h3></div>';
-                    echo '<div class="cell" style="width: 200px"><h3 class=" postings-size">' . $row['salary'] . '</h3></div>';
-                    echo '<div class="cell" style="width: 300px"><a href="position_info.php?id=' . $row['id'] . '" class="btn btn-primary btn-lg outer postings-size" style="width: 200px; background: #007bff">Info</a></div>';
+                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['salary'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 100px"><a href="position_info.php?id=' . $row['id'] . '" class="btn btn-primary btn-lg outer postings-size" style="width: 100px; background: #007bff">Info</a></div>';
                     echo '</a>';
                     echo '</div>';                    
                 }

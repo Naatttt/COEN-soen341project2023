@@ -7,8 +7,10 @@ if(!$conn) {
   die("Error: Could not connect to database.");
 }
 
-// Get the username of the logged-in user
-$username = $_SESSION['username'];
+if($_SESSION['usertype'] == "employee"){
+  // Get the username of the logged-in user
+  $username = $_SESSION['usr'];
+}
 
 // Prepare the SQL statement to select the logged-in user's PDF file from the database
 $sql = "SELECT pdfname, pdftype, pdfsize, pdfcontent FROM users WHERE username = ?";

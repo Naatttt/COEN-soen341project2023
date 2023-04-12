@@ -95,7 +95,7 @@
         <hr>
         <div class="profile_buttons">
         <form method="post" action="BACK_hire.php?appid=<?php echo urldecode($_GET["appid"]) ?>">
-            <button href="employer_dashboard.php" type="submit" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Hire</h1></a>
+            <button href="employer_dashboard.php" type="submit" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Select for Interview</h1></a>
         </div>
     </body>
 </html>

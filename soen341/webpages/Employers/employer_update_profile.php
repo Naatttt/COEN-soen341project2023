@@ -146,19 +146,7 @@ if ($result) {
                     <button type="submit" id="save-button" class="btn btn-primary btn-submit">Save</button>
                 </form>
             </div>
-            <div style="text-align: center">
-                <div style="background-color: white; padding: 40px; width: 60%; margin: auto; border-radius: 10px">
-                    <h1 style="color: #333333; font-size: 3vw; font-family: 'Lato', sans-serif; font-weight: 400; margin-top: 0;">Update Resume</h1>
-                    <form method="post" enctype="multipart/form-data" style="margin-top: 20px;">
-                        <label for="pdf-upload" style="color: #333333; font-size: 1.6vw; font-family: 'Lato', sans-serif; font-weight: 300; display: block;">Choose a PDF file to upload:</label>
-                        <div style="position: relative; display: inline-block; margin-top: 10px;">
-                            <input type="file" id="pdf-upload" name="pdf" style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;" />
-                            <div style="background-color: #0099ff; color: #FFFFFF; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400; border: none; padding: 10px 20px; border-radius: 5px; display: inline-block; cursor: pointer;">Choose File</div>
-                        </div>
-                        <button type="submit" name="submit" style="background-color: #0099ff; color: #FFFFFF; font-size: 2vw; font-family: 'Lato', sans-serif; font-weight: 400; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 20px; cursor: pointer;">Upload</button>
-                    </form>
-                </div>
-            <div>
+            
         </div>
     </body>
 </html>

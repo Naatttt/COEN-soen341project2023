@@ -1,5 +1,4 @@
 <?php include '../../DB_PASSWORD.php' ?>
-<?php include '../Navbar/navbar.php' ?>
 
 <?php include '../Homepage/BACK_timeout.php'?>
 
@@ -25,6 +24,7 @@
     </head>
 
     <body class="background-image">
+        <?php include '../Navbar/navbar.php' ?>
 
 <?php
 
@@ -55,11 +55,11 @@ if($result != null){
         echo '<div class="table" style="margin: auto;">';
         echo '<div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">';
         echo '<div class="cell" style="width: 100px"><h3 class="text-white postings-size" style="font-size: 1.5em">Id</h3></div>';
-        echo '<div class="cell" style="width: 200px"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>';
-        echo '<div class="cell" style="width: 200px"><h3 class="text-white postings-size" style="font-size: 1.5em">Company</h3></div>';
-        echo '<div class="cell" style="width: 200px"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>';
-        echo '<div class="cell" style="width: 200px"><h3 class="text-white postings-size" style="font-size: 1.5em">Location</h3></div>';
-        echo '<div class="cell" style="width: 200px"><h3 class="text-white postings-size" style="font-size: 1.5em">Salary</h3></div>';
+        echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>';
+        echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Company</h3></div>';
+        echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>';
+        echo '<div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Location</h3></div>';
+        echo '<div class="cell" style="width: 100px"><h3 class="text-white postings-size" style="font-size: 1.5em">Salary</h3></div>';
 
             
         echo '</div>';
@@ -78,11 +78,11 @@ while ($row = mysqli_fetch_assoc($result)){
     echo '<div class="row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
     echo '<a href="/soen341/webpages/Search/position.php?id=' . $job_posting_row['id'] . '" style="display: contents">';
     echo '<div class="cell" style="width: 100px"><h3 class=" postings-size">' . $job_posting_row['id'] . '</h3></div>';
-    echo '<div class="cell" style="width: 200px"><h3 class=" postings-size">' . $job_posting_row['position'] . '</h3></div>';
-    echo '<div class="cell" style="width: 200px"><h3 class=" postings-size">' . $job_posting_row['company'] . '</h3></div>';
-    echo '<div class="cell" style="width: 200px"><h3 class=" postings-size">' . $job_posting_row['industry'] . '</h3></div>';
-    echo '<div class="cell" style="width: 200px"><h3 class=" postings-size">' . $job_posting_row['plocation'] . '</h3></div>';
-    echo '<div class="cell" style="width: 200px"><h3 class=" postings-size">' . $job_posting_row['salary'] . '</h3></div>';
+    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $job_posting_row['position'] . '</h3></div>';
+    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $job_posting_row['company'] . '</h3></div>';
+    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $job_posting_row['industry'] . '</h3></div>';
+    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $job_posting_row['plocation'] . '</h3></div>';
+    echo '<div class="cell" style="width: 100px"><h3 class=" postings-size">' . $job_posting_row['salary'] . '</h3></div>';
     echo '</a>';
     echo '</div>';       
 }
