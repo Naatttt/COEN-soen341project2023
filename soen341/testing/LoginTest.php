@@ -10,7 +10,7 @@ class LoginTest extends TestCase
 {
     private $mysli;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->mysqli = new sqli("localhost", "root", DB_PASSWORD, "users");
     }
