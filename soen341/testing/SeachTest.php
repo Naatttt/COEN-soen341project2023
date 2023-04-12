@@ -3,7 +3,7 @@
 <?php
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
-require "webpages/Search/search_page.php";
+//require "webpages/Search/search_page.php";
 
 use PHPUnit\Framework\TestCase;
 
