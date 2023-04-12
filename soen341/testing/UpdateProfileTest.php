@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-use PHP\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class UpdateProfileTest extends TestCase
 {
