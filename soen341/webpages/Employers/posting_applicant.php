@@ -67,7 +67,7 @@
     <?php include '../Navbar/navbar.php' ?>
     
         <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
-            <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>    
+            <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>    
             <div class="row" style="margin-left: 5%; width: 100%; text-align: center">
                 <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Full Name</h2></div>
                 <div class="cell" style="width: 19%"><h2 style="font-size: 1.9vw;">Education</h2></div>
