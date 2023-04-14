@@ -91,7 +91,7 @@ if (isset($_GET['id'])) {
             <?php 
             if(!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']){ ?>
                 <h2 class="text-white" style="font-size: 2vw">You must sign in to apply for this position</h2>
-                <a href="../SignUp/sign_up_page.php" class="btn btn-primary btn-lg outer" style="margin: auto; width: 25%"><h1 style="font-size: 2vw">Sign In</h1></a>
+                <a href="../SignUp/sign_up_page.php" class="btn btn-primary btn-lg outer" style="margin: auto; margin-top: 1%; width: 25%"><h1 style="font-size: 2vw">Sign In</h1></a>
                 
             <?php
             }
