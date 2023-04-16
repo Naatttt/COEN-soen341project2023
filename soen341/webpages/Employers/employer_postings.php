@@ -82,9 +82,9 @@ if($usertype == 'employee') {
                 <div style="background-color: white; height: 70%; margin: auto; width: 80%; overflow: scroll; text-align: center">
                     <div class="table" style="margin: auto;">
                         <div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">
-                            <div class="cell" style="width: 100px"><h3 class="text-white postings-size" style="font-size: 1.5em">Id</h3></div>
-                            <div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>
-                            <div class="cell" style="width: 300px"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>
+                            <div class="cell" style="width: 10%"><h3 class="text-white postings-size" style="font-size: 1.5em">Id</h3></div>
+                            <div class="cell" style="width: 20%"><h3 class="text-white postings-size" style="font-size: 1.5em">Position</h3></div>
+                            <div class="cell" style="width: 20%"><h3 class="text-white postings-size" style="font-size: 1.5em">Industry</h3></div>
             <?php
                 if ($query === "SELECT * FROM postings ORDER BY plocation DESC") {
                     $location_label = "Location ▼";
@@ -93,7 +93,7 @@ if($usertype == 'employee') {
                 } else {
                     $location_label = "Location";
                 }
-                echo '<div class="cell" style="width: 300px"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="location-btn" onclick="changeSalary()">' . $location_label . '</h3></button></div>';                
+                echo '<div class="cell" style="width: 20%"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="location-btn" onclick="changeSalary()">' . $location_label . '</h3></button></div>';                
                 if ($query === "SELECT * FROM postings ORDER BY salary DESC") {
                     $salary_label = "Salary ▼";
                 } else if ($query === "SELECT * FROM postings ORDER BY salary ASC") {
@@ -101,18 +101,18 @@ if($usertype == 'employee') {
                 } else {
                     $salary_label = "Salary";
                 }
-                echo '<div class="cell" style="width: 300px"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="salary-btn" onclick="changeSalary()">' . $salary_label . '</h3></button></div>';
-                echo '<div class="cell" style="width: 100px"><h3 class="text-white postings-size" style="font-size: 1.5em">Edit</h3></div>';
+                echo '<div class="cell" style="width: 20%"><button style="border: none" onclick="refreshPage()"><h3 class="text-white postings-size" style="font-size: 1.5em" id="salary-btn" onclick="changeSalary()">' . $salary_label . '</h3></button></div>';
+                echo '<div class="cell" style="width: 10%"><h3 class="text-white postings-size" style="font-size: 1.5em">Edit</h3></div>';
                 echo '</div>';
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="row" style="width: auto; margin: auto; border-bottom: 1px solid #ddd; text-align: center">';
                     echo '<a href="posting_applications.php?id=' . $row['id'] . '" style="display: contents">';
-                    echo '<div class="cell" style="width: 100px"><h3 class=" postings-size">' . $row['id'] . '</h3></div>';
-                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['position'] . '</h3></div>';
-                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['industry'] . '</h3></div>';
-                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['plocation'] . '</h3></div>';
-                    echo '<div class="cell" style="width: 300px"><h3 class=" postings-size">' . $row['salary'] . '</h3></div>';
-                    echo '<div class="cell" style="width: 100px"><a href="position_info.php?id=' . $row['id'] . '" class="btn btn-primary btn-lg outer postings-size" style="width: 100px; background: #007bff">Info</a></div>';
+                    echo '<div class="cell" style="width: 10%"><h3 class=" postings-size">' . $row['id'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 20%"><h3 class=" postings-size">' . $row['position'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 20%"><h3 class=" postings-size">' . $row['industry'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 20%"><h3 class=" postings-size">' . $row['plocation'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 20%"><h3 class=" postings-size">' . $row['salary'] . '</h3></div>';
+                    echo '<div class="cell" style="width: 10%"><a href="position_info.php?id=' . $row['id'] . '" class="btn btn-primary btn-lg outer postings-size" style="width: 50%; background: #007bff">Info</a></div>';
                     echo '</a>';
                     echo '</div>';                    
                 }

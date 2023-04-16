@@ -60,11 +60,11 @@
                 // Output the rows in the desired format
             ?>
                 <div class="table table-hover" style="margin: auto; margin-top: 1%; text-align: center;">
-                    <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; margin-bottom: 5%; width: 80%">Back to Postings</a></div>
+                    <div class="cell" style="width: 15%"><a href="employer_postings.php" class="btn btn-light btn-lg outer2" style="background-color: #ffffff; margin-left: 2%; margin-top: 2%; width: 80%">Back to Postings</a></div>
                     <h1 class="text-white" style="font-size: 4vw; margin-bottom: 1%"><?php echo $postingname?> Applications</h1>
                 </div>
 
-                <div style="background-color: white; height: 40%; margin: auto; width: 50%; overflow: scroll; text-align: center">
+                <div style="background-color: white; height: 60%; margin: auto; width: 75%; overflow: scroll; text-align: center">
                     <div class="table" style="margin: auto;">
                         <div class="row header-row" style="position: sticky; top: 0; background-color: #333; z-index: 1; width: auto; margin: auto;">
                             <div class="cell" style="width: 50%"><h3 class="text-white postings-size" style="font-size: 1.5em">Application ID</h3></div>
